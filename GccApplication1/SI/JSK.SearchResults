@@ -1,0 +1,22 @@
+---- uiDisplayFlag Matches (21 in 4 files) ----
+Manager.c (f:\jsk\release\svn\gccapplication1\src):			g_stStatusCmd.uiDisplayFlag &= _DISPLAY_FOCUS;
+Manager.c (f:\jsk\release\svn\gccapplication1\src):			g_stStatusCmd.uiDisplayFlag &= ~_DISPLAY_FOCUS;
+Manager.c (f:\jsk\release\svn\gccapplication1\src):		g_stStatusCmd.uiDisplayFlag &= _DISPLAY_ZOOM;
+Manager.c (f:\jsk\release\svn\gccapplication1\src):		g_stStatusCmd.uiDisplayFlag &= _DISPLAY_FILTER;
+Manager.c (f:\jsk\release\svn\gccapplication1\src):		g_stStatusCmd.uiDisplayFlag &= _DISPLAY_WHITE;
+Manager.c (f:\jsk\release\svn\gccapplication1\src):		g_stStatusCmd.uiDisplayFlag &= _DISPLAY_ZOOM;
+Manager.c (f:\jsk\release\svn\gccapplication1\src):		g_stStatusCmd.uiDisplayFlag &= _DISPLAY_ZOOM;
+Manager.c (f:\jsk\release\svn\gccapplication1\src):			g_stStatusCmd.uiDisplayFlag &= _DISPLAY_STILL;
+Manager.c (f:\jsk\release\svn\gccapplication1\src):	g_stStatusCmd.uiDisplayFlag &= _DISPLAY_EM;
+Manager.c (f:\jsk\release\svn\gccapplication1\src):	g_stStatusCmd.uiDisplayFlag &= _DISPLAY_WHITE;
+Manager.c (f:\jsk\release\svn\gccapplication1\src):	g_stStatusCmd.uiDisplayFlag &= _DISPLAY_WHITE;
+Manager.c (f:\jsk\release\svn\gccapplication1\src):	g_stStatusCmd.uiDisplayFlag &= _DISPLAY_FILTER;
+Manager.c (f:\jsk\release\svn\gccapplication1\src):	g_stStatusCmd.uiDisplayFlag &= _DISPLAY_FILTER;
+Manager.c (f:\jsk\release\svn\gccapplication1\src):	g_stStatusCmd.uiDisplayFlag &= _DISPLAY_FILTER;
+Status.c (f:\jsk\release\svn\gccapplication1\src):	Cmd->uiDisplayFlag = _DISPLAY_NULL;
+Status.h (f:\jsk\release\svn\gccapplication1\inc):	uint8_t uiDisplayFlag;
+Title.c (f:\jsk\release\svn\gccapplication1\src):	if ((true == g_stStatusCmd.bIsDisplay)&&(_DISPLAY_ZOOM& g_stStatusCmd.uiDisplayFlag))
+Title.c (f:\jsk\release\svn\gccapplication1\src):	if ((_FOCUS_MODE_MANUAL == g_stStatusCmd.FocusMode)&&(_DISPLAY_FOCUS& g_stStatusCmd.uiDisplayFlag))
+Title.c (f:\jsk\release\svn\gccapplication1\src):	if ((true == g_stStatusCmd.bIsStill)&&(_DISPLAY_STILL& g_stStatusCmd.uiDisplayFlag))
+Title.c (f:\jsk\release\svn\gccapplication1\src):	if ((true == g_stStatusCmd.bIsDisplay)&&(_DISPLAY_WHITE& g_stStatusCmd.uiDisplayFlag))
+Title.c (f:\jsk\release\svn\gccapplication1\src):	if ((true == g_stStatusCmd.bIsDisplay)&&(_DISPLAY_FILTER& g_stStatusCmd.uiDisplayFlag))
