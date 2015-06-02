@@ -72,7 +72,7 @@
 	#define _MAX_RATE 40
 	#define _KEY_NUM  8
 	#define _BLUE_LIGHT  0
-	#define _CCD_TYPE_CODE   _CCD_7500
+	#define _CCD_TYPE_CODE   _CCD_480
 	#define _MENU_V_POS	10
 	#define _EM_KEY			0
 #elif(_PRODUCT_TYPE_CODE == _GC_8000B)
@@ -149,7 +149,7 @@
 	#define _MAX_RATE 40
 	#define _KEY_NUM  8
 	#define _BLUE_LIGHT  0
-	#define _CCD_TYPE_CODE   _CCD_480
+	#define _CCD_TYPE_CODE   _CCD_6300
 	#define _MENU_V_POS	10
 	#define _EM_KEY			0
 #elif(_PRODUCT_TYPE_CODE == _LT_300)
@@ -195,10 +195,10 @@
 	#define _MENU_V_POS	10
 	#define _EM_KEY			0
 #elif(_PRODUCT_TYPE_CODE == _AL_106HD)
-	#define _MAX_RATE 52
+	#define _MAX_RATE 40
 	#define _KEY_NUM  8
 	#define _BLUE_LIGHT  1
-	#define _CCD_TYPE_CODE   _CCD_480
+	#define _CCD_TYPE_CODE   _CCD_6300
 	#define _MENU_V_POS	10
 	#define _EM_KEY			0
 #elif(_PRODUCT_TYPE_CODE == _COLPO_HD2)

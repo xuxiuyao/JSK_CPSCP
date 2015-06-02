@@ -342,13 +342,13 @@ void ProductInfoInit(PRODUCT_INFO* info)
 	info->uiMajorVer = 2;
 	info->uiMinorVer = 5;
 #elif(_PRODUCT_TYPE_CODE == _GC_5000B)
-	info->uiProductModel[0] = 0x12;//S
-	info->uiProductModel[1] = 0x0e;//o
-	info->uiProductModel[2] = 0x0d;//n
-	info->uiProductModel[3] = 0x18;// y
-	info->uiProductModel[4] = 0x1b;// 
-	info->uiProductModel[5] = 0x07;//H
-	info->uiProductModel[6] = 0x03;//D
+	info->uiProductModel[0] = 0x06;//G
+	info->uiProductModel[1] = 0x02;//C
+	info->uiProductModel[2] = 0x1B;//
+	info->uiProductModel[3] = 0x07;//H
+	info->uiProductModel[4] = 0x03;//D 
+	//info->uiProductModel[5] = 0x07;//H
+	//info->uiProductModel[6] = 0x03;//D
 	//info->uiProductModel[7] = 0x01;//B
 	info->uiMajorVer = 1;
 	info->uiMinorVer = 0;
@@ -377,14 +377,14 @@ void ProductInfoInit(PRODUCT_INFO* info)
 #elif(_PRODUCT_TYPE_CODE == _GC_3000E)
 	info->uiProductModel[0] = 0x06;//G
 	info->uiProductModel[1] = 0x02;//C
-	info->uiProductModel[2] = 0x4f;//-
-	info->uiProductModel[3] = 0x20;// 3
-	info->uiProductModel[4] = 0x27;//0
-	info->uiProductModel[5] = 0x27;//0
-	info->uiProductModel[6] = 0x27;//0
-	info->uiProductModel[7] = 0x04;//E
-	info->uiMajorVer = 2;
-	info->uiMinorVer = 5;
+	info->uiProductModel[2] = 0x1b;//
+	info->uiProductModel[3] = 0x12;//S
+	info->uiProductModel[4] = 0x03;//D
+	//info->uiProductModel[5] = 0x27;//0
+	//info->uiProductModel[6] = 0x27;//0
+	//info->uiProductModel[7] = 0x04;//E
+	info->uiMajorVer = 1;
+	info->uiMinorVer = 0;
 #elif(_PRODUCT_TYPE_CODE == _DVC_10000)
 	info->uiProductModel[0] = 0x03;//D
 	info->uiProductModel[1] = 0x15;//V
@@ -460,21 +460,23 @@ void ProductInfoInit(PRODUCT_INFO* info)
 	info->uiProductModel[3] = 0x1E;// 1
 	info->uiProductModel[4] = 0x27;//0
 	info->uiProductModel[5] = 0x27;//0
-	//info->uiProductModel[6] = 0x27;//0
-	//info->uiProductModel[7] = 0x01;//B
-	info->uiMajorVer = 2;
-	info->uiMinorVer = 5;
+	info->uiProductModel[6] = 0x1B;// 
+	info->uiProductModel[7] = 0x06;//G
+	info->uiProductModel[8] = 0x02;//C
+	info->uiMajorVer = 1;
+	info->uiMinorVer = 0;
 #elif(_PRODUCT_TYPE_CODE == _VC_200)
 	info->uiProductModel[0] = 0x15;//V
 	info->uiProductModel[1] = 0x02;//C
 	info->uiProductModel[2] = 0x4f;//-
-	info->uiProductModel[3] = 0x1F;// 1
+	info->uiProductModel[3] = 0x1F;// 2
 	info->uiProductModel[4] = 0x27;//0
 	info->uiProductModel[5] = 0x27;//0
-	//info->uiProductModel[6] = 0x27;//0
-	//info->uiProductModel[7] = 0x01;//B
-	info->uiMajorVer = 2;
-	info->uiMinorVer = 3;
+	info->uiProductModel[6] = 0x1B;// 
+	info->uiProductModel[7] = 0x06;//G
+	info->uiProductModel[8] = 0x02;//C
+	info->uiMajorVer = 1;
+	info->uiMinorVer = 0;
 #elif(_PRODUCT_TYPE_CODE == _LT_300)
 	info->uiProductModel[0] = 0x0B;//L
 	info->uiProductModel[1] = 0x13;//T
@@ -482,10 +484,11 @@ void ProductInfoInit(PRODUCT_INFO* info)
 	info->uiProductModel[3] = 0x20;// 3
 	info->uiProductModel[4] = 0x27;//0
 	info->uiProductModel[5] = 0x27;//0
-	//info->uiProductModel[6] = 0x27;//0
-	//info->uiProductModel[7] = 0x01;//B
-	info->uiMajorVer = 2;
-	info->uiMinorVer = 5;
+	info->uiProductModel[6] = 0x1B;// 
+	info->uiProductModel[7] = 0x06;//G
+	info->uiProductModel[8] = 0x02;//C
+	info->uiMajorVer = 1;
+	info->uiMinorVer = 0;
 #elif(_PRODUCT_TYPE_CODE == _LT_350)
 	info->uiProductModel[0] = 0x0B;//L
 	info->uiProductModel[1] = 0x13;//T
@@ -522,36 +525,41 @@ void ProductInfoInit(PRODUCT_INFO* info)
 #elif(_PRODUCT_TYPE_CODE == _AL_106B)
 	info->uiProductModel[0] = 0x00;//A
 	info->uiProductModel[1] = 0x0B;//L
-	info->uiProductModel[2] = 0x4f;//-
-	info->uiProductModel[3] = 0x1E;// 1
-	info->uiProductModel[4] = 0x27;//0
-	info->uiProductModel[5] = 0x23;//6
-	info->uiProductModel[6] = 0x01;//B
-	//info->uiProductModel[7] = 0x01;//B
-	info->uiMajorVer = 2;
-	info->uiMinorVer = 5;
+	info->uiProductModel[2] = 0x1E;// 1
+	info->uiProductModel[3] = 0x27;//0
+	info->uiProductModel[4] = 0x23;//6
+	info->uiProductModel[5] = 0x1B;// 
+	info->uiProductModel[6] = 0x06;//G
+	info->uiProductModel[7] = 0x02;//C
+
+	info->uiMajorVer = 1;
+	info->uiMinorVer = 0;
 #elif(_PRODUCT_TYPE_CODE == _AL_106)
 	info->uiProductModel[0] = 0x00;//A
 	info->uiProductModel[1] = 0x0B;//L
-	info->uiProductModel[2] = 0x4f;//-
-	info->uiProductModel[3] = 0x1E;// 1
-	info->uiProductModel[4] = 0x27;//0
-	info->uiProductModel[5] = 0x23;//6
-	//info->uiProductModel[6] = 0x27;//0
-	//info->uiProductModel[7] = 0x01;//B
-	info->uiMajorVer = 2;
-	info->uiMinorVer = 5;
+	info->uiProductModel[2] = 0x1E;// 1
+	info->uiProductModel[3] = 0x27;//0
+	info->uiProductModel[4] = 0x23;//6
+	info->uiProductModel[5] = 0x1B;// 
+	info->uiProductModel[6] = 0x06;//G
+	info->uiProductModel[7] = 0x02;//C
+
+	info->uiMajorVer = 1;
+	info->uiMinorVer = 0;
 #elif(_PRODUCT_TYPE_CODE == _AL_106HD)
 	info->uiProductModel[0] = 0x00;//A
 	info->uiProductModel[1] = 0x0B;//L
-	info->uiProductModel[2] = 0x4f;//-
-	info->uiProductModel[3] = 0x1E;// 1
-	info->uiProductModel[4] = 0x27;//0
-	info->uiProductModel[5] = 0x23;//6
-	info->uiProductModel[6] = 0x07;//H
-	info->uiProductModel[7] = 0x03;//D
-	info->uiMajorVer = 2;
-	info->uiMinorVer = 5;
+	info->uiProductModel[2] = 0x1E;// 1
+	info->uiProductModel[3] = 0x27;//0
+	info->uiProductModel[4] = 0x23;//6
+	info->uiProductModel[5] = 0x07;//H
+	info->uiProductModel[6] = 0x03;//D
+	info->uiProductModel[7] = 0x1B;//-
+	info->uiProductModel[8] = 0x06;//G
+	info->uiProductModel[9] = 0x02;//C
+
+	info->uiMajorVer = 1;
+	info->uiMinorVer = 0;
 #elif(_PRODUCT_TYPE_CODE == _COLPO_HD2)
 	info->uiProductModel[0] = 0x02;//C
 	info->uiProductModel[1] = 0x0E;//O
