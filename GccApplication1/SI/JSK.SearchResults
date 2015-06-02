@@ -1,5 +1,0 @@
----- _AL_106HD Matches (4 in 2 files) ----
-Define.h (e:\客户\jsk\github\jsk_cpscp\gccapplication1\inc):#define _AL_106HD 21
-Define.h (e:\客户\jsk\github\jsk_cpscp\gccapplication1\inc):#elif(_PRODUCT_TYPE_CODE == _AL_106HD)
-Status.c (e:\客户\jsk\github\jsk_cpscp\gccapplication1\src):#elif(_PRODUCT_TYPE_CODE == _AL_106HD)
-Status.c (e:\客户\jsk\github\jsk_cpscp\gccapplication1\src):#elif(_PRODUCT_TYPE_CODE == _AL_106HD)

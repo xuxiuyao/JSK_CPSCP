@@ -34,6 +34,7 @@
 #define _AL_106HD 21
 #define _COLPO_HD2 22
 #define _ARETE_AR_20K 23
+#define _INDIA_SD  24
 
 
 #define _CCD_480 0x01
@@ -215,6 +216,13 @@
 	#define _CCD_TYPE_CODE   _CCD_480
 	#define _MENU_V_POS	10
 	#define _EM_KEY			0
+#elif(_PRODUCT_TYPE_CODE == _INDIA_SD)
+	#define _MAX_RATE 52
+	#define _KEY_NUM  8
+	#define _BLUE_LIGHT  0
+	#define _CCD_TYPE_CODE   _CCD_480
+	#define _MENU_V_POS	10
+	#define _EM_KEY			1	
 #endif
 
 #define _CAMARA_ID	0xfff4

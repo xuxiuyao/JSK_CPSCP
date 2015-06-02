@@ -30,15 +30,7 @@ void SetTitle2(void)
 	if (g_stStatusCmd.FlipMode == _FLIP_MODE_ON)
 	{
 		#if(_KEY_NUM == 61)
-			g_stStatusCmd.titleDis.uiTitleVPos = 0x01;
-			g_stStatusCmd.titleDis.uiTitleHPos = 0x01;
-			g_stStatusCmd.titleDis.TitleColor = _TITLE_COLOR_CYAN;
-			g_stStatusCmd.titleDis.TitleBlink = _TITLE_BLINK_ON;
-			CAM_SetTitleSet1(g_stStatusCmd.titleDis);
-			#if(_CCD_TYPE_CODE == _CCD_7500)
-			_delay_ms(100);
-			#endif
-			
+
 			#if(_CCD_TYPE_CODE == _CCD_7500)
 			uiTitle[5] = 'E'; //
 			uiTitle[6] = '/'; //
@@ -52,14 +44,6 @@ void SetTitle2(void)
 
 			#endif
 		#else
-			g_stStatusCmd.titleDis.uiTitleVPos = 0x01;
-			g_stStatusCmd.titleDis.uiTitleHPos = 0x01;
-			g_stStatusCmd.titleDis.TitleColor = _TITLE_COLOR_VIOLET;
-			g_stStatusCmd.titleDis.TitleBlink = _TITLE_BLINK_ON;
-			CAM_SetTitleSet1(g_stStatusCmd.titleDis);
-			#if(_CCD_TYPE_CODE == _CCD_7500)
-			_delay_ms(100);
-			#endif
 			
 			#if(_CCD_TYPE_CODE == _CCD_7500)
 			uiTitle[5] = 'F'; //
@@ -81,14 +65,6 @@ void SetTitle2(void)
 	else if(g_stStatusCmd.FlipMode == _MIRROR_MODE_ON)
 	{
 		#if(_KEY_NUM == 61)
-			g_stStatusCmd.titleDis.uiTitleVPos = 0x01;
-			g_stStatusCmd.titleDis.uiTitleHPos = 0x01;
-			g_stStatusCmd.titleDis.TitleColor = _TITLE_COLOR_CYAN;
-			g_stStatusCmd.titleDis.TitleBlink = _TITLE_BLINK_ON;
-			CAM_SetTitleSet1(g_stStatusCmd.titleDis);
-			#if(_CCD_TYPE_CODE == _CCD_7500)
-			_delay_ms(100);
-			#endif
 			
 			#if(_CCD_TYPE_CODE == _CCD_7500)
 			uiTitle[5] = 'E'; //
@@ -101,14 +77,6 @@ void SetTitle2(void)
 			uiTitle[7] = 0x0C; //M
 			#endif
 		#else
-			g_stStatusCmd.titleDis.uiTitleVPos = 0x01;
-			g_stStatusCmd.titleDis.uiTitleHPos = 0x01;
-			g_stStatusCmd.titleDis.TitleColor = _TITLE_COLOR_VIOLET;
-			g_stStatusCmd.titleDis.TitleBlink = _TITLE_BLINK_ON;
-			CAM_SetTitleSet1(g_stStatusCmd.titleDis);
-			#if(_CCD_TYPE_CODE == _CCD_7500)
-			_delay_ms(100);
-			#endif
 			
 			#if(_CCD_TYPE_CODE == _CCD_7500)
 			uiTitle[5] = 'I'; //
@@ -125,47 +93,6 @@ void SetTitle2(void)
 			#endif
 		#endif
 
-	}
-	else if((_FOCUS_MODE_MANUAL == g_stStatusCmd.FocusMode)&&(_DISPLAY_FOCUS& g_stStatusCmd.uiDisplayFlag))
-	{
-		g_stStatusCmd.titleDis.uiTitleVPos = 0x01;
-		g_stStatusCmd.titleDis.uiTitleHPos = 0x01;
-		g_stStatusCmd.titleDis.TitleColor = _TITLE_COLOR_VIOLET;
-		g_stStatusCmd.titleDis.TitleBlink = _TITLE_BLINK_ON;
-		CAM_SetTitleSet1(g_stStatusCmd.titleDis);
-		#if(_CCD_TYPE_CODE == _CCD_7500)
-		_delay_ms(100);
-		#endif
-
-
-	}
-	else
-	{
-		//if(true == g_stStatusCmd.bIsDisplay)
-		{
-			#if(_CCD_TYPE_CODE == _CCD_7500)
-			uiTitle[5] = ' '; //
-			uiTitle[6] = ' '; //
-			uiTitle[7] = ' '; //
-			uiTitle[8] = ' '; //
-			uiTitle[9] = ' '; //
-			#else
-			uiTitle[5] = 0x1b; //I
-			uiTitle[6] = 0x1b; //M
-			uiTitle[7] = 0x1b; //A
-			uiTitle[8] = 0x1b; //G
-			uiTitle[9] = 0x1b; //E
-			#endif
-			g_stStatusCmd.titleDis.uiTitleVPos = 0x0a;
-			g_stStatusCmd.titleDis.uiTitleHPos = 0x01;
-			g_stStatusCmd.titleDis.TitleColor = _TITLE_COLOR_YELLOW;
-			g_stStatusCmd.titleDis.TitleBlink = _TITLE_BLINK_OFF;
-			CAM_SetTitleSet1(g_stStatusCmd.titleDis);
-			#if(_CCD_TYPE_CODE == _CCD_7500)
-		_delay_ms(100);
-		#endif
-		}
-		
 	}
 	#endif
 	

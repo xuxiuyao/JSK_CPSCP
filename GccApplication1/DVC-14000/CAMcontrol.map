@@ -1211,28 +1211,28 @@ END GROUP
  .debug_frame   0x00000990       0x8c src/Title.o
  .debug_frame   0x00000a1c      0x110 src/usart.o
 
-.debug_str      0x00000000     0x1ad9
+.debug_str      0x00000000     0x1ae7
  *(.debug_str)
- .debug_str     0x00000000     0x1017 src/command.o
-                               0x1065 (size before relaxing)
- .debug_str     0x00001017      0x345 src/key.o
-                                0x8ee (size before relaxing)
- .debug_str     0x0000135c       0x34 src/led.o
-                                0x1c5 (size before relaxing)
- .debug_str     0x00001390      0x193 src/main.o
-                                0x94c (size before relaxing)
- .debug_str     0x00001523      0x259 src/manager.o
-                                0xe17 (size before relaxing)
- .debug_str     0x0000177c      0x1bd src/remote.o
-                                0x4a8 (size before relaxing)
- .debug_str     0x00001939       0x15 src/status.o
-                                0x6a0 (size before relaxing)
- .debug_str     0x0000194e       0xb5 src/timer.o
-                                0x7b6 (size before relaxing)
- .debug_str     0x00001a03       0x31 src/Title.o
-                                0x7cb (size before relaxing)
- .debug_str     0x00001a34       0xa5 src/usart.o
-                                0x3d3 (size before relaxing)
+ .debug_str     0x00000000     0x1025 src/command.o
+                               0x1073 (size before relaxing)
+ .debug_str     0x00001025      0x345 src/key.o
+                                0x8fc (size before relaxing)
+ .debug_str     0x0000136a       0x34 src/led.o
+                                0x1d3 (size before relaxing)
+ .debug_str     0x0000139e      0x193 src/main.o
+                                0x95a (size before relaxing)
+ .debug_str     0x00001531      0x259 src/manager.o
+                                0xe25 (size before relaxing)
+ .debug_str     0x0000178a      0x1bd src/remote.o
+                                0x4b6 (size before relaxing)
+ .debug_str     0x00001947       0x15 src/status.o
+                                0x6ae (size before relaxing)
+ .debug_str     0x0000195c       0xb5 src/timer.o
+                                0x7c4 (size before relaxing)
+ .debug_str     0x00001a11       0x31 src/Title.o
+                                0x7d9 (size before relaxing)
+ .debug_str     0x00001a42       0xa5 src/usart.o
+                                0x3e1 (size before relaxing)
 
 .debug_loc      0x00000000     0x1e3a
  *(.debug_loc)

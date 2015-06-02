@@ -260,6 +260,17 @@ void ProcessAF(void)
 			#ifdef _DEBUG_PRINTF
 			//MyPrintf("Manual focus!");
 			#endif
+			#if(_EM_KEY == 1)
+			g_stStatusCmd.titleDis.uiTitleVPos = 0x01;
+			g_stStatusCmd.titleDis.uiTitleHPos = 0x01;
+			g_stStatusCmd.titleDis.TitleColor = _TITLE_COLOR_VIOLET;
+			g_stStatusCmd.titleDis.TitleBlink = _TITLE_BLINK_ON;
+			CAM_SetTitleSet1(g_stStatusCmd.titleDis);
+			#if(_CCD_TYPE_CODE == _CCD_7500)
+			_delay_ms(100);
+			#endif
+			#endif
+	
 		}
 		break;
 		case _FOCUS_MODE_MANUAL:
@@ -272,6 +283,16 @@ void ProcessAF(void)
 			#ifdef _DEBUG_PRINTF
 			//MyPrintf("Auto focus!");
 			#endif
+#if(_EM_KEY == 1)
+			g_stStatusCmd.titleDis.uiTitleVPos = 0x0a;
+			g_stStatusCmd.titleDis.uiTitleHPos = 0x01;
+			g_stStatusCmd.titleDis.TitleColor = _TITLE_COLOR_YELLOW;
+			g_stStatusCmd.titleDis.TitleBlink = _TITLE_BLINK_OFF;
+			CAM_SetTitleSet1(g_stStatusCmd.titleDis);
+			#if(_CCD_TYPE_CODE == _CCD_7500)
+			_delay_ms(100);
+			#endif
+#endif
 		}
 		break;
 		default:
@@ -306,6 +327,16 @@ void ProcessDisplay(void)
 		#if(_EM_KEY == 1)
 		g_stStatusCmd.bIsTime = true;
 		g_bTitle2Change = true;
+
+		g_stStatusCmd.titleDis.uiTitleVPos = 0x0a;
+		g_stStatusCmd.titleDis.uiTitleHPos = 0x01;
+		g_stStatusCmd.titleDis.TitleColor = _TITLE_COLOR_YELLOW;
+		g_stStatusCmd.titleDis.TitleBlink = _TITLE_BLINK_OFF;
+		CAM_SetTitleSet1(g_stStatusCmd.titleDis);
+		#if(_CCD_TYPE_CODE == _CCD_7500)
+		_delay_ms(100);
+		#endif
+		
 		#endif	
 	}
 	
@@ -1278,6 +1309,7 @@ void UnSaveRBGainValue(void)
 	g_bTitle2Change = true;
 	_delay_ms(100);
 }
+
 void SetMirrorOn(void)
 {
 	CAM_SetMirrorOn();
@@ -1287,6 +1319,21 @@ void SetMirrorOn(void)
 	g_stStatusCmd.uiDisplayFlag |= _DISPLAY_ZOOM;
 	g_stStatusCmd.uiDisplayFlag &= ~_DISPLAY_FOCUS;
 	g_stStatusCmd.bIsTime = true;
+
+	#if(_KEY_NUM == 61)
+	g_stStatusCmd.titleDis.TitleColor = _TITLE_COLOR_CYAN;
+	#else
+	g_stStatusCmd.titleDis.TitleColor = _TITLE_COLOR_VIOLET;
+	#endif
+	
+	g_stStatusCmd.titleDis.uiTitleVPos = 0x01;
+	g_stStatusCmd.titleDis.uiTitleHPos = 0x01;
+	
+	g_stStatusCmd.titleDis.TitleBlink = _TITLE_BLINK_ON;
+	CAM_SetTitleSet1(g_stStatusCmd.titleDis);
+	#if(_CCD_TYPE_CODE == _CCD_7500)
+	_delay_ms(100);
+	#endif
 }
 void SetMirrorOff(void)
 {
@@ -1296,6 +1343,15 @@ void SetMirrorOff(void)
 	g_stStatusCmd.uiDisplayFlag &=~ _DISPLAY_EM;
 	g_stStatusCmd.uiDisplayFlag &= ~_DISPLAY_ZOOM;
 	g_stStatusCmd.bIsTime = false;
+
+	g_stStatusCmd.titleDis.uiTitleVPos = 0x0a;
+	g_stStatusCmd.titleDis.uiTitleHPos = 0x01;
+	g_stStatusCmd.titleDis.TitleColor = _TITLE_COLOR_YELLOW;
+	g_stStatusCmd.titleDis.TitleBlink = _TITLE_BLINK_OFF;
+	CAM_SetTitleSet1(g_stStatusCmd.titleDis);
+	#if(_CCD_TYPE_CODE == _CCD_7500)
+	_delay_ms(100);
+	#endif
 
 }
 void SetFlipOn(void)
@@ -1308,6 +1364,21 @@ void SetFlipOn(void)
 	g_stStatusCmd.uiDisplayFlag &= ~_DISPLAY_FOCUS;
 	g_stStatusCmd.bIsTime = true;
 
+	#if(_KEY_NUM == 61)
+	g_stStatusCmd.titleDis.TitleColor = _TITLE_COLOR_CYAN;
+	#else
+	g_stStatusCmd.titleDis.TitleColor = _TITLE_COLOR_VIOLET;
+	#endif
+	
+	g_stStatusCmd.titleDis.uiTitleVPos = 0x01;
+	g_stStatusCmd.titleDis.uiTitleHPos = 0x01;
+	
+	g_stStatusCmd.titleDis.TitleBlink = _TITLE_BLINK_ON;
+	CAM_SetTitleSet1(g_stStatusCmd.titleDis);
+	#if(_CCD_TYPE_CODE == _CCD_7500)
+	_delay_ms(100);
+	#endif
+
 }
 void SetFlipOff(void)
 {
@@ -1317,6 +1388,15 @@ void SetFlipOff(void)
 	g_stStatusCmd.uiDisplayFlag &=~ _DISPLAY_EM;
 	g_stStatusCmd.uiDisplayFlag &= ~_DISPLAY_ZOOM;
 	g_stStatusCmd.bIsTime = false;
+
+	g_stStatusCmd.titleDis.uiTitleVPos = 0x0a;
+	g_stStatusCmd.titleDis.uiTitleHPos = 0x01;
+	g_stStatusCmd.titleDis.TitleColor = _TITLE_COLOR_YELLOW;
+	g_stStatusCmd.titleDis.TitleBlink = _TITLE_BLINK_OFF;
+	CAM_SetTitleSet1(g_stStatusCmd.titleDis);
+	#if(_CCD_TYPE_CODE == _CCD_7500)
+	_delay_ms(100);
+	#endif
 
 }
 
