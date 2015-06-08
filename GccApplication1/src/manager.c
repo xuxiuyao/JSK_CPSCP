@@ -1014,7 +1014,11 @@ void CMessageHandle(void)
 		break;
 		
 		case _TIME_KEY_MESSAGE:
+		#if(_KEY_NUM==8&&_EM_KEY==1)
+		ProcessEM();
+		#else
 		ProcessTime();
+		#endif
 		break;
 		
 		case _WHITE_KEY_MESSAGE:

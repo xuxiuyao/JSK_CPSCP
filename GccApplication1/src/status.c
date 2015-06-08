@@ -407,19 +407,21 @@ void ProductInfoInit(PRODUCT_INFO* info)
 	info->uiProductModel[5] = 0x27;//0
 	info->uiProductModel[6] = 0x27;//0
 	info->uiProductModel[7] = 0x27;//0
-	info->uiMajorVer = 2;
-	info->uiMinorVer = 5;
+	info->uiProductModel[8] = 0x06;//G
+	info->uiProductModel[9] = 0x02;//C
+	info->uiMajorVer = 1;
+	info->uiMinorVer = 0;
 #elif(_PRODUCT_TYPE_CODE == _DVC_14000)
-	info->uiProductModel[0] = 0x08;//I
-	info->uiProductModel[1] = 0x0D;//N
-	info->uiProductModel[2] = 0x03;//D
-	info->uiProductModel[3] = 0x08;// I
-	info->uiProductModel[4] = 0x00;// A
-	//info->uiProductModel[5] = 0x27;//0
-	info->uiProductModel[6] = 0x00;//0
-	//info->uiProductModel[7] = 0x27;//0
-	info->uiProductModel[8] = 0x12;//0
-	info->uiProductModel[9] = 0x03;//0
+	info->uiProductModel[0] = 0x03;//D
+	info->uiProductModel[1] = 0x15;//V
+	info->uiProductModel[2] = 0x02;//C
+	info->uiProductModel[3] = 0x1e;// 1
+	info->uiProductModel[4] = 0x21;//0
+	info->uiProductModel[5] = 0x27;//0
+	info->uiProductModel[6] = 0x27;//0
+	info->uiProductModel[7] = 0x27;//0
+	info->uiProductModel[8] = 0x06;//G
+	info->uiProductModel[9] = 0x02;//C
 	info->uiMajorVer = 1;
 	info->uiMinorVer = 0;
 #elif(_PRODUCT_TYPE_CODE == _DVC_14000HD)
