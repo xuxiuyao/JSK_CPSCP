@@ -251,6 +251,10 @@ void ProcessAF(void)
 			//g_stStatusCmd.bIsDisplay = true;
 			if((g_stStatusCmd.FlipMode == _FLIP_MODE_NORMAL)||(g_stStatusCmd.FlipMode == _FLIP_MODE_OFF)||(g_stStatusCmd.FlipMode == _MIRROR_MODE_OFF))
 				g_stStatusCmd.uiDisplayFlag |= _DISPLAY_FOCUS;
+			#if(_EM_KEY == 0)
+			g_stStatusCmd.uiDisplayFlag |= _DISPLAY_ZOOM;
+			g_stStatusCmd.bIsDisplay = true;
+			#endif
 			_delay_ms(50);
 			CAM_InqFocusPos();
 			_delay_ms(50);
@@ -277,6 +281,10 @@ void ProcessAF(void)
 		{
 			CAM_SetAutoFocus();
 			g_stStatusCmd.FocusMode = _FOCUS_MODE_AUTO;
+			#if(_EM_KEY == 0)
+			g_stStatusCmd.uiDisplayFlag &= ~_DISPLAY_ZOOM;
+			g_stStatusCmd.bIsDisplay = false;
+			#endif
 			g_stStatusCmd.uiDisplayFlag &= ~_DISPLAY_FOCUS;
 			g_stStatusCmd.uiDisplayFlag &= ~_DISPLAY_FOCUS_END;
 			g_bTitle2Change = true;
@@ -796,6 +804,14 @@ void ProcessFreeze(void)
 	
 	return;
 }
+
+void ProcessCapture(void)
+{	
+	PORTD &= 0xF7;
+	_delay_ms(300);
+	PORTD |= 0x08;
+}
+
 void ProcessEM(void)
 {
 
@@ -972,7 +988,11 @@ void CMessageHandle(void)
 		break;
 		
 		case _FREEZE_KEY_MESSAGE:
+		#if(_CAPTURE_ENABLE == 1)
+		ProcessCapture();
+		#else
 		ProcessFreeze();
+		#endif
 		break;
 
 		case _EM_KEY_MESSAGE:
@@ -1030,7 +1050,12 @@ void CMessageHandle(void)
 		break;
 		
 		case _FREEZE_KEY_MESSAGE:
+		#if(_CAPTURE_ENABLE == 1)
+		ProcessCapture();
+		#else
 		ProcessFreeze();
+		#endif
+
 		break;
 		
 		default:

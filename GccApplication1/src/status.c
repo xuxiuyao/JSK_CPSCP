@@ -330,6 +330,17 @@ void ProductInfoInit(PRODUCT_INFO* info)
 	info->uiProductModel[8] = 'D';//0
 	info->uiMajorVer = 1;
 	info->uiMinorVer = 0;	
+#elif(_PRODUCT_TYPE_CODE == _AL_106A)
+	info->uiProductModel[0] = 'A';//A
+	info->uiProductModel[1] = 'L';//L
+	info->uiProductModel[2] = '-';//-
+	info->uiProductModel[3] = '1';// 1
+	info->uiProductModel[4] = '0';//0
+	info->uiProductModel[5] = '6';//6
+	info->uiProductModel[6] = 'A';//B
+	//info->uiProductModel[7] = 0x01;//B
+	info->uiMajorVer = 2;
+	info->uiMinorVer = 5;	
 #endif
 #else
 #if(_PRODUCT_TYPE_CODE == _GC_3000B) 
@@ -543,9 +554,10 @@ void ProductInfoInit(PRODUCT_INFO* info)
 	info->uiProductModel[2] = 0x1E;// 1
 	info->uiProductModel[3] = 0x27;//0
 	info->uiProductModel[4] = 0x23;//6
-	info->uiProductModel[5] = 0x1B;// 
-	info->uiProductModel[6] = 0x06;//G
-	info->uiProductModel[7] = 0x02;//C
+	info->uiProductModel[5] = 0x01;//B
+	info->uiProductModel[6] = 0x1B;// 
+	info->uiProductModel[7] = 0x06;//G
+	info->uiProductModel[8] = 0x02;//C
 
 	info->uiMajorVer = 1;
 	info->uiMinorVer = 0;
@@ -608,6 +620,19 @@ void ProductInfoInit(PRODUCT_INFO* info)
 	//info->uiProductModel[7] = 0x27;//0
 	info->uiProductModel[8] = 0x12;//0
 	info->uiProductModel[9] = 0x03;//0
+	info->uiMajorVer = 1;
+	info->uiMinorVer = 0;	
+#elif(_PRODUCT_TYPE_CODE == _AL_106A)
+	info->uiProductModel[0] = 0x00;//A
+	info->uiProductModel[1] = 0x0B;//L
+	info->uiProductModel[2] = 0x1E;// 1
+	info->uiProductModel[3] = 0x27;//0
+	info->uiProductModel[4] = 0x23;//6
+	info->uiProductModel[5] = 0x00;//A
+	info->uiProductModel[6] = 0x1B;// 
+	info->uiProductModel[7] = 0x06;//G
+	info->uiProductModel[8] = 0x02;//C
+
 	info->uiMajorVer = 1;
 	info->uiMinorVer = 0;	
 #endif
