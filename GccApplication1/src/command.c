@@ -94,6 +94,16 @@ CAM_CMD g_stCameraCmd;
 		0x69D0,0x6A70,
 	};
 	#endif
+#elif(_MAX_RATE == 32)	
+	#if(_CCD_TYPE_CODE == _CCD_480)//Right    DVC10000读出
+	uint16_t uiZoomRatioTable[_MAX_RATE] = 
+	{
+		0x0000,0x1606,0x2151,0x2800,0x2CA0,0x3000,0x32D0,0x3540,0x3720,0x38C0,
+		0x3A38,0x3B7B,0x3CA8,0x3DA9,0x3EA0,0x3F60,0x4200,0x44B0,0x4760,0x4A10,
+		0x4CB8,0x4F30,0x5190,0x5350,0x54F8,0x56a0,0x5810,0x5980,0x5AE0,0x5C20,
+		0x5D50,0x5E70,
+	};
+	#endif
 #endif
 /*-----------480标清 32倍，GC2000B读出-----------------------------
 		0x0000,0x1606,0x2151,0x2800,0x2CA0,0x3000,0x32D0,0x3540,0x3720,0x38C0,
@@ -206,6 +216,11 @@ uint8_t tCmd_FlipOff[6]={0x81, 0x01, 0x04, 0x66, 0x03, 0xFF};		//Picture Flip Of
 //CAM_Mirror
 uint8_t tCmd_MirrorOn[6]={0x81, 0x01, 0x04, 0x61, 0x02, 0xFF};		//Mirror On
 uint8_t tCmd_MirrorOff[6]={0x81, 0x01, 0x04, 0x61, 0x03, 0xFF};		//Mirror Off
+
+//CAM SET CUSTOM
+uint8_t tCmd_CustomReset[7]={0x81, 0x01, 0x04, 0x3f, 0x00, 0x7f, 0xFF};		//Reset
+uint8_t tCmd_Customset[7]={0x81, 0x01, 0x04, 0x3f, 0x01, 0x7f, 0xFF};		//Set
+uint8_t tCmd_CustomRecall[7]={0x81, 0x01, 0x04, 0x3f, 0x02, 0x7f, 0xFF};		//Recall
 
 //CAM Type get
 uint8_t tCmd_TypeGet[6]={0x81, 0x09, 0x10, 0x01, 0xFF};		//Get Cam type, sony or BLOSSOM
@@ -514,6 +529,24 @@ const CAM_CMD AllCamCmd[]=
 	{
 		tCmd_MirrorOff,
 		6,
+		_CMD_TYPE_COMMAND,
+	},
+
+	{
+		tCmd_CustomReset,
+		7,
+		_CMD_TYPE_COMMAND,
+	},
+
+	{
+		tCmd_Customset,
+		7,
+		_CMD_TYPE_COMMAND,
+	},
+
+	{
+		tCmd_CustomRecall,
+		7,
 		_CMD_TYPE_COMMAND,
 	},
 
@@ -889,6 +922,26 @@ void CAM_SetMirrorOff(void)
 	g_stCameraCmd = AllCamCmd[CAM_Mirror_Off];
 	USART_SendCmd(g_stCameraCmd.pCmd, g_stCameraCmd.CmdLen);
 }
+
+void CAM_SetCustomReset(void)
+{
+	g_stCameraCmd = AllCamCmd[CAM_Custom_Reset];
+	USART_SendCmd(g_stCameraCmd.pCmd, g_stCameraCmd.CmdLen);
+}
+
+void CAM_SetCustomSet(void)
+{
+	g_stCameraCmd = AllCamCmd[CAM_Custom_Set];
+	USART_SendCmd(g_stCameraCmd.pCmd, g_stCameraCmd.CmdLen);
+}
+
+void CAM_SetCustomRecall(void)
+{
+	g_stCameraCmd = AllCamCmd[CAM_Custom_Recall];
+	USART_SendCmd(g_stCameraCmd.pCmd, g_stCameraCmd.CmdLen);
+}
+
+
 
 void CAM_SetTitleSet1(TITLE_DISPLAY titleDis)
 {

@@ -94,6 +94,9 @@ typedef enum{
 	CAM_Flip_Off,
 	CAM_Mirror_On,
 	CAM_Mirror_Off,
+	CAM_Custom_Reset,
+	CAM_Custom_Set,
+	CAM_Custom_Recall,
 	CAM_Get_Type,//Get Cam type, sony or BLOSSOM
 	CAM_Title_Set1,
 	CAM_Title_Set2,
@@ -162,6 +165,9 @@ extern void CAM_SetFlipOn(void);
 extern void CAM_SetFlipOff(void);
 extern void CAM_SetMirrorOn(void);
 extern void CAM_SetMirrorOff(void);
+extern void CAM_SetCustomReset(void);
+extern void CAM_SetCustomSet(void);
+extern void CAM_SetCustomRecall(void);
 extern void CAM_SetTitleSet1(TITLE_DISPLAY titleDis);
 extern void CAM_SetTitleSet2(uint8_t LineNum, uint8_t* uiTitle);
 extern void CAM_SetTitleSet3(uint8_t LineNum, uint8_t* uiTitle);
