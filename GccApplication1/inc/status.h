@@ -10,6 +10,21 @@
 #define STATUS_H_
 
 typedef enum{
+	_CAM_480,
+	_CAM_1020,
+	_CAM_3310,
+	_CAM_6300,
+	_CAM_7500 = 0x05,
+	_CAM_MODE_MAX,
+}CAM_MODE;
+
+typedef enum{
+	_CAM_SD,
+	_CAM_HD,
+	_CAM_RES_MAX,
+}CAM_RES;
+
+typedef enum{
 	_FOCUS_MODE_AUTO,
 	_FOCUS_MODE_MANUAL,
 	_FOCUS_MODE_TOTAL,
@@ -109,6 +124,7 @@ typedef enum{
 
 typedef struct{
 	uint16_t uiCamID;
+	CAM_MODE uiModeID;
 	uint16_t uiFocusPosMax;
 	uint8_t uiRGain;
 	uint8_t uiRGainCurrent;

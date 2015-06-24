@@ -12,6 +12,67 @@ uint8_t g_u8FocusGetMaxCount = 0;
 
 
 
+const uint16_t t480[2]={0x0457,0x0459};
+const uint16_t t1020[1]={0x0450 };
+const uint16_t t3310[1]={0x0465 };
+const uint16_t t6300[1]={0x045F };
+
+bool IsInTheTable(const uint16_t* data, uint8_t dataLen, uint16_t value)
+{
+	uint8_t i = 0;
+	
+	for(i=0;i<dataLen;i++)
+	{
+		if(data[i]==value)
+			return true;
+	}
+	return false;
+}
+
+void GetCamType(uint16_t value)
+{
+	if(IsInTheTable(t480,2,value))
+	{
+		g_stStatusCmd.uiModeID = _CAM_480;
+	}
+	else if(IsInTheTable(t1020,1,value))
+	{
+		g_stStatusCmd.uiModeID = _CAM_1020;
+	}
+	else if(IsInTheTable(t3310,1,value))
+	{
+		g_stStatusCmd.uiModeID = _CAM_3310;
+	}
+	else if(IsInTheTable(t6300,1,value))
+	{
+		g_stStatusCmd.uiModeID = _CAM_6300;
+	}
+	else
+	{
+		g_stStatusCmd.uiModeID = _CAM_7500;
+	}
+}
+void InitFlashDelay(void)
+{
+	switch(g_stStatusCmd.uiModeID)
+	{
+		case _CAM_480:
+			LedFlashing(1);
+			break;
+		case _CAM_1020:
+			LedFlashing(1);
+			break;
+		case _CAM_3310:
+			LedFlashing(6);
+			break;
+		case _CAM_6300:
+			LedFlashing(16);
+			break;
+		case _CAM_7500:
+			LedFlashing(52);//7500->30s
+			break;
+	}
+}
 #if(_CCD_TYPE_CODE == _CCD_7500)
 #define _INIT_DELAY			70
 #else
@@ -19,31 +80,30 @@ uint8_t g_u8FocusGetMaxCount = 0;
 #endif 
 void InitCamera(void)
 {
+	uint16_t uiModeID=0;
 
-	#if(_CCD_TYPE_CODE == _CCD_7500)
-	LedFlashing(60);//7500->30s
-	#elif(_CCD_TYPE_CODE == _CCD_480)
-	_delay_ms(500);//480->2s
-	LedFlashing(9);//
-	#elif(_CCD_TYPE_CODE == _CCD_3300)
-	_delay_ms(1000);//480->2s
-	LedFlashing(14);//6300,3300->8s   
-	#else
-	_delay_ms(1000);//480->2s
-	LedFlashing(24);//6300,3300->8s   
-	#endif
+	_delay_ms(500);
+	LedFlashing(8);
+	CAM_InqVersion();
+	_delay_ms(150);
+	GetInquiryResult(&g_stCameraCmd);
+	uiModeID = GetCameraVersion();
+	GetCamType(uiModeID);
+	InitFlashDelay();
+
 	while(1)
 	{		
 		LedOff();
-		#if(_CCD_TYPE_CODE != _CCD_7500)
-		CAM_InqID();
-		_delay_ms(_INIT_DELAY * 5);
-		GetInquiryResult(&g_stCameraCmd);
-	
-		GetCameraId();
+		if(g_stStatusCmd.uiModeID != _CAM_7500)
+		{
+			CAM_InqID();
+			_delay_ms(_INIT_DELAY * 5);
+			GetInquiryResult(&g_stCameraCmd);
+
+			GetCameraId();
+		}
 		
 		//if (_CAMARA_ID == g_stStatusCmd.uiCamID)
-		#endif
 		{
 			CAM_SetTitleClear();
 			_delay_ms(_INIT_DELAY*5);
@@ -54,11 +114,11 @@ void InitCamera(void)
 			{
 				TITLE_DISPLAY titleDis;
 				titleDis.uiTitleVPos = 0x01;
-				#if(_CCD_TYPE_CODE == _CCD_480)
-				titleDis.uiTitleHPos = 0x01;
-				#else
-				titleDis.uiTitleHPos = 0x05;
-				#endif
+				if(g_stStatusCmd.uiModeID == _CAM_480)
+					titleDis.uiTitleHPos = 0x01;
+				else
+					titleDis.uiTitleHPos = 0x05;
+
 				titleDis.TitleColor = _TITLE_COLOR_VIOLET;
 				titleDis.TitleBlink = _TITLE_BLINK_OFF;
 				CAM_SetTitleSet1(titleDis);
@@ -71,6 +131,17 @@ void InitCamera(void)
 				CAM_SetTitleClear();
 				_delay_ms(_INIT_DELAY*5);
 			}
+
+			if(g_stStatusCmd.uiModeID == _CAM_480)
+				g_stStatusCmd.titleDis.uiTitleHPos = 0x01;
+			else
+				g_stStatusCmd.titleDis.uiTitleHPos = 0x05;
+
+			if(g_stStatusCmd.uiModeID == _CAM_7500)
+				g_stStatusCmd.titleDis.uiTitleVPos = 0x0e;
+			else
+				g_stStatusCmd.titleDis.uiTitleVPos = 0x0a;
+
 
 			CAM_SetTitleSet1(g_stStatusCmd.titleDis);
 
@@ -109,12 +180,14 @@ void InitCamera(void)
 			
 			_delay_ms(_INIT_DELAY*5);
 			LedOff();
-			#if(_CCD_TYPE_CODE != _CCD_7500)
-			//set AF normal 
-			CAM_SetNormalAF();
+			#if(_CCD_TYPE_CODE == _CCD_7500)
+				CAM_SetDZoomLimit();
 			#else
-			CAM_SetDZoomLimit();
+				CAM_SetDZoomOn();
+				CAM_SetNormalAF();
 			#endif
+			//set AF normal 
+
 
 
 			
@@ -143,12 +216,12 @@ uint8_t GetXRateByPos(void)
 	uint8_t uiXRate = 0;
 	for (uiXRate=0; uiXRate<_MAX_RATE;uiXRate++)
 	{
-		if (g_stStatusCmd.uiZoomPos <= uiZoomRatioTable[uiXRate])
+		if (g_stStatusCmd.uiZoomPos <= uiZoomRatioTable[g_stStatusCmd.uiModeID%_MAX_ZOOM_PARA_NUM][uiXRate])
 		{
 			break;
 		}
 	}
-	if(g_stStatusCmd.uiZoomPos == uiZoomRatioTable[uiXRate])
+	if(g_stStatusCmd.uiZoomPos == uiZoomRatioTable[g_stStatusCmd.uiModeID%_MAX_ZOOM_PARA_NUM][uiXRate])
 		return uiXRate;
 	else
 		return (uiXRate > 0)?uiXRate-1:uiXRate;
@@ -184,9 +257,8 @@ void ProcessAF(void)
 			g_stStatusCmd.titleDis.TitleColor = _TITLE_COLOR_VIOLET;
 			g_stStatusCmd.titleDis.TitleBlink = _TITLE_BLINK_ON;
 			CAM_SetTitleSet1(g_stStatusCmd.titleDis);
-			#if(_CCD_TYPE_CODE == _CCD_7500)
-			_delay_ms(100);
-			#endif
+			if(g_stStatusCmd.uiModeID == _CAM_7500)
+				_delay_ms(100);
 			#endif
 	
 		}
@@ -211,9 +283,8 @@ void ProcessAF(void)
 			g_stStatusCmd.titleDis.TitleColor = _TITLE_COLOR_YELLOW;
 			g_stStatusCmd.titleDis.TitleBlink = _TITLE_BLINK_OFF;
 			CAM_SetTitleSet1(g_stStatusCmd.titleDis);
-			#if(_CCD_TYPE_CODE == _CCD_7500)
-			_delay_ms(100);
-			#endif
+			if(g_stStatusCmd.uiModeID == _CAM_7500)
+				_delay_ms(100);
 #endif
 		}
 		break;
@@ -255,9 +326,8 @@ void ProcessDisplay(void)
 		g_stStatusCmd.titleDis.TitleColor = _TITLE_COLOR_YELLOW;
 		g_stStatusCmd.titleDis.TitleBlink = _TITLE_BLINK_OFF;
 		CAM_SetTitleSet1(g_stStatusCmd.titleDis);
-		#if(_CCD_TYPE_CODE == _CCD_7500)
-		_delay_ms(100);
-		#endif
+		if(g_stStatusCmd.uiModeID == _CAM_7500)
+			_delay_ms(100);
 		
 		#endif	
 	}
@@ -320,7 +390,7 @@ void ProcessWide(void) //zoom out / Far
 					g_stStatusCmd.uiZoomPos = GetZoomPos();
 					g_stStatusCmd.uiXRate = GetXRateByPos();
 					
-					if (g_stStatusCmd.uiZoomPos > uiZoomRatioTable[0])
+					if (g_stStatusCmd.uiZoomPos > uiZoomRatioTable[g_stStatusCmd.uiModeID%_MAX_ZOOM_PARA_NUM][0])
 					{
 						#ifdef _DEBUG_PRINTF
 						MyPrintf("Execute Zoom Far\r\n");
@@ -447,7 +517,7 @@ void ProcessTele(void) //zoom in / Near
 					g_stStatusCmd.uiZoomPos = GetZoomPos();
 					g_stStatusCmd.uiXRate = GetXRateByPos();
 					
-					if (g_stStatusCmd.uiZoomPos < uiZoomRatioTable[_MAX_RATE-1])
+					if (g_stStatusCmd.uiZoomPos < uiZoomRatioTable[g_stStatusCmd.uiModeID%_MAX_ZOOM_PARA_NUM][_MAX_RATE-1])
 					{
 						#ifdef _DEBUG_PRINTF
 						MyPrintf("Execute Zoom Near\r\n");
@@ -1074,16 +1144,16 @@ void CReleaseKeyMessageHandle(void)
 	{
 		
 
-		if(bDoZoomAndFocusStop||(g_stStatusCmd.uiZoomPos >= uiZoomRatioTable[_MAX_RATE-1]&&true == g_stStatusCmd.bStartZoomIn))
+		if(bDoZoomAndFocusStop||(g_stStatusCmd.uiZoomPos >= uiZoomRatioTable[g_stStatusCmd.uiModeID%_MAX_ZOOM_PARA_NUM][_MAX_RATE-1]&&true == g_stStatusCmd.bStartZoomIn))
 		{
 			#ifdef _DEBUG_PRINTF
 			MyPrintf("Stop Zoom\r\n");
 			#endif
-			#if(_CCD_TYPE_CODE == _CCD_480)
-			_delay_ms(50);
-			#else
-			_delay_ms(150);
-			#endif
+			if(g_stStatusCmd.uiModeID == _CAM_480)
+				_delay_ms(50);
+			else
+				_delay_ms(150);
+
 			CAM_SetZoomStop();
 			g_stStatusCmd.bStartZoomIn= false;
 			g_stStatusCmd.bStartZoomOut= false;
@@ -1135,28 +1205,35 @@ void WhiteBalanceHandle(void)
 }
 void SetWhiteModeNormal(void)
 {
-#if(_CCD_TYPE_CODE == _CCD_7500)
-	CAM_SetVideoColor();
-	_delay_ms(100);
-	CAM_SetSharpnessDefault();
-
-#else
-	CAM_SetPicEffectOff();
-	_delay_ms(100);
-	CAM_SetApertureReset();
-
-#endif
-	
+	#if(_CCD_TYPE_CODE == _CCD_7500)
+	{
+		CAM_SetVideoColor();
+		_delay_ms(100);
+		CAM_SetSharpnessDefault();
+	}
+	#else
+	{
+		CAM_SetPicEffectOff();
+		_delay_ms(100);
+		CAM_SetApertureReset();
+		
+	}
+	#endif
 	g_stStatusCmd.WhiteMode = _WHITE_MODE_NORMAL;
 }
 void SetWhiteModeFA(void)
 {
-#if(_CCD_TYPE_CODE == _CCD_7500)
-	CAM_SetSharpnessDirect();
-	_delay_ms(100);
-#else
-	CAM_SetApertureDirect();
-#endif
+	#if(_CCD_TYPE_CODE == _CCD_7500)
+	{
+		CAM_SetSharpnessDirect();
+		_delay_ms(100);
+	}
+	#else
+	{
+		CAM_SetApertureDirect();
+
+	}
+	#endif
 	g_stStatusCmd.WhiteMode = _WHITE_MODE_FA;
 	#if(_WHITE_SET_DISPLAY == 1)
 	g_stStatusCmd.bIsDisplay = true;
@@ -1169,12 +1246,16 @@ void SetWhiteModeFA(void)
 
 void SetWhiteModeFB(void)
 {
-#if(_CCD_TYPE_CODE == _CCD_7500)
-	CAM_SetVideoBW();
-	_delay_ms(100);
-#else
-	CAM_SetPicEffectBW();
-#endif
+	#if(_CCD_TYPE_CODE == _CCD_7500)
+	{
+		CAM_SetVideoBW();
+		_delay_ms(100);
+	}
+	#else
+	{
+		CAM_SetPicEffectBW();
+	}
+	#endif
 	g_stStatusCmd.WhiteMode = _WHITE_MODE_FB;
 	#if(_WHITE_SET_DISPLAY == 1)
 	g_stStatusCmd.bIsDisplay = true;
@@ -1197,9 +1278,8 @@ void SetFilterG1(void)
 	g_stStatusCmd.uiDisplayFlag |= _DISPLAY_FILTER;
 	g_stStatusCmd.uiDisplayFlag |= _DISPLAY_ZOOM;
 	g_bTitle1Change = true;
-	#if(_CCD_TYPE_CODE == _CCD_7500)
-	_delay_ms(100);
-	#endif
+	if(g_stStatusCmd.uiModeID == _CAM_7500)
+		_delay_ms(100);
 }
 void SetFilterG2(void)
 {
@@ -1213,9 +1293,8 @@ void SetFilterG2(void)
 	g_stStatusCmd.uiDisplayFlag |= _DISPLAY_FILTER;
 	g_stStatusCmd.uiDisplayFlag |= _DISPLAY_ZOOM;
 	g_bTitle1Change = true;
-		#if(_CCD_TYPE_CODE == _CCD_7500)
-	_delay_ms(100);
-	#endif
+	if(g_stStatusCmd.uiModeID == _CAM_7500)
+		_delay_ms(100);
 
 }
 void SetFilterG3(void)
@@ -1230,10 +1309,8 @@ void SetFilterG3(void)
 	g_stStatusCmd.uiDisplayFlag |= _DISPLAY_FILTER;
 	g_stStatusCmd.uiDisplayFlag |= _DISPLAY_ZOOM;
 	g_bTitle1Change = true;
-	#if(_CCD_TYPE_CODE == _CCD_7500)
-	_delay_ms(100);
-	#endif
-
+	if(g_stStatusCmd.uiModeID == _CAM_7500)
+		_delay_ms(100);
 
 }
 void SaveRBGainValue(void)
@@ -1289,9 +1366,8 @@ void SetMirrorOn(void)
 	
 	g_stStatusCmd.titleDis.TitleBlink = _TITLE_BLINK_ON;
 	CAM_SetTitleSet1(g_stStatusCmd.titleDis);
-	#if(_CCD_TYPE_CODE == _CCD_7500)
-	_delay_ms(100);
-	#endif
+	if(g_stStatusCmd.uiModeID == _CAM_7500)
+		_delay_ms(100);
 }
 void SetMirrorOff(void)
 {
@@ -1307,9 +1383,8 @@ void SetMirrorOff(void)
 	g_stStatusCmd.titleDis.TitleColor = _TITLE_COLOR_YELLOW;
 	g_stStatusCmd.titleDis.TitleBlink = _TITLE_BLINK_OFF;
 	CAM_SetTitleSet1(g_stStatusCmd.titleDis);
-	#if(_CCD_TYPE_CODE == _CCD_7500)
-	_delay_ms(100);
-	#endif
+	if(g_stStatusCmd.uiModeID == _CAM_7500)
+		_delay_ms(100);
 
 }
 void SetFlipOn(void)
@@ -1333,9 +1408,8 @@ void SetFlipOn(void)
 	
 	g_stStatusCmd.titleDis.TitleBlink = _TITLE_BLINK_ON;
 	CAM_SetTitleSet1(g_stStatusCmd.titleDis);
-	#if(_CCD_TYPE_CODE == _CCD_7500)
-	_delay_ms(100);
-	#endif
+	if(g_stStatusCmd.uiModeID == _CAM_7500)
+		_delay_ms(100);
 
 }
 void SetFlipOff(void)
@@ -1352,9 +1426,8 @@ void SetFlipOff(void)
 	g_stStatusCmd.titleDis.TitleColor = _TITLE_COLOR_YELLOW;
 	g_stStatusCmd.titleDis.TitleBlink = _TITLE_BLINK_OFF;
 	CAM_SetTitleSet1(g_stStatusCmd.titleDis);
-	#if(_CCD_TYPE_CODE == _CCD_7500)
-	_delay_ms(100);
-	#endif
+	if(g_stStatusCmd.uiModeID == _CAM_7500)
+		_delay_ms(100);
 
 }
 

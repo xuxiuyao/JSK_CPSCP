@@ -461,7 +461,7 @@ void ShowProductInfo(unsigned char LineNum)
 	uint8_t uiTitle[10] = {0x1b,0x1b,0x1b,0x1b,0x1b,0x1b,0x1b,0x1b,0x1b,0x1b};//space
 	#endif
 		
-	uint16_t uiModelCode = GetCameraVersion();
+	//uint16_t uiModelCode = GetCameraVersion();
 	
 	//Product Model
 	CAM_SetTitleSet2(LineNum, g_stProductInfo.uiProductModel);
@@ -494,10 +494,39 @@ void ShowProductInfo(unsigned char LineNum)
 	uiTitle[m++] = uiNumberTable[j];	
 	
 	//Camera Model
-	i = (uiModelCode&0xF000)/0x1000;
-	j = (uiModelCode&0x0F00)/0x100;
-	k = (uiModelCode&0x00F0)/0x10;
-	l = (uiModelCode&0x000F)/0x1;
+	#if(_CCD_TYPE_CODE == _CCD_7500)
+	uiTitle[m++] = ' ';//0x2E
+	#else
+	uiTitle[m++] = 0x1b;//-
+	#endif
+	switch(g_stStatusCmd.uiModeID)
+	{
+		case _CAM_480:
+			uiTitle[m++] = 0x21;//-
+			uiTitle[m++] = 0x25;//-
+			break;
+		case _CAM_1020:
+			uiTitle[m++] = 0x1e;//-
+			uiTitle[m++] = 0x27;//-
+			break;
+		case _CAM_3310:
+			uiTitle[m++] = 0x20;//-
+			uiTitle[m++] = 0x20;//-
+			break;
+		case _CAM_6300:
+			uiTitle[m++] = 0x23;//-
+			uiTitle[m++] = 0x20;//-
+			break;
+		case _CAM_7500:
+			uiTitle[m++] = 0x24;//-
+			uiTitle[m++] = 0x22;//-
+			break;
+	}
+	
+	//i = (uiModelCode&0xF000)/0x1000;
+	//j = (uiModelCode&0x0F00)/0x100;
+	//k = (uiModelCode&0x00F0)/0x10;
+	//l = (uiModelCode&0x000F)/0x1;
 	//uiTitle[6] = uiNumberTable[i];
 	//uiTitle[7] = uiNumberTable[j];
 	//uiTitle[8] = uiNumberTable[k];

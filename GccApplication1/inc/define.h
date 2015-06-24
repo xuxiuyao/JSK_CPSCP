@@ -11,43 +11,32 @@
 
 
 
-#define _GC_3000B 1
-#define _GC_3000B_C 2
 #define _GC_5000B 3
-#define _GC_8000B 4
-#define _GC_2000B 5
 #define _GC_3000E 6
 #define _DVC_10000 7
 #define _DVC_14000 8
-#define _DVC_14000HD 9
-#define _DVC_20000HD 10
-#define _BMW 11
-#define _NEWTECH 12
 #define _VC_100 13
 #define _VC_200 14
 #define _LT_300 15
-#define _LT_350 16
-#define _LT_300P 17
-#define _LT_300HD 18
 #define _AL_106B 19
 #define _AL_106 20
 #define _AL_106HD 21
-#define _COLPO_HD2 22
-#define _ARETE_AR_20K 23
 #define _INDIA_SD  24
-#define _AL_106A 25
 
 
-#define _CCD_480 0x01
-#define _CCD_1020 0x02
-#define _CCD_3300 0x03
-#define _CCD_6300 0x04
+#define _CCD_SONY 0x01
 #define _CCD_7500 0x05
+
+#define _CCD_SD		0x01
+#define _CCD_HD		0x02
+
+#define _MAX_ZOOM_PARA_NUM    2
 
 //Define if white or filter key press set display on
 #define _WIDE_TELE_SET_DISPLAY       0
 #define _WHITE_SET_DISPLAY			1
 #define _FILTER_SET_DISPLAY		1
+
 
 //#define _PRODUCT_TYPE_CODE  _VC_200
 //#define _GC_3000E
@@ -56,206 +45,105 @@
 
 //#define _DEBUG_PRINTF	
 
-#if(_PRODUCT_TYPE_CODE == _GC_3000B)
+#if(_PRODUCT_TYPE_CODE == _GC_5000B)
 	#define _MAX_RATE 40
 	#define _KEY_NUM  8
 	#define _BLUE_LIGHT  0
-	#define _CCD_TYPE_CODE   _CCD_480
+	#define _CCD_TYPE_CODE   _CCD_SONY
 	#define _MENU_V_POS	10
 	#define _EM_KEY			0
 	#define _CAPTURE_ENABLE   0
-#elif(_PRODUCT_TYPE_CODE == _GC_3000B_C)
-	#define _MAX_RATE 40
-	#define _KEY_NUM  8
-	#define _BLUE_LIGHT  0
-	#define _CCD_TYPE_CODE   _CCD_3300
-	#define _MENU_V_POS	10
-	#define _EM_KEY			0
-	#define _CAPTURE_ENABLE   0
-#elif(_PRODUCT_TYPE_CODE == _GC_5000B)
-	#define _MAX_RATE 40
-	#define _KEY_NUM  8
-	#define _BLUE_LIGHT  0
-	#define _CCD_TYPE_CODE   _CCD_480
-	#define _MENU_V_POS	10
-	#define _EM_KEY			0
-	#define _CAPTURE_ENABLE   0
-#elif(_PRODUCT_TYPE_CODE == _GC_8000B)
-	#define _MAX_RATE 40
-	#define _KEY_NUM  8
-	#define _BLUE_LIGHT  0
-	#define _CCD_TYPE_CODE   _CCD_3300
-	#define _MENU_V_POS	10
-	#define _EM_KEY			0
-	#define _CAPTURE_ENABLE   0
-#elif(_PRODUCT_TYPE_CODE == _GC_2000B)
-	#define _MAX_RATE 32
-	#define _KEY_NUM  60
-	#define _BLUE_LIGHT  0
-	#define _CCD_TYPE_CODE   _CCD_480
-	#define _MENU_V_POS	10
-	#define _EM_KEY			0
-	#define _CAPTURE_ENABLE   0
+	#define _RESOLUTION_TYPE	_CCD_HD
 #elif(_PRODUCT_TYPE_CODE == _GC_3000E)
 	#define _MAX_RATE 40
 	#define _KEY_NUM  8
 	#define _BLUE_LIGHT  0
-	#define _CCD_TYPE_CODE   _CCD_480
+	#define _CCD_TYPE_CODE   _CCD_SONY
 	#define _MENU_V_POS	10
 	#define _EM_KEY			0
 	#define _CAPTURE_ENABLE   0
+	#define _RESOLUTION_TYPE	_CCD_SD
 #elif(_PRODUCT_TYPE_CODE == _DVC_10000)
 	#define _MAX_RATE 52
 	#define _KEY_NUM  61
 	#define _BLUE_LIGHT  0
-	#define _CCD_TYPE_CODE   _CCD_480
+	#define _CCD_TYPE_CODE   _CCD_SONY
 	#define _MENU_V_POS	10
 	#define _EM_KEY			2
 	#define _CAPTURE_ENABLE   0
+	#define _RESOLUTION_TYPE	_CCD_SD
 #elif(_PRODUCT_TYPE_CODE == _DVC_14000)
 	#define _MAX_RATE 52
 	#define _KEY_NUM  8
 	#define _BLUE_LIGHT  0
-	#define _CCD_TYPE_CODE   _CCD_480
+	#define _CCD_TYPE_CODE   _CCD_SONY
 	#define _MENU_V_POS	10
 	#define _EM_KEY			1
 	#define _CAPTURE_ENABLE   1
-#elif(_PRODUCT_TYPE_CODE == _DVC_14000HD)
-	#define _MAX_RATE 52
-	#define _KEY_NUM  8
-	#define _BLUE_LIGHT  0
-	#define _CCD_TYPE_CODE   _CCD_3300
-	#define _MENU_V_POS	10
-	#define _EM_KEY			1
-	#define _CAPTURE_ENABLE   0
-#elif(_PRODUCT_TYPE_CODE == _DVC_20000HD)
-	#define _MAX_RATE 52
-	#define _KEY_NUM  8
-	#define _BLUE_LIGHT  0
-	#define _CCD_TYPE_CODE   _CCD_3300
-	#define _MENU_V_POS	10
-	#define _EM_KEY			0
-	#define _CAPTURE_ENABLE   0
-#elif(_PRODUCT_TYPE_CODE == _BMW)
-	#define _MAX_RATE 40
-	#define _KEY_NUM  8
-	#define _BLUE_LIGHT  0
-	#define _CCD_TYPE_CODE   _CCD_480
-	#define _MENU_V_POS	10
-	#define _EM_KEY			0
-	#define _CAPTURE_ENABLE   0
-#elif(_PRODUCT_TYPE_CODE == _NEWTECH)
-	#define _MAX_RATE 40
-	#define _KEY_NUM  8
-	#define _BLUE_LIGHT  0
-	#define _CCD_TYPE_CODE   _CCD_480
-	#define _MENU_V_POS	10
-	#define _EM_KEY			0
-	#define _CAPTURE_ENABLE   0
+	#define _RESOLUTION_TYPE	_CCD_SD
 #elif(_PRODUCT_TYPE_CODE == _VC_100)
 	#define _MAX_RATE 40
 	#define _KEY_NUM  8
 	#define _BLUE_LIGHT  0
-	#define _CCD_TYPE_CODE   _CCD_480
+	#define _CCD_TYPE_CODE   _CCD_SONY
 	#define _MENU_V_POS	10
 	#define _EM_KEY			0
 	#define _CAPTURE_ENABLE   0
+	#define _RESOLUTION_TYPE	_CCD_SD
 #elif(_PRODUCT_TYPE_CODE == _VC_200)
 	#define _MAX_RATE 40
 	#define _KEY_NUM  8
 	#define _BLUE_LIGHT  0
-	#define _CCD_TYPE_CODE   _CCD_6300
+	#define _CCD_TYPE_CODE   _CCD_SONY
 	#define _MENU_V_POS	10
 	#define _EM_KEY			0
 	#define _CAPTURE_ENABLE   0
+	#define _RESOLUTION_TYPE	_CCD_HD
 #elif(_PRODUCT_TYPE_CODE == _LT_300)
 	#define _MAX_RATE 40
 	#define _KEY_NUM  8
 	#define _BLUE_LIGHT  0
-	#define _CCD_TYPE_CODE   _CCD_480
+	#define _CCD_TYPE_CODE   _CCD_SONY
 	#define _MENU_V_POS	10
 	#define _EM_KEY			0
 	#define _CAPTURE_ENABLE   0
-#elif(_PRODUCT_TYPE_CODE == _LT_350)
-	#define _MAX_RATE 40
-	#define _KEY_NUM  8
-	#define _BLUE_LIGHT  0
-	#define _CCD_TYPE_CODE   _CCD_480
-	#define _MENU_V_POS	10
-	#define _EM_KEY			0
-	#define _CAPTURE_ENABLE   0
-#elif(_PRODUCT_TYPE_CODE == _LT_300P)
-	#define _MAX_RATE 40
-	#define _KEY_NUM  8
-	#define _BLUE_LIGHT  0
-	#define _CCD_TYPE_CODE   _CCD_480
-	#define _MENU_V_POS	10
-	#define _EM_KEY			0
-	#define _CAPTURE_ENABLE   0
-#elif(_PRODUCT_TYPE_CODE == _LT_300HD)
-	#define _MAX_RATE 40
-	#define _KEY_NUM  8
-	#define _BLUE_LIGHT  0
-	#define _CCD_TYPE_CODE   _CCD_480
-	#define _MENU_V_POS	10
-	#define _EM_KEY			0
-	#define _CAPTURE_ENABLE   0
+	#define _RESOLUTION_TYPE	_CCD_SD
 #elif(_PRODUCT_TYPE_CODE == _AL_106B)
 	#define _MAX_RATE 32
 	#define _KEY_NUM  8
 	#define _BLUE_LIGHT  0
-	#define _CCD_TYPE_CODE   _CCD_480
+	#define _CCD_TYPE_CODE   _CCD_SONY
 	#define _MENU_V_POS	10
 	#define _EM_KEY			0
 	#define _CAPTURE_ENABLE   0
+	#define _RESOLUTION_TYPE	_CCD_SD
 #elif(_PRODUCT_TYPE_CODE == _AL_106)
 	#define _MAX_RATE 40
 	#define _KEY_NUM  8
 	#define _BLUE_LIGHT  0
-	#define _CCD_TYPE_CODE   _CCD_1020
+	#define _CCD_TYPE_CODE   _CCD_SONY
 	#define _MENU_V_POS	10
 	#define _EM_KEY			0
 	#define _CAPTURE_ENABLE   0
+	#define _RESOLUTION_TYPE	_CCD_SD
 #elif(_PRODUCT_TYPE_CODE == _AL_106HD)
 	#define _MAX_RATE 52
 	#define _KEY_NUM  8
 	#define _BLUE_LIGHT  1
-	#define _CCD_TYPE_CODE   _CCD_6300
+	#define _CCD_TYPE_CODE   _CCD_SONY
 	#define _MENU_V_POS	10
 	#define _EM_KEY			0
 	#define _CAPTURE_ENABLE   0
-#elif(_PRODUCT_TYPE_CODE == _COLPO_HD2)
-	#define _MAX_RATE 40
-	#define _KEY_NUM  8
-	#define _BLUE_LIGHT  0
-	#define _CCD_TYPE_CODE   _CCD_480
-	#define _MENU_V_POS	10
-	#define _EM_KEY			0
-	#define _CAPTURE_ENABLE   0
-#elif(_PRODUCT_TYPE_CODE == _ARETE_AR_20K)
-	#define _MAX_RATE 40
-	#define _KEY_NUM  8
-	#define _BLUE_LIGHT  0
-	#define _CCD_TYPE_CODE   _CCD_480
-	#define _MENU_V_POS	10
-	#define _EM_KEY			0
-	#define _CAPTURE_ENABLE   0
+	#define _RESOLUTION_TYPE	_CCD_HD
 #elif(_PRODUCT_TYPE_CODE == _INDIA_SD)
 	#define _MAX_RATE 52
 	#define _KEY_NUM  8
 	#define _BLUE_LIGHT  0
-	#define _CCD_TYPE_CODE   _CCD_480
+	#define _CCD_TYPE_CODE   _CCD_SONY
 	#define _MENU_V_POS	10
 	#define _EM_KEY			1	
 	#define _CAPTURE_ENABLE   0
-#elif(_PRODUCT_TYPE_CODE == _AL_106A)
-	#define _MAX_RATE 40
-	#define _KEY_NUM  8
-	#define _BLUE_LIGHT  0
-	#define _CCD_TYPE_CODE   _CCD_1020
-	#define _MENU_V_POS	10
-	#define _EM_KEY			0	
-	#define _CAPTURE_ENABLE   0
+	#define _RESOLUTION_TYPE	_CCD_SD
 #endif
 
 #define _CAMARA_ID	0xfff4

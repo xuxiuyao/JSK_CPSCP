@@ -66,6 +66,7 @@ typedef enum{
 	CAM_Zoom_VWide,
 	CAM_Zoom_Direct,
 	CAM_DZoom_Direct,
+	CAM_DZoom_On,
 	CAM_Focus_Stop,
 	CAM_Focus_SFar,
 	CAM_Focus_SNear,
@@ -98,6 +99,13 @@ typedef enum{
 	CAM_Custom_Set,
 	CAM_Custom_Recall,
 	CAM_Get_Type,//Get Cam type, sony or BLOSSOM
+	CAM_Title_Set1_480,
+	CAM_Title_Set2_480,
+	CAM_Title_Set3_480,
+	CAM_Title_Clear_480,
+	CAM_Title_On_480,
+	CAM_Title_Off_480,
+	
 	CAM_Title_Set1,
 	CAM_Title_Set2,
 	CAM_Title_Set3,
@@ -124,7 +132,7 @@ typedef enum{
 }CAM_CMD_LIST;
 
 extern CAM_CMD g_stCameraCmd;
-extern uint16_t uiZoomRatioTable[_MAX_RATE];
+extern const uint16_t uiZoomRatioTable[_MAX_ZOOM_PARA_NUM][_MAX_RATE];
 
 extern void CommandInit(CAM_CMD* Cmd);
 extern void CommandHandle(void);
@@ -137,6 +145,8 @@ extern void CAM_SetZoomVTele(void);
 extern void CAM_SetZoomVWide(void);
 extern void CAM_SetZoomDirect(void);
 extern void CAM_SetDZoomDirect(void);
+extern void CAM_SetDZoomOn(void);
+
 extern void CAM_SetStopFocus(void);
 extern void CAM_SetSFarFocus(void);
 extern void CAM_SetSNearFocus(void);
