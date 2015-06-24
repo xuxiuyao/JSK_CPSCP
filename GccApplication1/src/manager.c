@@ -796,7 +796,7 @@ void ProcessCapture(void)
 		PORTD &= 0xF7;
 		_delay_ms(300);
 		PORTD |= 0x08;
-		LedFlashing(3);
+
 	}
 	else
 	{
