@@ -15,7 +15,7 @@ uint8_t g_u8FocusGetMaxCount = 0;
 const uint16_t t480[2]={0x0457,0x0459};
 const uint16_t t1020[1]={0x0450 };
 const uint16_t t3310[1]={0x0465 };
-const uint16_t t6300[1]={0x045F };
+const uint16_t t6300[2]={0x045F,0x0466 };
 
 bool IsInTheTable(const uint16_t* data, uint8_t dataLen, uint16_t value)
 {
@@ -43,7 +43,7 @@ void GetCamType(uint16_t value)
 	{
 		g_stStatusCmd.uiModeID = _CAM_3310;
 	}
-	else if(IsInTheTable(t6300,1,value))
+	else if(IsInTheTable(t6300,2,value))
 	{
 		g_stStatusCmd.uiModeID = _CAM_6300;
 	}
@@ -268,8 +268,8 @@ void ProcessAF(void)
 			CAM_SetAutoFocus();
 			g_stStatusCmd.FocusMode = _FOCUS_MODE_AUTO;
 			#if(_EM_KEY == 0)
-			g_stStatusCmd.uiDisplayFlag &= ~_DISPLAY_ZOOM;
-			g_stStatusCmd.bIsDisplay = false;
+			g_stStatusCmd.uiDisplayFlag |= _DISPLAY_ZOOM;
+			g_stStatusCmd.bIsDisplay = true;
 			#endif
 			g_stStatusCmd.uiDisplayFlag &= ~_DISPLAY_FOCUS;
 			g_stStatusCmd.uiDisplayFlag &= ~_DISPLAY_FOCUS_END;
@@ -1183,14 +1183,14 @@ void WhiteBalanceHandle(void)
 		case _WB_MODE_AUTO:
 			//Inq R Gain
 			CAM_InqRGain();
-			_delay_ms(30);
+			_delay_ms(50);
 			//USART_GetCommand(g_stCameraCmd.InquiryResult,&g_stCameraCmd.InquiryResultLength);
 			GetInquiryResult(&g_stCameraCmd);
 			g_stStatusCmd.uiRGain = GetRGain();
 			
 			//Inq B Gain
 			CAM_InqBGain();
-			_delay_ms(30);
+			_delay_ms(50);
 			//USART_GetCommand(g_stCameraCmd.InquiryResult,&g_stCameraCmd.InquiryResultLength);
 			GetInquiryResult(&g_stCameraCmd);
 			g_stStatusCmd.uiBGain = GetBGain();
@@ -1315,6 +1315,15 @@ void SetFilterG3(void)
 }
 void SaveRBGainValue(void)
 {
+	#if(_CCD_TYPE_CODE == _CCD_7500)
+	uint8_t tSaving[10] = {'S','A','V','E','D',0x20,0x20,0x20,0x20,0x20};//savED
+	uint8_t tSpace[10] = {0x20,0x20,0x20,0x20,0x20,0x20,0x20,0x20,0x20,0x20};//space
+	#else
+	uint8_t tSaving[10] = {0x12,0x00,0x15,0x04,0x03,0x1b,0x1b,0x1b,0x1b,0x1b};//savED
+	uint8_t tSpace[10] = {0x1b,0x1b,0x1b,0x1b,0x1b,0x1b,0x1b,0x1b,0x1b,0x1b};//space
+	#endif
+
+
 	CAM_SetWBMaunal();
 	g_stStatusCmd.WBMode = _WB_MODE_NORMAL;
 	CAM_SetRGainDirect(g_stStatusCmd.uiRGain);
@@ -1324,12 +1333,21 @@ void SaveRBGainValue(void)
 	eeprom_write_byte((uint8_t *)0x01,g_stStatusCmd.uiBGain);
 	//g_bTitle1Change = true;
 	//g_bTitle2Change = true;
-	CAM_SetTitleClear();
+	#if(_CCD_TYPE_CODE != _CCD_7500)
+	CAM_SetTitleSet2(g_stStatusCmd.titleDis.uiTitleVPos, tSpace);
+	CAM_SetTitleSet3(g_stStatusCmd.titleDis.uiTitleVPos, tSpace);
 	_delay_ms(200);
-
 	
 	CAM_SetCustomSet();
-	_delay_ms(8000);
+	if(g_stStatusCmd.uiModeID == _CAM_480)
+		_delay_ms(7000);
+	else
+		_delay_ms(2000);
+	
+	CAM_SetTitleSet2(g_stStatusCmd.titleDis.uiTitleVPos, tSaving);
+	_delay_ms(2000);
+	CAM_SetTitleSet2(g_stStatusCmd.titleDis.uiTitleVPos, tSpace);
+	#endif
 }
 void UnSaveRBGainValue(void)
 {

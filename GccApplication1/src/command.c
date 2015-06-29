@@ -1011,7 +1011,7 @@ void CAM_SetCustomRecall(void)
 
 void CAM_SetTitleSet1(TITLE_DISPLAY titleDis)
 {
-	if(g_stStatusCmd.uiModeID == _CAM_480)
+	if((g_stStatusCmd.uiModeID == _CAM_480)||(g_stStatusCmd.uiModeID == _CAM_1020))
 	{
 		g_stCameraCmd = AllCamCmd[CAM_Title_Set1_480];
 		g_stCameraCmd.pCmd[5] = titleDis.uiTitleVPos;
@@ -1032,7 +1032,7 @@ void CAM_SetTitleSet2(uint8_t LineNum, uint8_t* uiTitle)
 {
 	uint8_t i = 0;
 	
-	if(g_stStatusCmd.uiModeID == _CAM_480)
+	if((g_stStatusCmd.uiModeID == _CAM_480)||(g_stStatusCmd.uiModeID == _CAM_1020))
 	{
 		g_stCameraCmd = AllCamCmd[CAM_Title_Set2_480];
 	}
@@ -1055,7 +1055,7 @@ void CAM_SetTitleSet3(uint8_t LineNum, uint8_t* uiTitle)
 {
 	uint8_t i = 0;
 	
-	if(g_stStatusCmd.uiModeID == _CAM_480)
+	if((g_stStatusCmd.uiModeID == _CAM_480)||(g_stStatusCmd.uiModeID == _CAM_1020))
 	{
 		g_stCameraCmd = AllCamCmd[CAM_Title_Set3_480];
 	}
@@ -1075,7 +1075,7 @@ void CAM_SetTitleSet3(uint8_t LineNum, uint8_t* uiTitle)
 
 void CAM_SetTitleClear(void)
 {
-	if(g_stStatusCmd.uiModeID == _CAM_480)
+	if((g_stStatusCmd.uiModeID == _CAM_480)||(g_stStatusCmd.uiModeID == _CAM_1020))
 	{
 		g_stCameraCmd = AllCamCmd[CAM_Title_Clear_480];
 	}
@@ -1089,7 +1089,7 @@ void CAM_SetTitleClear(void)
 
 void CAM_SetTitleOn(void)
 {
-	if(g_stStatusCmd.uiModeID == _CAM_480)
+	if((g_stStatusCmd.uiModeID == _CAM_480)||(g_stStatusCmd.uiModeID == _CAM_1020))
 	{
 		g_stCameraCmd = AllCamCmd[CAM_Title_On_480];
 	}
@@ -1103,7 +1103,7 @@ void CAM_SetTitleOn(void)
 
 void CAM_SetTitleOff(void)
 {
-	if(g_stStatusCmd.uiModeID == _CAM_480)
+	if((g_stStatusCmd.uiModeID == _CAM_480)||(g_stStatusCmd.uiModeID == _CAM_1020))
 	{
 		g_stCameraCmd = AllCamCmd[CAM_Title_Off_480];
 	}
