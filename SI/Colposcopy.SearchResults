@@ -1,49 +1,18 @@
----- _CCD_7500 Matches (48 in 7 files) ----
-Command.c (gccapplication1\src):		#if(_CCD_TYPE_CODE == _CCD_7500)
-Command.c (gccapplication1\src):		#if(_CCD_TYPE_CODE == _CCD_7500)
-Command.c (gccapplication1\src):#if(_CCD_TYPE_CODE == _CCD_7500)
-Command.c (gccapplication1\src):#if(_CCD_TYPE_CODE == _CCD_7500)
-Command.c (gccapplication1\src):	#if(_CCD_TYPE_CODE == _CCD_7500)
-Command.c (gccapplication1\src):#if(_CCD_TYPE_CODE == _CCD_7500)
-Command.h (gccapplication1\inc):	#if(_CCD_TYPE_CODE == _CCD_7500)
-Command.h (gccapplication1\inc):#if(_CCD_TYPE_CODE == _CCD_7500)
-Define.h (gccapplication1\inc):#define _CCD_7500 0x05
-Manager.c (gccapplication1\src):#if(_CCD_TYPE_CODE == _CCD_7500)
-Manager.c (gccapplication1\src):			#if(_CCD_TYPE_CODE == _CCD_7500)
-Manager.c (gccapplication1\src):					#if(_CCD_TYPE_CODE == _CCD_7500)
-Manager.c (gccapplication1\src):					#if(_CCD_TYPE_CODE == _CCD_7500)
-Manager.c (gccapplication1\src):	#if(_CCD_TYPE_CODE == _CCD_7500)
-Manager.c (gccapplication1\src):	#if(_CCD_TYPE_CODE == _CCD_7500)
-Manager.c (gccapplication1\src):	#if(_CCD_TYPE_CODE == _CCD_7500)
-Manager.h (gccapplication1\inc):#if(_CCD_TYPE_CODE==_CCD_7500)
-Status.c (gccapplication1\src):		#if(_CCD_TYPE_CODE == _CCD_7500)
-Status.c (gccapplication1\src):#if(_CCD_TYPE_CODE == _CCD_7500)
-Title.c (gccapplication1\src):#if(_CCD_TYPE_CODE == _CCD_7500)
-Title.c (gccapplication1\src):	#if(_CCD_TYPE_CODE == _CCD_7500)
-Title.c (gccapplication1\src):			#if(_CCD_TYPE_CODE == _CCD_7500)
-Title.c (gccapplication1\src):			#if(_CCD_TYPE_CODE == _CCD_7500)
-Title.c (gccapplication1\src):			#if(_CCD_TYPE_CODE == _CCD_7500)
-Title.c (gccapplication1\src):			#if(_CCD_TYPE_CODE == _CCD_7500)
-Title.c (gccapplication1\src):		#if(_CCD_TYPE_CODE == _CCD_7500)
-Title.c (gccapplication1\src):			#if(_CCD_TYPE_CODE == _CCD_7500)
-Title.c (gccapplication1\src):			#if(_CCD_TYPE_CODE == _CCD_7500)
-Title.c (gccapplication1\src):		#if(_CCD_TYPE_CODE == _CCD_7500)
-Title.c (gccapplication1\src):		#if(_CCD_TYPE_CODE == _CCD_7500)
-Title.c (gccapplication1\src):		#if(_CCD_TYPE_CODE == _CCD_7500)
-Title.c (gccapplication1\src):	#if(_CCD_TYPE_CODE == _CCD_7500)
-Title.c (gccapplication1\src):	#if(_CCD_TYPE_CODE == _CCD_7500)
-Title.c (gccapplication1\src):	#if(_CCD_TYPE_CODE == _CCD_7500)
-Title.c (gccapplication1\src):		#if(_CCD_TYPE_CODE == _CCD_7500)
-Title.c (gccapplication1\src):			#if(_CCD_TYPE_CODE == _CCD_7500)
-Title.c (gccapplication1\src):			#if(_CCD_TYPE_CODE == _CCD_7500)
-Title.c (gccapplication1\src):				#if(_CCD_TYPE_CODE == _CCD_7500)
-Title.c (gccapplication1\src):				#if(_CCD_TYPE_CODE == _CCD_7500)
-Title.c (gccapplication1\src):			#if(_CCD_TYPE_CODE == _CCD_7500)
-Title.c (gccapplication1\src):			#if(_CCD_TYPE_CODE == _CCD_7500)
-Title.c (gccapplication1\src):		#if(_CCD_TYPE_CODE == _CCD_7500)
-Title.c (gccapplication1\src):		#if(_CCD_TYPE_CODE == _CCD_7500)
-Title.c (gccapplication1\src):		#if(_CCD_TYPE_CODE == _CCD_7500)
-Title.c (gccapplication1\src):	#if(_CCD_TYPE_CODE == _CCD_7500)
-Title.c (gccapplication1\src):	#if(_CCD_TYPE_CODE == _CCD_7500)
-Title.c (gccapplication1\src):	#if(_CCD_TYPE_CODE == _CCD_7500)
-Title.c (gccapplication1\src):	#if(_CCD_TYPE_CODE == _CCD_7500)
+---- uiTitleHPos Matches (17 in 4 files) ----
+Command.c (gccapplication1\src):	g_stCameraCmd.pCmd[6] = titleDis.uiTitleHPos;
+Manager.c (gccapplication1\src):					titleDis.uiTitleHPos = 0x01;
+Manager.c (gccapplication1\src):					titleDis.uiTitleHPos = 0x05;
+Manager.c (gccapplication1\src):				g_stStatusCmd.titleDis.uiTitleHPos = 0x01;
+Manager.c (gccapplication1\src):				g_stStatusCmd.titleDis.uiTitleHPos = 0x05;
+Manager.c (gccapplication1\src):			g_stStatusCmd.titleDis.uiTitleHPos = 0x01;
+Manager.c (gccapplication1\src):			g_stStatusCmd.titleDis.uiTitleHPos = 0x01;
+Manager.c (gccapplication1\src):		g_stStatusCmd.titleDis.uiTitleHPos = 0x01;
+Manager.c (gccapplication1\src):	g_stStatusCmd.titleDis.uiTitleHPos = 0x01;
+Manager.c (gccapplication1\src):	g_stStatusCmd.titleDis.uiTitleHPos = 0x01;
+Manager.c (gccapplication1\src):	g_stStatusCmd.titleDis.uiTitleHPos = 0x01;
+Manager.c (gccapplication1\src):	g_stStatusCmd.titleDis.uiTitleHPos = 0x01;
+Status.h (gccapplication1\inc):	uint8_t uiTitleHPos;
+Title.c (gccapplication1\src):			g_stStatusCmd.titleDis.uiTitleHPos = 0x01;
+Title.c (gccapplication1\src):		g_stStatusCmd.titleDis.uiTitleHPos = 0x01;
+Title.c (gccapplication1\src):				g_stStatusCmd.titleDis.uiTitleHPos = 0x01;
+Title.c (gccapplication1\src):			g_stStatusCmd.titleDis.uiTitleHPos = 0x01;

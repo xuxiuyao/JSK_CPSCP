@@ -17,15 +17,15 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, READONLY, DEBUGGING
   6 .debug_abbrev 00001135  00000000  00000000  0000a9aa  2**0
                   CONTENTS, READONLY, DEBUGGING
-  7 .debug_line   00001d46  00000000  00000000  0000badf  2**0
+  7 .debug_line   00001ce0  00000000  00000000  0000badf  2**0
                   CONTENTS, READONLY, DEBUGGING
-  8 .debug_frame  00000bf0  00000000  00000000  0000d828  2**2
+  8 .debug_frame  00000bf0  00000000  00000000  0000d7c0  2**2
                   CONTENTS, READONLY, DEBUGGING
-  9 .debug_str    00001d35  00000000  00000000  0000e418  2**0
+  9 .debug_str    00001d31  00000000  00000000  0000e3b0  2**0
                   CONTENTS, READONLY, DEBUGGING
- 10 .debug_loc    000025be  00000000  00000000  0001014d  2**0
+ 10 .debug_loc    000025be  00000000  00000000  000100e1  2**0
                   CONTENTS, READONLY, DEBUGGING
- 11 .debug_ranges 000004b0  00000000  00000000  0001270b  2**0
+ 11 .debug_ranges 000004b0  00000000  00000000  0001269f  2**0
                   CONTENTS, READONLY, DEBUGGING
 
 Disassembly of section .text:
@@ -3467,10 +3467,10 @@ void InitCamera(void)
 			{
 				TITLE_DISPLAY titleDis;
 				titleDis.uiTitleVPos = 0x01;
-				if(g_stStatusCmd.uiModeID == _CAM_480)
+				if((g_stStatusCmd.uiModeID == _CAM_480)||(g_stStatusCmd.uiModeID == _CAM_1020))
     12c0:	80 91 99 03 	lds	r24, 0x0399
-    12c4:	81 11       	cpse	r24, r1
-    12c6:	02 c0       	rjmp	.+4      	; 0x12cc <InitCamera+0xb0>
+    12c4:	82 30       	cpi	r24, 0x02	; 2
+    12c6:	10 f4       	brcc	.+4      	; 0x12cc <InitCamera+0xb0>
 					titleDis.uiTitleHPos = 0x01;
     12c8:	71 e0       	ldi	r23, 0x01	; 1
     12ca:	01 c0       	rjmp	.+2      	; 0x12ce <InitCamera+0xb2>
@@ -3518,14 +3518,14 @@ void InitCamera(void)
 				_delay_ms(_INIT_DELAY*5);
 			}
 
-			if(g_stStatusCmd.uiModeID == _CAM_480)
+			if((g_stStatusCmd.uiModeID == _CAM_480)||(g_stStatusCmd.uiModeID == _CAM_1020))
     130c:	80 91 99 03 	lds	r24, 0x0399
-    1310:	81 11       	cpse	r24, r1
-    1312:	04 c0       	rjmp	.+8      	; 0x131c <InitCamera+0x100>
+    1310:	82 30       	cpi	r24, 0x02	; 2
+    1312:	20 f4       	brcc	.+8      	; 0x131c <InitCamera+0x100>
 				g_stStatusCmd.titleDis.uiTitleHPos = 0x01;
-    1314:	81 e0       	ldi	r24, 0x01	; 1
-    1316:	80 93 a5 03 	sts	0x03A5, r24
-    131a:	09 c0       	rjmp	.+18     	; 0x132e <InitCamera+0x112>
+    1314:	91 e0       	ldi	r25, 0x01	; 1
+    1316:	90 93 a5 03 	sts	0x03A5, r25
+    131a:	03 c0       	rjmp	.+6      	; 0x1322 <InitCamera+0x106>
 			else
 				g_stStatusCmd.titleDis.uiTitleHPos = 0x05;
     131c:	95 e0       	ldi	r25, 0x05	; 5

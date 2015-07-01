@@ -114,7 +114,7 @@ void InitCamera(void)
 			{
 				TITLE_DISPLAY titleDis;
 				titleDis.uiTitleVPos = 0x01;
-				if(g_stStatusCmd.uiModeID == _CAM_480)
+				if((g_stStatusCmd.uiModeID == _CAM_480)||(g_stStatusCmd.uiModeID == _CAM_1020))
 					titleDis.uiTitleHPos = 0x01;
 				else
 					titleDis.uiTitleHPos = 0x05;
@@ -132,7 +132,7 @@ void InitCamera(void)
 				_delay_ms(_INIT_DELAY*5);
 			}
 
-			if(g_stStatusCmd.uiModeID == _CAM_480)
+			if((g_stStatusCmd.uiModeID == _CAM_480)||(g_stStatusCmd.uiModeID == _CAM_1020))
 				g_stStatusCmd.titleDis.uiTitleHPos = 0x01;
 			else
 				g_stStatusCmd.titleDis.uiTitleHPos = 0x05;
