@@ -122,6 +122,7 @@ typedef enum{
 	
 	CAM_ZoomPos_Inq,
 	CAM_FocusPos_Inq,
+	CAM_FocusNearLimitPos_Inq,
 	CAM_WBmode_Inq,
 	CAM_RGain_Inq,
 	CAM_BGain_Inq,
@@ -181,9 +182,9 @@ extern void CAM_SetCustomRecall(void);
 extern void CAM_SetTitleSet1(TITLE_DISPLAY titleDis);
 extern void CAM_SetTitleSet2(uint8_t LineNum, uint8_t* uiTitle);
 extern void CAM_SetTitleSet3(uint8_t LineNum, uint8_t* uiTitle);
-extern void CAM_SetTitleClear(void);
-extern void CAM_SetTitleOn(void);
-extern void CAM_SetTitleOff(void);
+extern void CAM_SetTitleClear(uint8_t LineNum);
+extern void CAM_SetTitleOn(uint8_t LineNum);
+extern void CAM_SetTitleOff(uint8_t LineNum);
 #if(_CCD_TYPE_CODE == _CCD_7500)
 
 extern void CAM_SetVideoBW(void);
@@ -195,6 +196,7 @@ extern void CAM_SetDZoomLimit(void);
 extern void CAM_SetSAVEAVOn(void);
 extern void CAM_InqZoomPos(void);
 extern void CAM_InqFocusPos(void);
+extern void CAM_InqFocusNearLimitPos(void);
 extern void CAM_InqWBmode(void);
 extern void CAM_InqRGain(void);
 extern void CAM_InqBGain(void);
@@ -205,6 +207,7 @@ extern void GetInquiryResult(CAM_CMD* Cmd);
 extern uint16_t GetCameraId(void);
 extern uint16_t GetZoomPos(void);
 extern uint16_t GetFocusPos(void);
+extern uint16_t GetFocusNearLimitPos(void);
 extern uint16_t GetCameraVersion(void);
 extern uint8_t GetWBmode(void);
 extern uint8_t GetRGain(void);

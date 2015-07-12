@@ -10,7 +10,7 @@
 #define DEFINE_H_
 
 
-
+#define _SW_REG 1
 #define _GC_5000B 3
 #define _GC_3000E 6
 #define _DVC_10000 7
@@ -38,14 +38,21 @@
 #define _FILTER_SET_DISPLAY		1
 
 
-//#define _PRODUCT_TYPE_CODE  _VC_200
-//#define _GC_3000E
-//#define _GC_5000B
-//#define _GC_8000B
+
 
 //#define _DEBUG_PRINTF	
-
-#if(_PRODUCT_TYPE_CODE == _GC_5000B)
+#if(_PRODUCT_TYPE_CODE == _SW_REG)
+	#define _MAX_RATE 40
+	#define _KEY_NUM  8
+	#define _BLUE_LIGHT  0
+	#define _CCD_TYPE_CODE   _CCD_SONY
+	#define _MENU_V_POS	10
+	#define _EM_KEY			1
+	#define _CAPTURE_ENABLE   0
+	#define _RESOLUTION_TYPE	_CCD_HD
+	#define _FOCUS_OOR_TIPS	1
+	#define _TIME_DISPLAY_TO_EM
+#elif(_PRODUCT_TYPE_CODE == _GC_5000B)
 	#define _MAX_RATE 40
 	#define _KEY_NUM  8
 	#define _BLUE_LIGHT  0
@@ -54,6 +61,7 @@
 	#define _EM_KEY			0
 	#define _CAPTURE_ENABLE   0
 	#define _RESOLUTION_TYPE	_CCD_HD
+	#define _FOCUS_OOR_TIPS	0
 #elif(_PRODUCT_TYPE_CODE == _GC_3000E)
 	#define _MAX_RATE 40
 	#define _KEY_NUM  8
@@ -63,6 +71,7 @@
 	#define _EM_KEY			0
 	#define _CAPTURE_ENABLE   0
 	#define _RESOLUTION_TYPE	_CCD_SD
+	#define _FOCUS_OOR_TIPS	0
 #elif(_PRODUCT_TYPE_CODE == _DVC_10000)
 	#define _MAX_RATE 52
 	#define _KEY_NUM  61
@@ -72,6 +81,7 @@
 	#define _EM_KEY			2
 	#define _CAPTURE_ENABLE   0
 	#define _RESOLUTION_TYPE	_CCD_SD
+	#define _FOCUS_OOR_TIPS	0
 #elif(_PRODUCT_TYPE_CODE == _DVC_14000)
 	#define _MAX_RATE 52
 	#define _KEY_NUM  8
@@ -81,6 +91,7 @@
 	#define _EM_KEY			1
 	#define _CAPTURE_ENABLE   1
 	#define _RESOLUTION_TYPE	_CCD_SD
+	#define _FOCUS_OOR_TIPS	0
 #elif(_PRODUCT_TYPE_CODE == _VC_100)
 	#define _MAX_RATE 40
 	#define _KEY_NUM  8
@@ -90,6 +101,7 @@
 	#define _EM_KEY			0
 	#define _CAPTURE_ENABLE   0
 	#define _RESOLUTION_TYPE	_CCD_SD
+	#define _FOCUS_OOR_TIPS	0
 #elif(_PRODUCT_TYPE_CODE == _VC_200)
 	#define _MAX_RATE 40
 	#define _KEY_NUM  8
@@ -99,6 +111,7 @@
 	#define _EM_KEY			0
 	#define _CAPTURE_ENABLE   0
 	#define _RESOLUTION_TYPE	_CCD_HD
+	#define _FOCUS_OOR_TIPS	0
 #elif(_PRODUCT_TYPE_CODE == _LT_300)
 	#define _MAX_RATE 40
 	#define _KEY_NUM  8
@@ -108,6 +121,7 @@
 	#define _EM_KEY			0
 	#define _CAPTURE_ENABLE   0
 	#define _RESOLUTION_TYPE	_CCD_SD
+	#define _FOCUS_OOR_TIPS	0
 #elif(_PRODUCT_TYPE_CODE == _AL_106B)
 	#define _MAX_RATE 32
 	#define _KEY_NUM  8
@@ -117,6 +131,7 @@
 	#define _EM_KEY			0
 	#define _CAPTURE_ENABLE   0
 	#define _RESOLUTION_TYPE	_CCD_SD
+	#define _FOCUS_OOR_TIPS	0
 #elif(_PRODUCT_TYPE_CODE == _AL_106)
 	#define _MAX_RATE 40
 	#define _KEY_NUM  8
@@ -126,6 +141,7 @@
 	#define _EM_KEY			0
 	#define _CAPTURE_ENABLE   0
 	#define _RESOLUTION_TYPE	_CCD_SD
+	#define _FOCUS_OOR_TIPS	0
 #elif(_PRODUCT_TYPE_CODE == _AL_106HD)
 	#define _MAX_RATE 52
 	#define _KEY_NUM  8
@@ -135,6 +151,7 @@
 	#define _EM_KEY			0
 	#define _CAPTURE_ENABLE   0
 	#define _RESOLUTION_TYPE	_CCD_HD
+	#define _FOCUS_OOR_TIPS	0
 #elif(_PRODUCT_TYPE_CODE == _INDIA_SD)
 	#define _MAX_RATE 52
 	#define _KEY_NUM  8
@@ -144,6 +161,7 @@
 	#define _EM_KEY			1	
 	#define _CAPTURE_ENABLE   0
 	#define _RESOLUTION_TYPE	_CCD_SD
+	#define _FOCUS_OOR_TIPS	0
 #endif
 
 #define _CAMARA_ID	0xfff4

@@ -14,6 +14,10 @@ extern bool g_bTitle2Change;
 
 extern void SetTitle2(void);
 extern void SetTitle3(void);
+#if(_FOCUS_OOR_TIPS == 1)
+extern void OORDisplay(void);
+#endif
+
 extern void TitleHandle(void);
 extern void ShowProductInfo(unsigned char  LineNum);
 

@@ -74,6 +74,11 @@ int main(void)
 		
 		//Key message and remote message handler
 		CMessageHandle();
+
+		#if(_FOCUS_OOR_TIPS == 1)
+		//Focus out of range Handle
+		CFocusOutOfRangeHandle();
+		#endif
 		
 		//Release Key Message Handle
 		CReleaseKeyMessageHandle();

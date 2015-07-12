@@ -510,7 +510,11 @@ void CKeyMessageProc(void)
 		case _RB_SWITCH_KEY_MASK:
 			CKeyMessageConvert(_RB_SWITCH_KEY_MASK, _RB_SWITCH_KEY_MESSAGE);
 		break;
-		
+#ifdef _TIME_DISPLAY_TO_EM
+		case _TIME_DISPALY_EM_MASK:
+			CKeyMessageConvert(_TIME_DISPALY_EM_MASK, _TIME_DISPLAY_EM_MESSAGE);
+		break;	
+#endif		
 		default:
 		CLR_KEYREPEATSTART();
 		CTimerCancelTimerEvent(CKeyRepeatEnableTimerEvent);

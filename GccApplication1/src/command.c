@@ -192,6 +192,7 @@ uint8_t tCmd_FocusSNear[6]={0x81, 0x01, 0x04, 0x08, 0x33, 0xFF};	//Near(Standard
 uint8_t tCmd_AutoFocus[6]={0x81, 0x01, 0x04, 0x38, 0x02, 0xFF};		//Auto Focus 
 uint8_t tCmd_ManualFocus[6]={0x81, 0x01, 0x04, 0x38, 0x03, 0xFF};	//Manual Focus 
 //uint8_t tCmd_OPT[6]={0x81, 0x01, 0x04, 0x18, 0x01, 0xFF};			//One Push AF Trigger
+
 	
 //CAM_AFMode
 uint8_t tCmd_NormalAF[6]={0x81, 0x01, 0x04, 0x57, 0x00, 0xFF};		//AF Movement Mode
@@ -269,9 +270,9 @@ uint8_t tCmd_TitleSet2[16]={0x81, 0x01, 0x04, 0x73, 0x20, 0x1B, 0x1B, 0x1B, 0x1B
 //{0x81, 0x01, 0x04, 0x73, 0x01, 0xmm, 0xnn, 0xpp, 0xqq, 0xrr, 0xss, 0xtt, 0xuu, 0xvv, 0xww, 0xFF} mnpqrstuvw:Setting of Display Characters(1st to 10st Character )
 uint8_t tCmd_TitleSet3[16]={0x81, 0x01, 0x04, 0x73, 0x30, 0x1B, 0x1B, 0x1B, 0x1B, 0x1B, 0x1B, 0x1B, 0x1B, 0x1B, 0x1B, 0xFF};
 //{0x81, 0x01, 0x04, 0x73, 0x02, 0xmm, 0xnn, 0xpp, 0xqq, 0xrr, 0xss, 0xtt, 0xuu, 0xvv, 0xww, 0xFF} mnpqrstuvw:Setting of Display Characters(11st to 20st Character )
-uint8_t tCmd_TitleClear[6]={0x81, 0x01, 0x04, 0x74, 0x1f, 0xFF};	//Title Setting Clear
-uint8_t tCmd_TitleOn[6]={0x81, 0x01, 0x04, 0x74, 0x2f, 0xFF};		//Title Display On
-uint8_t tCmd_TitleOff[6]={0x81, 0x01, 0x04, 0x74, 0x3f, 0xFF};		//Title Display Off	
+uint8_t tCmd_TitleClear[6]={0x81, 0x01, 0x04, 0x74, 0x10, 0xFF};	//Title Setting Clear
+uint8_t tCmd_TitleOn[6]={0x81, 0x01, 0x04, 0x74, 0x20, 0xFF};		//Title Display On
+uint8_t tCmd_TitleOff[6]={0x81, 0x01, 0x04, 0x74, 0x30, 0xFF};		//Title Display Off	
 
 
 #if(_CCD_TYPE_CODE == _CCD_7500)
@@ -300,6 +301,10 @@ uint8_t tCmd_ZoomPosInq[5]={0x81, 0x09, 0x04, 0x47, 0xFF};		//Command Packet
 
 //CAM_FocusPosInq
 uint8_t tCmd_FocusPosInq[5]={0x81, 0x09, 0x04, 0x48, 0xFF};		//Command Packet
+//Inquiry Packet: y0 50 0p 0q 0r 0s FF,  pqrs:Focus Position
+
+//CAM_FocusNearLimitPosInq
+uint8_t tCmd_FocusNearLimitPosInq[5]={0x81, 0x09, 0x04, 0x28, 0xFF};		//Command Packet
 //Inquiry Packet: y0 50 0p 0q 0r 0s FF,  pqrs:Focus Position
 
 //CAM_RGainInq
@@ -698,6 +703,12 @@ const CAM_CMD AllCamCmd[]=
 	},
 
 	{
+		tCmd_FocusNearLimitPosInq,
+		5,
+		_CMD_TYPE_INQUIRY,
+	},	
+
+	{
 		tCmd_WBmodeInq,
 		5,
 		_CMD_TYPE_INQUIRY,
@@ -1073,7 +1084,7 @@ void CAM_SetTitleSet3(uint8_t LineNum, uint8_t* uiTitle)
 	USART_SendCmd(g_stCameraCmd.pCmd, g_stCameraCmd.CmdLen);
 }
 
-void CAM_SetTitleClear(void)
+void CAM_SetTitleClear(uint8_t LineNum)
 {
 	if((g_stStatusCmd.uiModeID == _CAM_480)||(g_stStatusCmd.uiModeID == _CAM_1020))
 	{
@@ -1082,12 +1093,14 @@ void CAM_SetTitleClear(void)
 	else
 	{
 		g_stCameraCmd = AllCamCmd[CAM_Title_Clear];
+		g_stCameraCmd.pCmd[4] = 0x10;
+		g_stCameraCmd.pCmd[4] |= LineNum;
 	}
 	
 	USART_SendCmd(g_stCameraCmd.pCmd, g_stCameraCmd.CmdLen);
 }
 
-void CAM_SetTitleOn(void)
+void CAM_SetTitleOn(uint8_t LineNum)
 {
 	if((g_stStatusCmd.uiModeID == _CAM_480)||(g_stStatusCmd.uiModeID == _CAM_1020))
 	{
@@ -1096,12 +1109,14 @@ void CAM_SetTitleOn(void)
 	else
 	{
 		g_stCameraCmd = AllCamCmd[CAM_Title_On];
+		g_stCameraCmd.pCmd[4] = 0x20;
+		g_stCameraCmd.pCmd[4] |= LineNum;
 	}
 	
 	USART_SendCmd(g_stCameraCmd.pCmd, g_stCameraCmd.CmdLen);
 }
 
-void CAM_SetTitleOff(void)
+void CAM_SetTitleOff(uint8_t LineNum)
 {
 	if((g_stStatusCmd.uiModeID == _CAM_480)||(g_stStatusCmd.uiModeID == _CAM_1020))
 	{
@@ -1110,6 +1125,8 @@ void CAM_SetTitleOff(void)
 	else
 	{
 		g_stCameraCmd = AllCamCmd[CAM_Title_Off];
+		g_stCameraCmd.pCmd[4] = 0x30;
+		g_stCameraCmd.pCmd[4] |= LineNum;
 	}
 	
 
@@ -1176,6 +1193,12 @@ void CAM_InqZoomPos(void)
 void CAM_InqFocusPos(void)
 {
 	g_stCameraCmd = AllCamCmd[CAM_FocusPos_Inq];
+	USART_SendCmd(g_stCameraCmd.pCmd, g_stCameraCmd.CmdLen);
+}
+
+void CAM_InqFocusNearLimitPos(void)
+{
+	g_stCameraCmd = AllCamCmd[CAM_FocusNearLimitPos_Inq];
 	USART_SendCmd(g_stCameraCmd.pCmd, g_stCameraCmd.CmdLen);
 }
 
@@ -1264,6 +1287,19 @@ uint16_t GetFocusPos(void)
 	
 	return uiPos;
 }
+
+
+uint16_t GetFocusNearLimitPos(void)
+{
+	uint16_t uiPos = 0;
+	CAM_InqFocusNearLimitPos();
+	_delay_ms(150);
+	GetInquiryResult(&g_stCameraCmd);
+	uiPos = GetFocusPos();
+
+	return uiPos;
+}
+
 
 uint16_t GetCameraVersion(void)
 {

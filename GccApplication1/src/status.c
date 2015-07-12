@@ -179,7 +179,18 @@ void ProductInfoInit(PRODUCT_INFO* info)
 	info->uiMinorVer = 0;	
 #endif
 #else
-#if(_PRODUCT_TYPE_CODE == _GC_5000B)
+#if(_PRODUCT_TYPE_CODE == _SW_REG)
+	info->uiProductModel[0] = 0x06;//G
+	info->uiProductModel[1] = 0x02;//C
+	info->uiProductModel[2] = 0x1B;//
+	info->uiProductModel[3] = 0x07;//H
+	info->uiProductModel[4] = 0x03;//D 
+	//info->uiProductModel[5] = 0x07;//H
+	//info->uiProductModel[6] = 0x03;//D
+	//info->uiProductModel[7] = 0x01;//B
+	info->uiMajorVer = 1;
+	info->uiMinorVer = 0;
+#elif(_PRODUCT_TYPE_CODE == _GC_5000B)
 	info->uiProductModel[0] = 0x06;//G
 	info->uiProductModel[1] = 0x02;//C
 	info->uiProductModel[2] = 0x1B;//

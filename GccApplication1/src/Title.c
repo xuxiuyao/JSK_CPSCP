@@ -283,7 +283,7 @@ void SetTitle3(void)
 			uiTitle[3] = 0x03; //D
 			#endif
 	}
-	
+
 	// if display White
 	if ((true == g_stStatusCmd.bIsDisplay)&&(_DISPLAY_WHITE& g_stStatusCmd.uiDisplayFlag))
 	{
@@ -292,9 +292,11 @@ void SetTitle3(void)
 			#if(_CCD_TYPE_CODE == _CCD_7500)
 			uiTitle[1] = 'F'; //0x46
 			uiTitle[2] = 'A'; //0x41
+			uiTitle[3] = ' '; //0x41
 			#else
 			uiTitle[1] = 0x05; //F
 			uiTitle[2] = 0x00; //A
+			uiTitle[3] = 0x1B; //A
 			#endif
 		}
 		else if (_WHITE_MODE_FB == g_stStatusCmd.WhiteMode)
@@ -305,6 +307,7 @@ void SetTitle3(void)
 			#else
 			uiTitle[1] = 0x05; //F
 			uiTitle[2] = 0x01; //B
+			uiTitle[3] = 0x1B; //A
 			#endif
 		} 
 		else
@@ -337,10 +340,14 @@ void SetTitle3(void)
 			#else
 				#if(_CCD_TYPE_CODE == _CCD_7500)
 				uiTitle[1] = 'G'; //0x47
+				uiTitle[2] = uiNumberTable[(uint8_t)g_stStatusCmd.GreenMode]; //
+				uiTitle[3] = ' '; //A
 				#else
 				uiTitle[1] = 0x06; //G
-				#endif
 				uiTitle[2] = uiNumberTable[(uint8_t)g_stStatusCmd.GreenMode]; //
+				uiTitle[3] = 0x1B; //A
+				#endif
+				
 			#endif
 		}
 		else
@@ -435,6 +442,86 @@ void SetTitle3(void)
 	CAM_SetTitleSet3(g_stStatusCmd.titleDis.uiTitleVPos, uiTitle);
 }
 
+#if(_FOCUS_OOR_TIPS == 1)
+
+void OORDisplay(void)
+{
+	TITLE_DISPLAY OORDis;
+	OORDis.uiTitleHPos = 0x01;
+	OORDis.uiTitleVPos = 0x09;
+	OORDis.TitleColor = _TITLE_COLOR_YELLOW;
+	OORDis.TitleBlink = _TITLE_BLINK_OFF;
+	
+	#if(_CCD_TYPE_CODE == _CCD_7500)
+	uint8_t uiTitle[10] = {0x20,0x20,0x20,0x20,0x20,0x20,0x20,0x20,0x20,0x20};//space
+	#else
+	uint8_t uiTitle[10] = {0x1b,0x1b,0x1b,0x1b,0x1b,0x1b,0x1b,0x1b,0x1b,0x1b};//space
+	#endif
+	
+
+	//if display focus OOR
+	if((_FOCUS_MODE_AUTO == g_stStatusCmd.FocusMode)&&(_DISPLAY_FOCUS_OOR& g_stStatusCmd.uiDisplayFlag))
+	{
+		if(g_stStatusCmd.uiFocusPos == 0x1000)
+		{
+			#if(_CCD_TYPE_CODE == _CCD_7500)
+			uiTitle[1] = 'T'; //0x46
+			uiTitle[2] = 'O'; //0x41
+			uiTitle[3] = 'O'; //0x41
+			uiTitle[4] = ' '; //0x46
+			uiTitle[5] = 'F'; //0x41
+			uiTitle[6] = 'A'; //0x41
+			uiTitle[7] = 'R'; //0x41
+			
+			#else
+			uiTitle[1] = 0x13; 
+			uiTitle[2] = 0x0e; 
+			uiTitle[3] = 0x0e; 
+			uiTitle[4] = 0x1b; 
+			uiTitle[5] = 0x05; 
+			uiTitle[6] = 0x00; 
+			uiTitle[7] = 0x11; 
+			#endif
+		}
+		else
+		{
+			
+			#if(_CCD_TYPE_CODE == _CCD_7500)
+			uiTitle[1] = 'T'; //0x46
+			uiTitle[2] = 'O'; //0x41
+			uiTitle[3] = 'O'; //0x41
+			uiTitle[4] = ' '; //0x46
+			uiTitle[5] = 'N'; //0x41
+			uiTitle[6] = 'E'; //0x41
+			uiTitle[7] = 'A'; //0x41
+			uiTitle[8] = 'R'; //0x41
+			
+			#else
+			uiTitle[1] = 0x13; //0x46
+			uiTitle[2] = 0x0e; //0x41
+			uiTitle[3] = 0x0e; //0x41
+			uiTitle[4] = 0x1b; //0x46
+			uiTitle[5] = 0x0d; //0x41
+			uiTitle[6] = 0x04; //0x41
+			uiTitle[7] = 0x00; //0x41
+			uiTitle[8] = 0x11; //0x41
+			#endif
+		}
+		
+		
+		
+		CAM_SetTitleSet1(OORDis);
+		CAM_SetTitleSet3(OORDis.uiTitleVPos, uiTitle);
+		CAM_SetTitleOn(OORDis.uiTitleVPos);
+	}
+	else
+	{
+		CAM_SetTitleOff(OORDis.uiTitleVPos);
+	}
+	
+}
+#endif
+
 void TitleHandle(void)
 {
 	if (true == g_bTitle1Change)
@@ -446,6 +533,9 @@ void TitleHandle(void)
 	if (true == g_bTimerChange || true == g_bTitle2Change)
 	{
 		SetTitle3();		
+		#if(_FOCUS_OOR_TIPS == 1)
+		OORDisplay();
+		#endif
 		g_bTimerChange = false;
 		g_bTitle2Change = false;
 	}

@@ -25,6 +25,9 @@
 
 extern void CMessageHandle(void);
 extern void InitCamera(void);
+#if(_FOCUS_OOR_TIPS == 1)
+extern void CFocusOutOfRangeHandle(void);
+#endif
 extern void CReleaseKeyMessageHandle(void);
 extern void WhiteBalanceHandle(void);
 extern void SetWhiteModeNormal(void);

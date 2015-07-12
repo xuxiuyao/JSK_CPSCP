@@ -30,7 +30,9 @@
 #define _AWB_KEY_MASK       (_DISPLAY_KEY_MASK | _WIDE_KEY_MASK)	//自动白平衡 同时按住“显示”键和“缩小”键，进入自动白平衡
 #define _MWB_KEY_MASK       (_DISPLAY_KEY_MASK | _TELE_KEY_MASK)	//手动白平衡 同时按住“放大”和“显示”键，进入手动白平衡
 #define _RB_SWITCH_KEY_MASK       (_WIDE_KEY_MASK | _TELE_KEY_MASK)	//同时按住“放大”和“缩小”键切换R、B选择
-
+#ifdef _TIME_DISPLAY_TO_EM
+#define _TIME_DISPALY_EM_MASK 		(_DISPLAY_KEY_MASK | _TIME_KEY_MASK)
+#endif
 //--------------------------------------------------
 // Definitions of Key Message
 //--------------------------------------------------
@@ -47,6 +49,7 @@ typedef enum{
 	_AWB_KEY_MESSAGE,
 	_MWB_KEY_MESSAGE,
 	_RB_SWITCH_KEY_MESSAGE,
+	_TIME_DISPLAY_EM_MESSAGE,
 	_NONE_KEY_MESSAGE,
 }KEY_MESSAGE;
 #define _KEY_AMOUNT                 8
