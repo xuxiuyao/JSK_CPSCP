@@ -140,6 +140,7 @@ typedef struct{
 	FOCUS_MODE FocusMode;
 	uint16_t uiZoomPos;
 	uint16_t uiFocusPos;
+	
 	bool bStartFar;
 	bool bStartZoomOut;
 	bool bStartNear;
@@ -154,6 +155,7 @@ typedef struct{
 	ZOOM_MODE ZoomMode;
 	FLIP_MODE FlipMode;
 	WB_MODE WBMode;
+	uint16_t uiFocusNearLimit;
 }STATUS_CMD;
 
 typedef struct{

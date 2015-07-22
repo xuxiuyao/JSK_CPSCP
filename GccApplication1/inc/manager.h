@@ -22,6 +22,11 @@
 #define _G3_R_GAIN	0x78
 #endif
 
+#define _FOCUS_A   (-88)
+#define _FOCUS_B   (9)
+#define _FOCUS_C   (-322)
+#define _FOCUS_D   (4310)
+
 
 extern void CMessageHandle(void);
 extern void InitCamera(void);

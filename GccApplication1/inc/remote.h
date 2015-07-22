@@ -53,7 +53,7 @@ typedef enum{
 #define SET_REMOTEREPEATENABLE()       (g_ucRemoteControl |= _BIT3)
 #define CLR_REMOTEREPEATENABLE()       (g_ucRemoteControl &= ~_BIT3)
 
-
+extern uint8_t g_ucValuePortC;
 extern uint8_t g_ucRemoteMessage;
 extern uint8_t g_ucRemoteStateCurr;
 extern uint8_t g_ucRemoteStatePrev;

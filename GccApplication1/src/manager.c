@@ -30,7 +30,10 @@ bool IsInTheTable(const uint16_t* data, uint8_t dataLen, uint16_t value)
 	}
 	return false;
 }
-
+uint16_t GetFocusStep(uint32_t Rate)
+{
+	return _FOCUS_B*Rate*Rate+(_FOCUS_C*Rate)+_FOCUS_D+(((Rate*Rate*Rate)/1000)*_FOCUS_A);
+}
 void GetCamType(uint16_t value)
 {
 	if(IsInTheTable(t480,2,value))
@@ -254,6 +257,7 @@ void ProcessAF(void)
 			GetInquiryResult(&g_stCameraCmd);
 			g_stStatusCmd.uiFocusPos = GetFocusPos();
 			g_stStatusCmd.uiMF = GetMfRateByPos();
+			g_stStatusCmd.uiFocusNearLimit = GetFocusNearLimitPos();
 			#ifdef _DEBUG_PRINTF
 			//MyPrintf("Manual focus!");
 			#endif
@@ -430,21 +434,37 @@ void ProcessWide(void) //zoom out / Far
 			break;
 			case _FOCUS_MODE_MANUAL:
 			{
-				//CAM_InqFocusPos();
-				//_delay_ms(100);
-				//GetInquiryResult(&g_stCameraCmd);
-				//g_stStatusCmd.uiFocusPos = GetFocusPos();
-				//g_stStatusCmd.uiMF = GetMfRateByPos();
+				
 				
 				//if (g_stStatusCmd.uiFocusPos >_FOCUS_POS_MIN)
 				{
 					#ifdef _DEBUG_PRINTF
 					MyPrintf("Execute Focus Far\r\n");
 					#endif
+
+					if(g_stStatusCmd.bStartFar)
+						CAM_SetSFarFocus();
+					else
+					{
+						CAM_InqFocusPos();
+						_delay_ms(100);
+						GetInquiryResult(&g_stCameraCmd);
+						g_stStatusCmd.uiFocusPos = GetFocusPos();
+						g_stStatusCmd.uiFocusPos -= GetFocusStep(g_stStatusCmd.uiXRate + 1);
+						CAM_SetFocusDirect(g_stStatusCmd.uiFocusPos);
+						if(g_stStatusCmd.uiFocusPos <= _FOCUS_POS_MIN)
+						{
+							g_stStatusCmd.uiFocusPos = _FOCUS_POS_MIN;
+							g_stStatusCmd.uiDisplayFlag |= _DISPLAY_FOCUS_END;
+						}
+						else
+						{
+							g_stStatusCmd.uiDisplayFlag &= ~_DISPLAY_FOCUS_END;
+						}
+						g_stStatusCmd.uiMF = GetMfRateByPos();
+					}
 					
-					CAM_SetSFarFocus();
 					
-					g_stStatusCmd.bStartFar = true;
 
 				} 
 				
@@ -452,6 +472,7 @@ void ProcessWide(void) //zoom out / Far
 				g_stStatusCmd.bIsDisplay = true;
 				#endif
 				g_bTitle1Change = true;
+				g_bTitle2Change = true;
 				//g_stStatusCmd.uiDisplayFlag |= _DISPLAY_FOCUS;
 			}
 			break;
@@ -496,7 +517,7 @@ void ProcessTele(void) //zoom in / Near
 				if (_ZOOM_MODE_GRADING == g_stStatusCmd.ZoomMode)
 				{
 					#if(_CCD_TYPE_CODE == _CCD_7500)
-					g_stStatusCmd.bStartFar = false;
+					g_stStatusCmd.bStartNear= false;
 
 					if (g_stStatusCmd.uiXRate<_MAX_RATE-1)
 					{
@@ -567,16 +588,35 @@ void ProcessTele(void) //zoom in / Near
 					#ifdef _DEBUG_PRINTF
 					MyPrintf("Execute Focus Near\r\n");
 					#endif
+					if(g_stStatusCmd.bStartNear)
+						CAM_SetSNearFocus();
+					else
+					{
+						CAM_InqFocusPos();
+						_delay_ms(100);
+						GetInquiryResult(&g_stCameraCmd);
+						g_stStatusCmd.uiFocusPos = GetFocusPos();
+						g_stStatusCmd.uiFocusPos += GetFocusStep(g_stStatusCmd.uiXRate + 1);
+						if(g_stStatusCmd.uiFocusPos >= g_stStatusCmd.uiFocusNearLimit)
+						{
+							g_stStatusCmd.uiFocusPos = g_stStatusCmd.uiFocusNearLimit;
+							g_stStatusCmd.uiDisplayFlag |= _DISPLAY_FOCUS_END;
+						}
+						else
+						{
+							g_stStatusCmd.uiDisplayFlag &= ~_DISPLAY_FOCUS_END;
+						}
+						CAM_SetFocusDirect(g_stStatusCmd.uiFocusPos);
+						g_stStatusCmd.uiMF = GetMfRateByPos();
+					}
 					
-					CAM_SetSNearFocus();
-					
-					g_stStatusCmd.bStartNear = true;
 				}
 				
 				#if(_WIDE_TELE_SET_DISPLAY == 1)
 				g_stStatusCmd.bIsDisplay = true;
 				#endif
 				g_bTitle1Change = true;
+				g_bTitle2Change = true;
 				//g_stStatusCmd.uiDisplayFlag |= _DISPLAY_FOCUS;
 			}
 			break;
@@ -1134,14 +1174,16 @@ void CReleaseKeyMessageHandle(void)
 	
 	bool bDoZoomAndFocusStop = false;
 	
-	if(g_ucWideKeyRelease)
+	if(g_ucWideKeyRelease||g_ucWideRemoteRelease)
 	{
 		g_ucWideKeyRelease = false;
+		g_ucWideRemoteRelease = false;
 		bDoZoomAndFocusStop = true;
 	}
-	else if(g_ucTeleKeyRelease)
+	else if(g_ucTeleKeyRelease||g_ucTeleRemoteRelease)
 	{
 		g_ucTeleKeyRelease = false;
+		g_ucTeleRemoteRelease = false;
 		bDoZoomAndFocusStop = true;
 	}
 

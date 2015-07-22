@@ -48,7 +48,7 @@ void CKeyHandle(void)
 		g_ucKeyStateCurr = CKeyScan();
 
 		// You can set a key as repeatable like this
-		if((_WIDE_KEY_MASK == g_ucKeyStateCurr || _TELE_KEY_MASK == g_ucKeyStateCurr)&&(g_stStatusCmd.ZoomMode == _ZOOM_MODE_GRADING))
+		if((_WIDE_KEY_MASK == g_ucKeyStateCurr || _TELE_KEY_MASK == g_ucKeyStateCurr)&&(g_stStatusCmd.ZoomMode == _ZOOM_MODE_GRADING || g_stStatusCmd.FocusMode == _FOCUS_MODE_MANUAL))
 		{
 			//if (uiKeyCount++>1)
 			{
@@ -84,12 +84,14 @@ uint16_t CKeyScan(void)
 	uint8_t valD;
 	uint8_t ScanCount = 4;
 	
-	valB = PINB;
-	valC = PINC;
-	valD = PIND;
+	
 	
 	do 
 	{
+		valB = PINB;
+		valC = PINC;
+		valD = PIND;
+		
 		if(!(valB & KEY_MASK_AF))
 		{
 			ucKeyState = ucKeyState | _AF_KEY_MASK;
@@ -426,7 +428,23 @@ void CKeyMessageConvert(uint16_t ucKeyMask, uint8_t ucKeyMsg)
 		{
 			if(GET_KEYREPEATSTART())
 			{
-				g_ucKeyMessage = ucKeyMsg;
+				if((g_stStatusCmd.FocusMode == _FOCUS_MODE_MANUAL))
+				{
+					
+					if(g_ucKeyStateCurr == _WIDE_KEY_MASK&& g_stStatusCmd.bStartFar== false)
+					{
+						g_stStatusCmd.bStartFar = true;
+						g_ucKeyMessage = ucKeyMsg;
+					}
+					else if(g_ucKeyStateCurr == _TELE_KEY_MASK&& g_stStatusCmd.bStartNear== false)
+					{
+						g_stStatusCmd.bStartNear = true;
+						g_ucKeyMessage = ucKeyMsg;
+					}
+
+				}
+				else
+					g_ucKeyMessage = ucKeyMsg;
 				//CLR_KEYREPEATSTART();
 			}
 			else

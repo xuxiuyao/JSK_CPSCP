@@ -72,6 +72,7 @@ typedef enum{
 	CAM_Focus_SNear,
 	CAM_Focus_Auto,
 	CAM_Focus_Manual,
+	CAM_Focus_Direct,
 	//CAM_Focus_OPT,
 	CAM_Normal_AF,
 	CAM_Zoom_Focus,
@@ -153,6 +154,7 @@ extern void CAM_SetSFarFocus(void);
 extern void CAM_SetSNearFocus(void);
 extern void CAM_SetAutoFocus(void);
 extern void CAM_SetManualFocus(void);
+extern void CAM_SetFocusDirect(uint16_t FocusPos);
 //extern void CAM_SetOPTFocus(void);
 extern void CAM_SetNormalAF(void);
 extern void CAM_SetZoomFocus(void);

@@ -181,18 +181,13 @@ uint8_t tCmd_StopFocus[6]={0x81, 0x01, 0x04, 0x08, 0x00, 0xFF};		//Stop Focus
 uint8_t tCmd_FocusSFar[6]={0x81, 0x01, 0x04, 0x08, 0x27, 0xFF};		//Far(Standard) Focus
 uint8_t tCmd_FocusSNear[6]={0x81, 0x01, 0x04, 0x08, 0x37, 0xFF};	//Near(Standard) Focus
 #else
-#if(_CCD_TYPE_CODE == 480)
 uint8_t tCmd_FocusSFar[6]={0x81, 0x01, 0x04, 0x08, 0x22, 0xFF};		//Far(Standard) Focus
 uint8_t tCmd_FocusSNear[6]={0x81, 0x01, 0x04, 0x08, 0x32, 0xFF};	//Near(Standard) Focus
-#else
-uint8_t tCmd_FocusSFar[6]={0x81, 0x01, 0x04, 0x08, 0x23, 0xFF};		//Far(Standard) Focus
-uint8_t tCmd_FocusSNear[6]={0x81, 0x01, 0x04, 0x08, 0x33, 0xFF};	//Near(Standard) Focus
-#endif
 #endif
 uint8_t tCmd_AutoFocus[6]={0x81, 0x01, 0x04, 0x38, 0x02, 0xFF};		//Auto Focus 
 uint8_t tCmd_ManualFocus[6]={0x81, 0x01, 0x04, 0x38, 0x03, 0xFF};	//Manual Focus 
 //uint8_t tCmd_OPT[6]={0x81, 0x01, 0x04, 0x18, 0x01, 0xFF};			//One Push AF Trigger
-
+uint8_t tCmd_FocusDirect[9]={0x81, 0x01, 0x04, 0x48, 0x00, 0x00, 0x00, 0x00, 0xFF};		//{0x81, 0x01, 0x04, 0x48, 0x0p, 0x0q, 0x0r, 0x0s, 0xFF} pqrs:Focus Position
 	
 //CAM_AFMode
 uint8_t tCmd_NormalAF[6]={0x81, 0x01, 0x04, 0x57, 0x00, 0xFF};		//AF Movement Mode
@@ -422,6 +417,12 @@ const CAM_CMD AllCamCmd[]=
 	{
 		tCmd_ManualFocus,
 		6,
+		_CMD_TYPE_COMMAND,
+	},
+
+	{
+		tCmd_FocusDirect,
+		9,
 		_CMD_TYPE_COMMAND,
 	},
 	
@@ -850,6 +851,20 @@ void CAM_SetManualFocus(void)
 	USART_SendCmd(g_stCameraCmd.pCmd, g_stCameraCmd.CmdLen);
 	
 	g_stStatusCmd.FocusMode = _FOCUS_MODE_MANUAL;
+}
+
+void CAM_SetFocusDirect(uint16_t FocusPos)
+{
+	g_stCameraCmd = AllCamCmd[CAM_Focus_Direct];
+	//9
+	
+	g_stCameraCmd.pCmd[4] = (FocusPos&0xF000)/0x1000;
+	g_stCameraCmd.pCmd[5] = (FocusPos&0x0F00)/0x100;
+	g_stCameraCmd.pCmd[6] = (FocusPos&0x00F0)/0x10;
+	g_stCameraCmd.pCmd[7] = (FocusPos&0x000F)/0x1;
+	USART_SendCmd(g_stCameraCmd.pCmd, g_stCameraCmd.CmdLen);
+	
+	//_delay_ms(300);
 }
 
 // void CAM_SetOPTFocus(void)

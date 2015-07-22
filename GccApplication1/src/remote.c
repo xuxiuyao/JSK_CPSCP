@@ -5,6 +5,7 @@
  *  Author: ÐíÐÞÒ«
  */ 
 #include "include.h"
+uint8_t g_ucValuePortC = 0;
 uint8_t g_ucRemoteStateCurr = 0;
 uint8_t g_ucRemoteControl = 0;
 uint8_t g_ucRemoteMessage = 0;
@@ -35,7 +36,7 @@ void CRemoteHandle(void)
 		g_ucRemoteStateCurr = CRemoteScan();
 
 		// You can set a Remote as repeatable like this
-		if(_WIDE_KEY_MASK == g_ucRemoteStateCurr || _TELE_KEY_MASK == g_ucRemoteStateCurr)
+		if((_WIDE_KEY_MASK == g_ucRemoteStateCurr || _TELE_KEY_MASK == g_ucRemoteStateCurr)&&(g_stStatusCmd.ZoomMode == _ZOOM_MODE_GRADING || g_stStatusCmd.FocusMode == _FOCUS_MODE_MANUAL))
 		{
 			//if (uiRemoteCount++>1)
 			{
@@ -87,13 +88,15 @@ uint8_t CRemoteScan(void)
 {
 	uint8_t ucRemoteState = 0;
 	uint8_t valC;
-	
+
+
+
 	valC = PINC;
 	
 	if ((valC & REMOTE_MASK_VT))
 	{
 		valC &= REMOTE_MASK_ALL;
-		
+		/*
 		if (REMOTE_MASK_WIDE == valC)
 		{
 			ucRemoteState = ucRemoteState | _WIDE_KEY_MASK;
@@ -125,21 +128,21 @@ uint8_t CRemoteScan(void)
 				#endif
 			}
 		}
-
+*/
 		switch(valC)
 		{
 			case REMOTE_MASK_AF:
 				ucRemoteState = ucRemoteState | _AF_KEY_MASK;
 			break;
-// 			case REMOTE_MASK_WIDE:
-// 				ucRemoteState = ucRemoteState | _WIDE_KEY_MASK;
-// 			break;
+ 			case REMOTE_MASK_WIDE:
+ 				ucRemoteState = ucRemoteState | _WIDE_KEY_MASK;
+ 			break;
 			case REMOTE_MASK_DISPLAY:
 				ucRemoteState = ucRemoteState | _DISPLAY_KEY_MASK;
 			break;
-// 			case REMOTE_MASK_TELE:
-// 				ucRemoteState = ucRemoteState | _TELE_KEY_MASK;
-// 			break;
+ 			case REMOTE_MASK_TELE:
+ 				ucRemoteState = ucRemoteState | _TELE_KEY_MASK;
+ 			break;
 			case REMOTE_MASK_TIME:
 				ucRemoteState = ucRemoteState | _TIME_KEY_MASK;
 			break;
@@ -155,26 +158,30 @@ uint8_t CRemoteScan(void)
 			default:
 			break;
 		}
-		#ifdef _DEBUG_PRINTF
-		//MyPrintf("remote mask is: %d\r\n",valC);
-		#endif
 
-		if(ucRemoteState & _WIDE_KEY_MASK)
-		{
-			g_ucWideRemotePress = true;
-		}
-
-		if(ucRemoteState & _TELE_KEY_MASK)
-		{
-			g_ucTeleRemotePress = true;
-		}
-		
-		if(ucRemoteState != 0)
-		{
-			CLR_REMOTESCANREADY();
-			CLR_REMOTESCANSTART();
-		}
 	}
+
+
+	#ifdef _DEBUG_PRINTF
+	//MyPrintf("remote mask is: %d\r\n",valC);
+	#endif
+
+	if(ucRemoteState & _WIDE_KEY_MASK)
+	{
+		g_ucWideRemotePress = true;
+	}
+
+	if(ucRemoteState & _TELE_KEY_MASK)
+	{
+		g_ucTeleRemotePress = true;
+	}
+	
+	if(ucRemoteState != 0)
+	{
+		CLR_REMOTESCANREADY();
+		CLR_REMOTESCANSTART();
+	}
+
 	return ucRemoteState;
 }
 //--------------------------------------------------
@@ -218,8 +225,24 @@ void CRemoteMessageConvert(uint8_t ucRemoteMask, uint8_t ucRemoteMsg)
 		{
 			if(GET_REMOTEREPEATSTART())
 			{
-				g_ucRemoteMessage = ucRemoteMsg;
-				CLR_REMOTEREPEATSTART();
+				if((g_stStatusCmd.FocusMode == _FOCUS_MODE_MANUAL))
+				{
+					
+					if(g_ucRemoteStateCurr == _WIDE_KEY_MASK&& g_stStatusCmd.bStartFar== false)
+					{
+						g_stStatusCmd.bStartFar = true;
+						g_ucRemoteMessage = ucRemoteMsg;
+					}
+					else if(g_ucRemoteStateCurr == _TELE_KEY_MASK&& g_stStatusCmd.bStartNear== false)
+					{
+						g_stStatusCmd.bStartNear = true;
+						g_ucRemoteMessage = ucRemoteMsg;
+					}
+
+				}
+				else
+					g_ucRemoteMessage = ucRemoteMsg;
+				//CLR_REMOTEREPEATSTART();
 			}
 			else
 			{

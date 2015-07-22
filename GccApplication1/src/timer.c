@@ -80,6 +80,18 @@ ISR(TIMER1_OVF_vect)
 
 	}
 
+	g_ucValuePortC = PINC;
+	if((!(g_ucValuePortC & REMOTE_MASK_VT))&&g_ucWideRemotePress)
+	{
+		g_ucWideRemotePress= false;
+		g_ucWideRemoteRelease= true;
+	}
+
+	if((!(g_ucValuePortC & REMOTE_MASK_VT))&&g_ucTeleRemotePress)
+	{
+		g_ucTeleRemotePress= false;
+		g_ucTeleRemoteRelease= true;
+	}
 	
 	if (!g_bTimer1Ctrl)
 	{
