@@ -1,9 +1,11 @@
 Archive member included because of file (symbol)
 
+c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_mulsi3.o)
+                              src/manager.o (__mulsi3)
 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_divmodhi4.o)
                               src/Title.o (__divmodhi4)
 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_udivmodsi4.o)
-                              src/timer.o (__udivmodsi4)
+                              src/manager.o (__udivmodsi4)
 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_exit.o)
                               c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr5/crtm168pa.o (exit)
 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_tablejump.o)
@@ -12,8 +14,12 @@ c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-t
                               src/command.o (__do_copy_data)
 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_clear_bss.o)
                               src/command.o (__do_clear_bss)
+c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_muluhisi3.o)
+                              c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_mulsi3.o) (__muluhisi3)
 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_udivmodhi4.o)
                               c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_divmodhi4.o) (__udivmodhi4)
+c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_umulhisi3.o)
+                              c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_muluhisi3.o) (__umulhisi3)
 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr5\libc.a(eerd_byte_atmega168pa.o)
                               src/manager.o (__eerd_byte_m168pa)
 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr5\libc.a(eewr_byte_atmega168pa.o)
@@ -23,7 +29,7 @@ Allocating common symbols
 Common symbol       size              file
 
 ReplyBuf            0x20              src/usart.o
-g_stStatusCmd       0x25              src/status.o
+g_stStatusCmd       0x27              src/status.o
 rev_data            0x1               src/usart.o
 g_stCameraCmd       0x2e              src/command.o
 g_stTimerEvent      0x2a              src/timer.o
@@ -53,7 +59,7 @@ Discarded input sections
  .text.CAM_SetCustomRecall
                 0x00000000       0x38 src/command.o
  .text.CAM_SetTitleOff
-                0x00000000       0x74 src/command.o
+                0x00000000       0x82 src/command.o
  .text.CAM_GetType
                 0x00000000       0x38 src/command.o
  .text.CAM_InqWBmode
@@ -63,7 +69,7 @@ Discarded input sections
  .text.GetWBmode
                 0x00000000       0x12 src/command.o
  .rodata.AllCamCmd
-                0x00000000      0x9e2 src/command.o
+                0x00000000      0xa3e src/command.o
  .data.tCmd_WBmodeInq
                 0x00000000        0x5 src/command.o
  .data.tCmd_TitleOff
@@ -104,6 +110,10 @@ Discarded input sections
                 0x00000000        0xa src/manager.o
  .text.ProcessCapture
                 0x00000000       0x26 src/manager.o
+ .bss.g_u8AutoFocusGetMaxCount
+                0x00000000        0x1 src/manager.o
+ .bss.g_u16AutoFocusEnding
+                0x00000000        0x2 src/manager.o
  .text          0x00000000        0x0 src/remote.o
  .data          0x00000000        0x0 src/remote.o
  .bss           0x00000000        0x0 src/remote.o
@@ -127,6 +137,20 @@ Discarded input sections
                 0x00000000       0x64 src/usart.o
  .data.ReplyType
                 0x00000000        0x1 src/usart.o
+ .text          0x00000000        0x0 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_mulsi3.o)
+ .data          0x00000000        0x0 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_mulsi3.o)
+ .bss           0x00000000        0x0 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_mulsi3.o)
+ .text.libgcc.div
+                0x00000000        0x0 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_mulsi3.o)
+ .text.libgcc   0x00000000        0x0 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_mulsi3.o)
+ .text.libgcc.prologue
+                0x00000000        0x0 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_mulsi3.o)
+ .text.libgcc.builtins
+                0x00000000        0x0 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_mulsi3.o)
+ .text.libgcc.fmul
+                0x00000000        0x0 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_mulsi3.o)
+ .text.libgcc.fixed
+                0x00000000        0x0 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_mulsi3.o)
  .text          0x00000000        0x0 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_divmodhi4.o)
  .data          0x00000000        0x0 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_divmodhi4.o)
  .bss           0x00000000        0x0 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_divmodhi4.o)
@@ -218,6 +242,20 @@ Discarded input sections
                 0x00000000        0x0 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_clear_bss.o)
  .text.libgcc.fixed
                 0x00000000        0x0 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_clear_bss.o)
+ .text          0x00000000        0x0 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_muluhisi3.o)
+ .data          0x00000000        0x0 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_muluhisi3.o)
+ .bss           0x00000000        0x0 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_muluhisi3.o)
+ .text.libgcc.div
+                0x00000000        0x0 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_muluhisi3.o)
+ .text.libgcc   0x00000000        0x0 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_muluhisi3.o)
+ .text.libgcc.prologue
+                0x00000000        0x0 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_muluhisi3.o)
+ .text.libgcc.builtins
+                0x00000000        0x0 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_muluhisi3.o)
+ .text.libgcc.fmul
+                0x00000000        0x0 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_muluhisi3.o)
+ .text.libgcc.fixed
+                0x00000000        0x0 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_muluhisi3.o)
  .text          0x00000000        0x0 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_udivmodhi4.o)
  .data          0x00000000        0x0 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_udivmodhi4.o)
  .bss           0x00000000        0x0 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_udivmodhi4.o)
@@ -232,6 +270,20 @@ Discarded input sections
                 0x00000000        0x0 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_udivmodhi4.o)
  .text.libgcc.fixed
                 0x00000000        0x0 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_udivmodhi4.o)
+ .text          0x00000000        0x0 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_umulhisi3.o)
+ .data          0x00000000        0x0 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_umulhisi3.o)
+ .bss           0x00000000        0x0 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_umulhisi3.o)
+ .text.libgcc.div
+                0x00000000        0x0 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_umulhisi3.o)
+ .text.libgcc   0x00000000        0x0 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_umulhisi3.o)
+ .text.libgcc.prologue
+                0x00000000        0x0 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_umulhisi3.o)
+ .text.libgcc.builtins
+                0x00000000        0x0 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_umulhisi3.o)
+ .text.libgcc.fmul
+                0x00000000        0x0 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_umulhisi3.o)
+ .text.libgcc.fixed
+                0x00000000        0x0 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_umulhisi3.o)
  .text          0x00000000        0x0 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr5\libc.a(eerd_byte_atmega168pa.o)
  .data          0x00000000        0x0 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr5\libc.a(eerd_byte_atmega168pa.o)
  .bss           0x00000000        0x0 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr5\libc.a(eerd_byte_atmega168pa.o)
@@ -363,7 +415,7 @@ END GROUP
 .rela.plt
  *(.rela.plt)
 
-.text           0x00000000     0x309a
+.text           0x00000000     0x3482
  *(.vectors)
  .vectors       0x00000000       0x68 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr5/crtm168pa.o
                 0x00000000                __vector_default
@@ -372,42 +424,44 @@ END GROUP
  *(.progmem.gcc*)
  .progmem.gcc_sw_table.CMessageHandle
                 0x00000068       0x28 src/manager.o
-                0x00000090                . = ALIGN (0x2)
-                0x00000090                __trampolines_start = .
+ .progmem.gcc_sw_table.CRemoteScan
+                0x00000090       0x18 src/remote.o
+                0x000000a8                . = ALIGN (0x2)
+                0x000000a8                __trampolines_start = .
  *(.trampolines)
- .trampolines   0x00000090        0x0 linker stubs
+ .trampolines   0x000000a8        0x0 linker stubs
  *(.trampolines*)
-                0x00000090                __trampolines_end = .
+                0x000000a8                __trampolines_end = .
  *(.progmem*)
-                0x00000090                . = ALIGN (0x2)
+                0x000000a8                . = ALIGN (0x2)
  *(.jumptables)
  *(.jumptables*)
  *(.lowtext)
  *(.lowtext*)
-                0x00000090                __ctors_start = .
+                0x000000a8                __ctors_start = .
  *(.ctors)
-                0x00000090                __ctors_end = .
-                0x00000090                __dtors_start = .
+                0x000000a8                __ctors_end = .
+                0x000000a8                __dtors_start = .
  *(.dtors)
-                0x00000090                __dtors_end = .
+                0x000000a8                __dtors_end = .
  SORT(*)(.ctors)
  SORT(*)(.dtors)
  *(.init0)
- .init0         0x00000090        0x0 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr5/crtm168pa.o
-                0x00000090                __init
+ .init0         0x000000a8        0x0 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr5/crtm168pa.o
+                0x000000a8                __init
  *(.init0)
  *(.init1)
  *(.init1)
  *(.init2)
- .init2         0x00000090        0xc c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr5/crtm168pa.o
+ .init2         0x000000a8        0xc c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr5/crtm168pa.o
  *(.init2)
  *(.init3)
  *(.init3)
  *(.init4)
- .init4         0x0000009c       0x16 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_copy_data.o)
-                0x0000009c                __do_copy_data
- .init4         0x000000b2       0x10 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_clear_bss.o)
-                0x000000b2                __do_clear_bss
+ .init4         0x000000b4       0x16 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_copy_data.o)
+                0x000000b4                __do_copy_data
+ .init4         0x000000ca       0x10 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_clear_bss.o)
+                0x000000ca                __do_clear_bss
  *(.init4)
  *(.init5)
  *(.init5)
@@ -418,422 +472,443 @@ END GROUP
  *(.init8)
  *(.init8)
  *(.init9)
- .init9         0x000000c2        0x8 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr5/crtm168pa.o
+ .init9         0x000000da        0x8 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr5/crtm168pa.o
  *(.init9)
  *(.text)
- .text          0x000000ca        0x4 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr5/crtm168pa.o
-                0x000000ca                __vector_22
-                0x000000ca                __vector_1
-                0x000000ca                __vector_24
-                0x000000ca                __vector_12
-                0x000000ca                __bad_interrupt
-                0x000000ca                __vector_6
-                0x000000ca                __vector_3
-                0x000000ca                __vector_23
-                0x000000ca                __vector_25
-                0x000000ca                __vector_11
-                0x000000ca                __vector_17
-                0x000000ca                __vector_19
-                0x000000ca                __vector_7
-                0x000000ca                __vector_5
-                0x000000ca                __vector_4
-                0x000000ca                __vector_9
-                0x000000ca                __vector_2
-                0x000000ca                __vector_21
-                0x000000ca                __vector_15
-                0x000000ca                __vector_8
-                0x000000ca                __vector_14
-                0x000000ca                __vector_10
-                0x000000ca                __vector_16
-                0x000000ca                __vector_20
-                0x000000ce                . = ALIGN (0x2)
+ .text          0x000000e2        0x4 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr5/crtm168pa.o
+                0x000000e2                __vector_22
+                0x000000e2                __vector_1
+                0x000000e2                __vector_24
+                0x000000e2                __vector_12
+                0x000000e2                __bad_interrupt
+                0x000000e2                __vector_6
+                0x000000e2                __vector_3
+                0x000000e2                __vector_23
+                0x000000e2                __vector_25
+                0x000000e2                __vector_11
+                0x000000e2                __vector_17
+                0x000000e2                __vector_19
+                0x000000e2                __vector_7
+                0x000000e2                __vector_5
+                0x000000e2                __vector_4
+                0x000000e2                __vector_9
+                0x000000e2                __vector_2
+                0x000000e2                __vector_21
+                0x000000e2                __vector_15
+                0x000000e2                __vector_8
+                0x000000e2                __vector_14
+                0x000000e2                __vector_10
+                0x000000e2                __vector_16
+                0x000000e2                __vector_20
+                0x000000e6                . = ALIGN (0x2)
  *(.text.*)
  .text.CAM_SetZoomStop
-                0x000000ce       0x38 src/command.o
-                0x000000ce                CAM_SetZoomStop
+                0x000000e6       0x38 src/command.o
+                0x000000e6                CAM_SetZoomStop
  .text.CAM_SetZoomVTele
-                0x00000106       0x38 src/command.o
-                0x00000106                CAM_SetZoomVTele
+                0x0000011e       0x38 src/command.o
+                0x0000011e                CAM_SetZoomVTele
  .text.CAM_SetZoomVWide
-                0x0000013e       0x38 src/command.o
-                0x0000013e                CAM_SetZoomVWide
+                0x00000156       0x38 src/command.o
+                0x00000156                CAM_SetZoomVWide
  .text.CAM_SetZoomDirect
-                0x00000176       0xa0 src/command.o
-                0x00000176                CAM_SetZoomDirect
+                0x0000018e       0xa0 src/command.o
+                0x0000018e                CAM_SetZoomDirect
  .text.CAM_SetDZoomOn
-                0x00000216       0x38 src/command.o
-                0x00000216                CAM_SetDZoomOn
+                0x0000022e       0x38 src/command.o
+                0x0000022e                CAM_SetDZoomOn
  .text.CAM_SetStopFocus
-                0x0000024e       0x38 src/command.o
-                0x0000024e                CAM_SetStopFocus
+                0x00000266       0x38 src/command.o
+                0x00000266                CAM_SetStopFocus
  .text.CAM_SetSFarFocus
-                0x00000286       0x38 src/command.o
-                0x00000286                CAM_SetSFarFocus
+                0x0000029e       0x38 src/command.o
+                0x0000029e                CAM_SetSFarFocus
  .text.CAM_SetSNearFocus
-                0x000002be       0x38 src/command.o
-                0x000002be                CAM_SetSNearFocus
+                0x000002d6       0x38 src/command.o
+                0x000002d6                CAM_SetSNearFocus
  .text.CAM_SetAutoFocus
-                0x000002f6       0x3c src/command.o
-                0x000002f6                CAM_SetAutoFocus
+                0x0000030e       0x3c src/command.o
+                0x0000030e                CAM_SetAutoFocus
  .text.CAM_SetManualFocus
-                0x00000332       0x40 src/command.o
-                0x00000332                CAM_SetManualFocus
+                0x0000034a       0x40 src/command.o
+                0x0000034a                CAM_SetManualFocus
+ .text.CAM_SetFocusDirect
+                0x0000038a       0x6c src/command.o
+                0x0000038a                CAM_SetFocusDirect
  .text.CAM_SetNormalAF
-                0x00000372       0x38 src/command.o
-                0x00000372                CAM_SetNormalAF
+                0x000003f6       0x38 src/command.o
+                0x000003f6                CAM_SetNormalAF
  .text.CAM_SetWBATW
-                0x000003aa       0x38 src/command.o
-                0x000003aa                CAM_SetWBATW
+                0x0000042e       0x38 src/command.o
+                0x0000042e                CAM_SetWBATW
  .text.CAM_SetWBMaunal
-                0x000003e2       0x38 src/command.o
-                0x000003e2                CAM_SetWBMaunal
+                0x00000466       0x38 src/command.o
+                0x00000466                CAM_SetWBMaunal
  .text.CAM_SetRGainDirect
-                0x0000041a       0x4a src/command.o
-                0x0000041a                CAM_SetRGainDirect
+                0x0000049e       0x4a src/command.o
+                0x0000049e                CAM_SetRGainDirect
  .text.CAM_SetBGainDirect
-                0x00000464       0x4a src/command.o
-                0x00000464                CAM_SetBGainDirect
+                0x000004e8       0x4a src/command.o
+                0x000004e8                CAM_SetBGainDirect
  .text.CAM_SetApertureReset
-                0x000004ae       0x38 src/command.o
-                0x000004ae                CAM_SetApertureReset
+                0x00000532       0x38 src/command.o
+                0x00000532                CAM_SetApertureReset
  .text.CAM_SetApertureDirect
-                0x000004e6       0x4e src/command.o
-                0x000004e6                CAM_SetApertureDirect
+                0x0000056a       0x4e src/command.o
+                0x0000056a                CAM_SetApertureDirect
  .text.CAM_SetFreezeOn
-                0x00000534       0x38 src/command.o
-                0x00000534                CAM_SetFreezeOn
+                0x000005b8       0x38 src/command.o
+                0x000005b8                CAM_SetFreezeOn
  .text.CAM_SetFreezeOff
-                0x0000056c       0x38 src/command.o
-                0x0000056c                CAM_SetFreezeOff
+                0x000005f0       0x38 src/command.o
+                0x000005f0                CAM_SetFreezeOff
  .text.CAM_SetPicEffectOff
-                0x000005a4       0x38 src/command.o
-                0x000005a4                CAM_SetPicEffectOff
+                0x00000628       0x38 src/command.o
+                0x00000628                CAM_SetPicEffectOff
  .text.CAM_SetPicEffectBW
-                0x000005dc       0x38 src/command.o
-                0x000005dc                CAM_SetPicEffectBW
+                0x00000660       0x38 src/command.o
+                0x00000660                CAM_SetPicEffectBW
  .text.CAM_SetFlipOn
-                0x00000614       0x38 src/command.o
-                0x00000614                CAM_SetFlipOn
+                0x00000698       0x38 src/command.o
+                0x00000698                CAM_SetFlipOn
  .text.CAM_SetFlipOff
-                0x0000064c       0x38 src/command.o
-                0x0000064c                CAM_SetFlipOff
+                0x000006d0       0x38 src/command.o
+                0x000006d0                CAM_SetFlipOff
  .text.CAM_SetMirrorOn
-                0x00000684       0x38 src/command.o
-                0x00000684                CAM_SetMirrorOn
+                0x00000708       0x38 src/command.o
+                0x00000708                CAM_SetMirrorOn
  .text.CAM_SetMirrorOff
-                0x000006bc       0x38 src/command.o
-                0x000006bc                CAM_SetMirrorOff
+                0x00000740       0x38 src/command.o
+                0x00000740                CAM_SetMirrorOff
  .text.CAM_SetCustomSet
-                0x000006f4       0x38 src/command.o
-                0x000006f4                CAM_SetCustomSet
+                0x00000778       0x38 src/command.o
+                0x00000778                CAM_SetCustomSet
  .text.CAM_SetTitleSet1
-                0x0000072c       0x8e src/command.o
-                0x0000072c                CAM_SetTitleSet1
+                0x000007b0       0x8e src/command.o
+                0x000007b0                CAM_SetTitleSet1
  .text.CAM_SetTitleSet2
-                0x000007ba       0xa8 src/command.o
-                0x000007ba                CAM_SetTitleSet2
+                0x0000083e       0xa8 src/command.o
+                0x0000083e                CAM_SetTitleSet2
  .text.CAM_SetTitleSet3
-                0x00000862       0xa8 src/command.o
-                0x00000862                CAM_SetTitleSet3
+                0x000008e6       0xa8 src/command.o
+                0x000008e6                CAM_SetTitleSet3
  .text.CAM_SetTitleClear
-                0x0000090a       0x74 src/command.o
-                0x0000090a                CAM_SetTitleClear
+                0x0000098e       0x82 src/command.o
+                0x0000098e                CAM_SetTitleClear
  .text.CAM_SetTitleOn
-                0x0000097e       0x74 src/command.o
-                0x0000097e                CAM_SetTitleOn
+                0x00000a10       0x82 src/command.o
+                0x00000a10                CAM_SetTitleOn
  .text.CAM_SetSAVEAVOn
-                0x000009f2       0x38 src/command.o
-                0x000009f2                CAM_SetSAVEAVOn
+                0x00000a92       0x38 src/command.o
+                0x00000a92                CAM_SetSAVEAVOn
  .text.CAM_InqZoomPos
-                0x00000a2a       0x38 src/command.o
-                0x00000a2a                CAM_InqZoomPos
+                0x00000aca       0x38 src/command.o
+                0x00000aca                CAM_InqZoomPos
  .text.CAM_InqFocusPos
-                0x00000a62       0x38 src/command.o
-                0x00000a62                CAM_InqFocusPos
+                0x00000b02       0x38 src/command.o
+                0x00000b02                CAM_InqFocusPos
+ .text.CAM_InqFocusNearLimitPos
+                0x00000b3a       0x38 src/command.o
+                0x00000b3a                CAM_InqFocusNearLimitPos
  .text.CAM_InqRGain
-                0x00000a9a       0x38 src/command.o
-                0x00000a9a                CAM_InqRGain
+                0x00000b72       0x38 src/command.o
+                0x00000b72                CAM_InqRGain
  .text.CAM_InqBGain
-                0x00000ad2       0x38 src/command.o
-                0x00000ad2                CAM_InqBGain
+                0x00000baa       0x38 src/command.o
+                0x00000baa                CAM_InqBGain
  .text.CAM_InqID
-                0x00000b0a       0x38 src/command.o
-                0x00000b0a                CAM_InqID
+                0x00000be2       0x38 src/command.o
+                0x00000be2                CAM_InqID
  .text.CAM_InqVersion
-                0x00000b42       0x38 src/command.o
-                0x00000b42                CAM_InqVersion
+                0x00000c1a       0x38 src/command.o
+                0x00000c1a                CAM_InqVersion
  .text.GetCameraId
-                0x00000b7a       0x52 src/command.o
-                0x00000b7a                GetCameraId
+                0x00000c52       0x52 src/command.o
+                0x00000c52                GetCameraId
  .text.GetZoomPos
-                0x00000bcc       0x4a src/command.o
-                0x00000bcc                GetZoomPos
+                0x00000ca4       0x4a src/command.o
+                0x00000ca4                GetZoomPos
  .text.GetFocusPos
-                0x00000c16       0x4a src/command.o
-                0x00000c16                GetFocusPos
+                0x00000cee       0x4a src/command.o
+                0x00000cee                GetFocusPos
  .text.GetCameraVersion
-                0x00000c60       0x14 src/command.o
-                0x00000c60                GetCameraVersion
+                0x00000d38       0x14 src/command.o
+                0x00000d38                GetCameraVersion
  .text.GetRGain
-                0x00000c74       0x20 src/command.o
-                0x00000c74                GetRGain
+                0x00000d4c       0x20 src/command.o
+                0x00000d4c                GetRGain
  .text.GetBGain
-                0x00000c94       0x20 src/command.o
-                0x00000c94                GetBGain
+                0x00000d6c       0x20 src/command.o
+                0x00000d6c                GetBGain
  .text.CommandInit
-                0x00000cb4       0x6c src/command.o
-                0x00000cb4                CommandInit
+                0x00000d8c       0x6c src/command.o
+                0x00000d8c                CommandInit
  .text.CommandLoadBuf
-                0x00000d20       0x7e src/command.o
-                0x00000d20                CommandLoadBuf
+                0x00000df8       0x7e src/command.o
+                0x00000df8                CommandLoadBuf
  .text.GetInquiryResult
-                0x00000d9e       0x36 src/command.o
-                0x00000d9e                GetInquiryResult
+                0x00000e76       0x36 src/command.o
+                0x00000e76                GetInquiryResult
+ .text.GetFocusNearLimitPos
+                0x00000eac       0x24 src/command.o
+                0x00000eac                GetFocusNearLimitPos
  .text.CommandHandle
-                0x00000dd4       0x2a src/command.o
-                0x00000dd4                CommandHandle
+                0x00000ed0       0x2a src/command.o
+                0x00000ed0                CommandHandle
  .text.CKeyScanReadyTimerEvent
-                0x00000dfe        0xc src/key.o
-                0x00000dfe                CKeyScanReadyTimerEvent
+                0x00000efa        0xc src/key.o
+                0x00000efa                CKeyScanReadyTimerEvent
  .text.CKeyRepeatEnableTimerEvent
-                0x00000e0a        0xc src/key.o
-                0x00000e0a                CKeyRepeatEnableTimerEvent
- .text.KeyInit  0x00000e16       0x14 src/key.o
-                0x00000e16                KeyInit
+                0x00000f06        0xc src/key.o
+                0x00000f06                CKeyRepeatEnableTimerEvent
+ .text.KeyInit  0x00000f12       0x14 src/key.o
+                0x00000f12                KeyInit
  .text.CKeyScan
-                0x00000e2a       0x90 src/key.o
-                0x00000e2a                CKeyScan
+                0x00000f26       0x62 src/key.o
+                0x00000f26                CKeyScan
  .text.CKeyScanReady
-                0x00000eba       0x36 src/key.o
-                0x00000eba                CKeyScanReady
+                0x00000f88       0x36 src/key.o
+                0x00000f88                CKeyScanReady
  .text.CKeyMessageConvert
-                0x00000ef0       0x46 src/key.o
-                0x00000ef0                CKeyMessageConvert
+                0x00000fbe       0x82 src/key.o
+                0x00000fbe                CKeyMessageConvert
  .text.CKeyMessageProc
-                0x00000f36      0x106 src/key.o
-                0x00000f36                CKeyMessageProc
+                0x00001040      0x106 src/key.o
+                0x00001040                CKeyMessageProc
  .text.CKeyHandle
-                0x0000103c       0x58 src/key.o
-                0x0000103c                CKeyHandle
- .text.LedInit  0x00001094        0x4 src/led.o
-                0x00001094                LedInit
- .text.LedOn    0x00001098        0x4 src/led.o
-                0x00001098                LedOn
- .text.LedOff   0x0000109c        0x4 src/led.o
-                0x0000109c                LedOff
+                0x00001146       0x60 src/key.o
+                0x00001146                CKeyHandle
+ .text.LedInit  0x000011a6        0x4 src/led.o
+                0x000011a6                LedInit
+ .text.LedOn    0x000011aa        0x4 src/led.o
+                0x000011aa                LedOn
+ .text.LedOff   0x000011ae        0x4 src/led.o
+                0x000011ae                LedOff
  .text.LedFlashing
-                0x000010a0       0x44 src/led.o
-                0x000010a0                LedFlashing
+                0x000011b2       0x44 src/led.o
+                0x000011b2                LedFlashing
  .text.SystemInit
-                0x000010e4       0x1e src/main.o
-                0x000010e4                SystemInit
+                0x000011f6       0x1e src/main.o
+                0x000011f6                SystemInit
  .text.PowerDetect
-                0x00001102       0x34 src/main.o
-                0x00001102                PowerDetect
- .text.main     0x00001136       0x6a src/main.o
-                0x00001136                main
+                0x00001214       0x34 src/main.o
+                0x00001214                PowerDetect
+ .text.main     0x00001248       0x6a src/main.o
+                0x00001248                main
  .text.IsInTheTable
-                0x000011a0       0x36 src/manager.o
-                0x000011a0                IsInTheTable
+                0x000012b2       0x36 src/manager.o
+                0x000012b2                IsInTheTable
+ .text.GetFocusStep
+                0x000012e8       0x7a src/manager.o
+                0x000012e8                GetFocusStep
  .text.GetCamType
-                0x000011d6       0x70 src/manager.o
-                0x000011d6                GetCamType
+                0x00001362       0x70 src/manager.o
+                0x00001362                GetCamType
  .text.InitFlashDelay
-                0x00001246       0x46 src/manager.o
-                0x00001246                InitFlashDelay
+                0x000013d2       0x46 src/manager.o
+                0x000013d2                InitFlashDelay
  .text.InitCamera
-                0x0000128c      0x224 src/manager.o
-                0x0000128c                InitCamera
+                0x00001418      0x258 src/manager.o
+                0x00001418                InitCamera
  .text.GetXRateByPos
-                0x000014b0       0xa2 src/manager.o
-                0x000014b0                GetXRateByPos
+                0x00001670       0xa2 src/manager.o
+                0x00001670                GetXRateByPos
  .text.ProcessAF
-                0x00001552       0xac src/manager.o
-                0x00001552                ProcessAF
+                0x00001712       0xba src/manager.o
+                0x00001712                ProcessAF
  .text.ProcessDisplay
-                0x000015fe       0x46 src/manager.o
-                0x000015fe                ProcessDisplay
+                0x000017cc       0x46 src/manager.o
+                0x000017cc                ProcessDisplay
  .text.ProcessWide
-                0x00001644      0x10c src/manager.o
-                0x00001644                ProcessWide
+                0x00001812      0x19c src/manager.o
+                0x00001812                ProcessWide
  .text.ProcessTele
-                0x00001750      0x10c src/manager.o
-                0x00001750                ProcessTele
+                0x000019ae      0x19e src/manager.o
+                0x000019ae                ProcessTele
  .text.ProcessTime
-                0x0000185c       0x1c src/manager.o
-                0x0000185c                ProcessTime
+                0x00001b4c       0x1c src/manager.o
+                0x00001b4c                ProcessTime
  .text.ProcessAutoWB
-                0x00001878       0x96 src/manager.o
-                0x00001878                ProcessAutoWB
+                0x00001b68       0x96 src/manager.o
+                0x00001b68                ProcessAutoWB
  .text.ProcessManualWB
-                0x0000190e       0x9a src/manager.o
-                0x0000190e                ProcessManualWB
+                0x00001bfe       0x9a src/manager.o
+                0x00001bfe                ProcessManualWB
  .text.ProcessSwitchRB
-                0x000019a8       0x54 src/manager.o
-                0x000019a8                ProcessSwitchRB
+                0x00001c98       0x54 src/manager.o
+                0x00001c98                ProcessSwitchRB
  .text.CReleaseKeyMessageHandle
-                0x000019fc      0x26c src/manager.o
-                0x000019fc                CReleaseKeyMessageHandle
+                0x00001cec      0x284 src/manager.o
+                0x00001cec                CReleaseKeyMessageHandle
  .text.WhiteBalanceHandle
-                0x00001c68       0x5c src/manager.o
-                0x00001c68                WhiteBalanceHandle
+                0x00001f70       0x5c src/manager.o
+                0x00001f70                WhiteBalanceHandle
  .text.SetWhiteModeNormal
-                0x00001cc4       0x20 src/manager.o
-                0x00001cc4                SetWhiteModeNormal
+                0x00001fcc       0x20 src/manager.o
+                0x00001fcc                SetWhiteModeNormal
  .text.SetWhiteModeFA
-                0x00001ce4       0x1e src/manager.o
-                0x00001ce4                SetWhiteModeFA
+                0x00001fec       0x1e src/manager.o
+                0x00001fec                SetWhiteModeFA
  .text.SetWhiteModeFB
-                0x00001d02       0x20 src/manager.o
-                0x00001d02                SetWhiteModeFB
+                0x0000200a       0x20 src/manager.o
+                0x0000200a                SetWhiteModeFB
  .text.SetFilterG1
-                0x00001d22       0x3a src/manager.o
-                0x00001d22                SetFilterG1
+                0x0000202a       0x3a src/manager.o
+                0x0000202a                SetFilterG1
  .text.SetFilterG2
-                0x00001d5c       0x3c src/manager.o
-                0x00001d5c                SetFilterG2
+                0x00002064       0x3c src/manager.o
+                0x00002064                SetFilterG2
  .text.SetFilterG3
-                0x00001d98       0x3c src/manager.o
-                0x00001d98                SetFilterG3
+                0x000020a0       0x3c src/manager.o
+                0x000020a0                SetFilterG3
  .text.SaveRBGainValue
-                0x00001dd4      0x12e src/manager.o
-                0x00001dd4                SaveRBGainValue
+                0x000020dc      0x12e src/manager.o
+                0x000020dc                SaveRBGainValue
  .text.ProcessFreeze
-                0x00001f02       0x3c src/manager.o
-                0x00001f02                ProcessFreeze
+                0x0000220a       0x3c src/manager.o
+                0x0000220a                ProcessFreeze
  .text.UnSaveRBGainValue
-                0x00001f3e       0x64 src/manager.o
-                0x00001f3e                UnSaveRBGainValue
+                0x00002246       0x64 src/manager.o
+                0x00002246                UnSaveRBGainValue
  .text.ProcessWhite
-                0x00001fa2       0x62 src/manager.o
-                0x00001fa2                ProcessWhite
+                0x000022aa       0x62 src/manager.o
+                0x000022aa                ProcessWhite
  .text.ProcessFilter
-                0x00002004       0x42 src/manager.o
-                0x00002004                ProcessFilter
+                0x0000230c       0x42 src/manager.o
+                0x0000230c                ProcessFilter
  .text.SetMirrorOn
-                0x00002046       0x5c src/manager.o
-                0x00002046                SetMirrorOn
+                0x0000234e       0x6e src/manager.o
+                0x0000234e                SetMirrorOn
  .text.SetMirrorOff
-                0x000020a2       0x5a src/manager.o
-                0x000020a2                SetMirrorOff
+                0x000023bc       0x68 src/manager.o
+                0x000023bc                SetMirrorOff
  .text.SetFlipOn
-                0x000020fc       0x5a src/manager.o
-                0x000020fc                SetFlipOn
+                0x00002424       0x6c src/manager.o
+                0x00002424                SetFlipOn
  .text.SetFlipOff
-                0x00002156       0x5a src/manager.o
-                0x00002156                SetFlipOff
+                0x00002490       0x68 src/manager.o
+                0x00002490                SetFlipOff
  .text.ProcessEM
-                0x000021b0       0x40 src/manager.o
-                0x000021b0                ProcessEM
+                0x000024f8       0x40 src/manager.o
+                0x000024f8                ProcessEM
  .text.CMessageHandle
-                0x000021f0       0xa2 src/manager.o
-                0x000021f0                CMessageHandle
+                0x00002538       0xa2 src/manager.o
+                0x00002538                CMessageHandle
  .text.CRemoteScanReadyTimerEvent
-                0x00002292        0xc src/remote.o
-                0x00002292                CRemoteScanReadyTimerEvent
+                0x000025da        0xc src/remote.o
+                0x000025da                CRemoteScanReadyTimerEvent
  .text.CRemoteRepeatEnableTimerEvent
-                0x0000229e        0xc src/remote.o
-                0x0000229e                CRemoteRepeatEnableTimerEvent
+                0x000025e6        0xc src/remote.o
+                0x000025e6                CRemoteRepeatEnableTimerEvent
  .text.RemoteInit
-                0x000022aa        0xc src/remote.o
-                0x000022aa                RemoteInit
+                0x000025f2        0xc src/remote.o
+                0x000025f2                RemoteInit
  .text.CRemoteScanReady
-                0x000022b6       0x36 src/remote.o
-                0x000022b6                CRemoteScanReady
+                0x000025fe       0x36 src/remote.o
+                0x000025fe                CRemoteScanReady
  .text.CRemoteScan
-                0x000022ec       0x9a src/remote.o
-                0x000022ec                CRemoteScan
+                0x00002634       0x64 src/remote.o
+                0x00002634                CRemoteScan
  .text.CRemoteMessageConvert
-                0x00002386       0x3e src/remote.o
-                0x00002386                CRemoteMessageConvert
+                0x00002698       0x70 src/remote.o
+                0x00002698                CRemoteMessageConvert
  .text.CRemoteMessageProc
-                0x000023c4       0x92 src/remote.o
-                0x000023c4                CRemoteMessageProc
+                0x00002708       0x92 src/remote.o
+                0x00002708                CRemoteMessageProc
  .text.CRemoteHandle
-                0x00002456       0x42 src/remote.o
-                0x00002456                CRemoteHandle
+                0x0000279a       0x52 src/remote.o
+                0x0000279a                CRemoteHandle
  .text.StatusInit
-                0x00002498       0x50 src/status.o
-                0x00002498                StatusInit
+                0x000027ec       0x50 src/status.o
+                0x000027ec                StatusInit
  .text.ProductInfoInit
-                0x000024e8       0x5e src/status.o
-                0x000024e8                ProductInfoInit
+                0x0000283c       0x5e src/status.o
+                0x0000283c                ProductInfoInit
  .text.CTimerInit
-                0x00002546       0x26 src/timer.o
-                0x00002546                CTimerInit
+                0x0000289a       0x26 src/timer.o
+                0x0000289a                CTimerInit
  .text.CTimerHandle
-                0x0000256c       0x5e src/timer.o
-                0x0000256c                CTimerHandle
+                0x000028c0       0x5e src/timer.o
+                0x000028c0                CTimerHandle
  .text.CTimerDecreaseTimerCnt
-                0x000025ca       0x44 src/timer.o
-                0x000025ca                CTimerDecreaseTimerCnt
+                0x0000291e       0x44 src/timer.o
+                0x0000291e                CTimerDecreaseTimerCnt
  .text.__vector_13
-                0x0000260e      0x162 src/timer.o
-                0x0000260e                __vector_13
+                0x00002962      0x196 src/timer.o
+                0x00002962                __vector_13
  .text.CTimerActiveTimerEvent
-                0x00002770       0xc0 src/timer.o
-                0x00002770                CTimerActiveTimerEvent
+                0x00002af8       0xc0 src/timer.o
+                0x00002af8                CTimerActiveTimerEvent
  .text.CTimerReactiveTimerEvent
-                0x00002830       0x70 src/timer.o
-                0x00002830                CTimerReactiveTimerEvent
+                0x00002bb8       0x70 src/timer.o
+                0x00002bb8                CTimerReactiveTimerEvent
  .text.CTimerCancelTimerEvent
-                0x000028a0       0x40 src/timer.o
-                0x000028a0                CTimerCancelTimerEvent
+                0x00002c28       0x40 src/timer.o
+                0x00002c28                CTimerCancelTimerEvent
  .text.CTimerInitialTimerEvent
-                0x000028e0       0x22 src/timer.o
-                0x000028e0                CTimerInitialTimerEvent
+                0x00002c68       0x22 src/timer.o
+                0x00002c68                CTimerInitialTimerEvent
  .text.SetTitle2
-                0x00002902      0x126 src/Title.o
-                0x00002902                SetTitle2
+                0x00002c8a      0x126 src/Title.o
+                0x00002c8a                SetTitle2
  .text.SetTitle3
-                0x00002a28      0x23a src/Title.o
-                0x00002a28                SetTitle3
+                0x00002db0      0x246 src/Title.o
+                0x00002db0                SetTitle3
  .text.TitleHandle
-                0x00002c62       0x3a src/Title.o
-                0x00002c62                TitleHandle
+                0x00002ff6       0x3a src/Title.o
+                0x00002ff6                TitleHandle
  .text.ShowProductInfo
-                0x00002c9c      0x206 src/Title.o
-                0x00002c9c                ShowProductInfo
+                0x00003030      0x206 src/Title.o
+                0x00003030                ShowProductInfo
  .text.__vector_18
-                0x00002ea2       0xc8 src/usart.o
-                0x00002ea2                __vector_18
+                0x00003236       0xc8 src/usart.o
+                0x00003236                __vector_18
  .text.USART_Init
-                0x00002f6a       0x16 src/usart.o
-                0x00002f6a                USART_Init
+                0x000032fe       0x16 src/usart.o
+                0x000032fe                USART_Init
  .text.MY_USART_Init
-                0x00002f80        0xa src/usart.o
-                0x00002f80                MY_USART_Init
+                0x00003314        0xa src/usart.o
+                0x00003314                MY_USART_Init
  .text.USART_SendUChar
-                0x00002f8a       0x10 src/usart.o
-                0x00002f8a                USART_SendUChar
+                0x0000331e       0x10 src/usart.o
+                0x0000331e                USART_SendUChar
  .text.USART_SendCmd
-                0x00002f9a       0x30 src/usart.o
-                0x00002f9a                USART_SendCmd
+                0x0000332e       0x30 src/usart.o
+                0x0000332e                USART_SendCmd
+ .text.libgcc.mul
+                0x0000335e       0x20 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_mulsi3.o)
+                0x0000335e                __mulsi3
  .text.libgcc.div
-                0x00002fca       0x28 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_divmodhi4.o)
-                0x00002fca                _div
-                0x00002fca                __divmodhi4
+                0x0000337e       0x28 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_divmodhi4.o)
+                0x0000337e                _div
+                0x0000337e                __divmodhi4
  .text.libgcc.div
-                0x00002ff2       0x44 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_udivmodsi4.o)
-                0x00002ff2                __udivmodsi4
- .text.libgcc   0x00003036        0xc c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_tablejump.o)
-                0x00003036                __tablejump2__
-                0x0000303a                __tablejump__
+                0x000033a6       0x44 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_udivmodsi4.o)
+                0x000033a6                __udivmodsi4
+ .text.libgcc   0x000033ea        0xc c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_tablejump.o)
+                0x000033ea                __tablejump2__
+                0x000033ee                __tablejump__
+ .text.libgcc.mul
+                0x000033f6       0x16 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_muluhisi3.o)
+                0x000033f6                __muluhisi3
  .text.libgcc.div
-                0x00003042       0x28 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_udivmodhi4.o)
-                0x00003042                __udivmodhi4
+                0x0000340c       0x28 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_udivmodhi4.o)
+                0x0000340c                __udivmodhi4
+ .text.libgcc.mul
+                0x00003434       0x1e c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_umulhisi3.o)
+                0x00003434                __umulhisi3
  .text.avr-libc
-                0x0000306a       0x10 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr5\libc.a(eerd_byte_atmega168pa.o)
-                0x0000306a                __eerd_byte_m168pa
+                0x00003452       0x10 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr5\libc.a(eerd_byte_atmega168pa.o)
+                0x00003452                __eerd_byte_m168pa
  .text.avr-libc
-                0x0000307a       0x1c c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr5\libc.a(eewr_byte_atmega168pa.o)
-                0x0000307a                __eewr_byte_m168pa
-                0x0000307c                __eewr_r18_m168pa
-                0x00003096                . = ALIGN (0x2)
+                0x00003462       0x1c c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr5\libc.a(eewr_byte_atmega168pa.o)
+                0x00003462                __eewr_byte_m168pa
+                0x00003464                __eewr_r18_m168pa
+                0x0000347e                . = ALIGN (0x2)
  *(.fini9)
- .fini9         0x00003096        0x0 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_exit.o)
-                0x00003096                _exit
-                0x00003096                exit
+ .fini9         0x0000347e        0x0 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_exit.o)
+                0x0000347e                _exit
+                0x0000347e                exit
  *(.fini9)
  *(.fini8)
  *(.fini8)
@@ -852,11 +927,11 @@ END GROUP
  *(.fini1)
  *(.fini1)
  *(.fini0)
- .fini0         0x00003096        0x4 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_exit.o)
+ .fini0         0x0000347e        0x4 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_exit.o)
  *(.fini0)
-                0x0000309a                _etext = .
+                0x00003482                _etext = .
 
-.data           0x00800100      0x222 load address 0x0000309a
+.data           0x00800100      0x230 load address 0x00003482
                 0x00800100                PROVIDE (__data_start, .)
  *(.data)
  *(.data*)
@@ -872,257 +947,266 @@ END GROUP
  .data.tCmd_RGainInq
                 0x0080010f        0x5 src/command.o
                 0x0080010f                tCmd_RGainInq
- .data.tCmd_FocusPosInq
+ .data.tCmd_FocusNearLimitPosInq
                 0x00800114        0x5 src/command.o
-                0x00800114                tCmd_FocusPosInq
- .data.tCmd_ZoomPosInq
+                0x00800114                tCmd_FocusNearLimitPosInq
+ .data.tCmd_FocusPosInq
                 0x00800119        0x5 src/command.o
-                0x00800119                tCmd_ZoomPosInq
+                0x00800119                tCmd_FocusPosInq
+ .data.tCmd_ZoomPosInq
+                0x0080011e        0x5 src/command.o
+                0x0080011e                tCmd_ZoomPosInq
  .data.tCmd_SAVEAVOn
-                0x0080011e        0x8 src/command.o
-                0x0080011e                tCmd_SAVEAVOn
+                0x00800123        0x8 src/command.o
+                0x00800123                tCmd_SAVEAVOn
  .data.tCmd_TitleOn
-                0x00800126        0x6 src/command.o
-                0x00800126                tCmd_TitleOn
+                0x0080012b        0x6 src/command.o
+                0x0080012b                tCmd_TitleOn
  .data.tCmd_TitleClear
-                0x0080012c        0x6 src/command.o
-                0x0080012c                tCmd_TitleClear
+                0x00800131        0x6 src/command.o
+                0x00800131                tCmd_TitleClear
  .data.tCmd_TitleSet3
-                0x00800132       0x10 src/command.o
-                0x00800132                tCmd_TitleSet3
+                0x00800137       0x10 src/command.o
+                0x00800137                tCmd_TitleSet3
  .data.tCmd_TitleSet2
-                0x00800142       0x10 src/command.o
-                0x00800142                tCmd_TitleSet2
+                0x00800147       0x10 src/command.o
+                0x00800147                tCmd_TitleSet2
  .data.tCmd_TitleSet1
-                0x00800152       0x10 src/command.o
-                0x00800152                tCmd_TitleSet1
+                0x00800157       0x10 src/command.o
+                0x00800157                tCmd_TitleSet1
  .data.tCmd_TitleOn_480
-                0x00800162        0x6 src/command.o
-                0x00800162                tCmd_TitleOn_480
+                0x00800167        0x6 src/command.o
+                0x00800167                tCmd_TitleOn_480
  .data.tCmd_TitleClear_480
-                0x00800168        0x6 src/command.o
-                0x00800168                tCmd_TitleClear_480
+                0x0080016d        0x6 src/command.o
+                0x0080016d                tCmd_TitleClear_480
  .data.tCmd_TitleSet3_480
-                0x0080016e       0x10 src/command.o
-                0x0080016e                tCmd_TitleSet3_480
+                0x00800173       0x10 src/command.o
+                0x00800173                tCmd_TitleSet3_480
  .data.tCmd_TitleSet2_480
-                0x0080017e       0x10 src/command.o
-                0x0080017e                tCmd_TitleSet2_480
+                0x00800183       0x10 src/command.o
+                0x00800183                tCmd_TitleSet2_480
  .data.tCmd_TitleSet1_480
-                0x0080018e       0x10 src/command.o
-                0x0080018e                tCmd_TitleSet1_480
+                0x00800193       0x10 src/command.o
+                0x00800193                tCmd_TitleSet1_480
  .data.tCmd_Customset
-                0x0080019e        0x7 src/command.o
-                0x0080019e                tCmd_Customset
+                0x008001a3        0x7 src/command.o
+                0x008001a3                tCmd_Customset
  .data.tCmd_MirrorOff
-                0x008001a5        0x6 src/command.o
-                0x008001a5                tCmd_MirrorOff
+                0x008001aa        0x6 src/command.o
+                0x008001aa                tCmd_MirrorOff
  .data.tCmd_MirrorOn
-                0x008001ab        0x6 src/command.o
-                0x008001ab                tCmd_MirrorOn
+                0x008001b0        0x6 src/command.o
+                0x008001b0                tCmd_MirrorOn
  .data.tCmd_FlipOff
-                0x008001b1        0x6 src/command.o
-                0x008001b1                tCmd_FlipOff
+                0x008001b6        0x6 src/command.o
+                0x008001b6                tCmd_FlipOff
  .data.tCmd_FlipOn
-                0x008001b7        0x6 src/command.o
-                0x008001b7                tCmd_FlipOn
+                0x008001bc        0x6 src/command.o
+                0x008001bc                tCmd_FlipOn
  .data.tCmd_PicEffectBW
-                0x008001bd        0x6 src/command.o
-                0x008001bd                tCmd_PicEffectBW
+                0x008001c2        0x6 src/command.o
+                0x008001c2                tCmd_PicEffectBW
  .data.tCmd_PicEffectOff
-                0x008001c3        0x6 src/command.o
-                0x008001c3                tCmd_PicEffectOff
+                0x008001c8        0x6 src/command.o
+                0x008001c8                tCmd_PicEffectOff
  .data.tCmd_FreezeOff
-                0x008001c9        0x6 src/command.o
-                0x008001c9                tCmd_FreezeOff
+                0x008001ce        0x6 src/command.o
+                0x008001ce                tCmd_FreezeOff
  .data.tCmd_FreezeOn
-                0x008001cf        0x6 src/command.o
-                0x008001cf                tCmd_FreezeOn
+                0x008001d4        0x6 src/command.o
+                0x008001d4                tCmd_FreezeOn
  .data.tCmd_ApertureDirect
-                0x008001d5        0x9 src/command.o
-                0x008001d5                tCmd_ApertureDirect
+                0x008001da        0x9 src/command.o
+                0x008001da                tCmd_ApertureDirect
  .data.tCmd_ApertureReset
-                0x008001de        0x6 src/command.o
-                0x008001de                tCmd_ApertureReset
+                0x008001e3        0x6 src/command.o
+                0x008001e3                tCmd_ApertureReset
  .data.tCmd_BGainDirect
-                0x008001e4        0x9 src/command.o
-                0x008001e4                tCmd_BGainDirect
+                0x008001e9        0x9 src/command.o
+                0x008001e9                tCmd_BGainDirect
  .data.tCmd_RGainDirect
-                0x008001ed        0x9 src/command.o
-                0x008001ed                tCmd_RGainDirect
+                0x008001f2        0x9 src/command.o
+                0x008001f2                tCmd_RGainDirect
  .data.tCmd_WBManual
-                0x008001f6        0x6 src/command.o
-                0x008001f6                tCmd_WBManual
+                0x008001fb        0x6 src/command.o
+                0x008001fb                tCmd_WBManual
  .data.tCmd_WBATW
-                0x008001fc        0x6 src/command.o
-                0x008001fc                tCmd_WBATW
+                0x00800201        0x6 src/command.o
+                0x00800201                tCmd_WBATW
  .data.tCmd_NormalAF
-                0x00800202        0x6 src/command.o
-                0x00800202                tCmd_NormalAF
+                0x00800207        0x6 src/command.o
+                0x00800207                tCmd_NormalAF
+ .data.tCmd_FocusDirect
+                0x0080020d        0x9 src/command.o
+                0x0080020d                tCmd_FocusDirect
  .data.tCmd_ManualFocus
-                0x00800208        0x6 src/command.o
-                0x00800208                tCmd_ManualFocus
+                0x00800216        0x6 src/command.o
+                0x00800216                tCmd_ManualFocus
  .data.tCmd_AutoFocus
-                0x0080020e        0x6 src/command.o
-                0x0080020e                tCmd_AutoFocus
+                0x0080021c        0x6 src/command.o
+                0x0080021c                tCmd_AutoFocus
  .data.tCmd_FocusSNear
-                0x00800214        0x6 src/command.o
-                0x00800214                tCmd_FocusSNear
+                0x00800222        0x6 src/command.o
+                0x00800222                tCmd_FocusSNear
  .data.tCmd_FocusSFar
-                0x0080021a        0x6 src/command.o
-                0x0080021a                tCmd_FocusSFar
+                0x00800228        0x6 src/command.o
+                0x00800228                tCmd_FocusSFar
  .data.tCmd_StopFocus
-                0x00800220        0x6 src/command.o
-                0x00800220                tCmd_StopFocus
+                0x0080022e        0x6 src/command.o
+                0x0080022e                tCmd_StopFocus
  .data.tCmd_DZoomOn
-                0x00800226        0x6 src/command.o
-                0x00800226                tCmd_DZoomOn
+                0x00800234        0x6 src/command.o
+                0x00800234                tCmd_DZoomOn
  .data.tCmd_ZoomDirect
-                0x0080022c        0x9 src/command.o
-                0x0080022c                tCmd_ZoomDirect
+                0x0080023a        0x9 src/command.o
+                0x0080023a                tCmd_ZoomDirect
  .data.tCmd_ZoomVWide
-                0x00800235        0x6 src/command.o
-                0x00800235                tCmd_ZoomVWide
+                0x00800243        0x6 src/command.o
+                0x00800243                tCmd_ZoomVWide
  .data.tCmd_ZoomVTele
-                0x0080023b        0x6 src/command.o
-                0x0080023b                tCmd_ZoomVTele
+                0x00800249        0x6 src/command.o
+                0x00800249                tCmd_ZoomVTele
  .data.tCmd_ZoomStop
-                0x00800241        0x6 src/command.o
-                0x00800241                tCmd_ZoomStop
+                0x0080024f        0x6 src/command.o
+                0x0080024f                tCmd_ZoomStop
  .data.uiNumberTable
-                0x00800247       0x10 src/Title.o
-                0x00800247                uiNumberTable
+                0x00800255       0x10 src/Title.o
+                0x00800255                uiNumberTable
  *(.rodata)
- .rodata        0x00800257       0x14 src/manager.o
- .rodata        0x0080026b        0xa src/Title.o
+ .rodata        0x00800265       0x14 src/manager.o
+ .rodata        0x00800279        0xa src/Title.o
  *(.rodata*)
  .rodata.uiZoomRatioTable
-                0x00800275       0xa0 src/command.o
-                0x00800275                uiZoomRatioTable
- .rodata.t6300  0x00800315        0x4 src/manager.o
-                0x00800315                t6300
- .rodata.t3310  0x00800319        0x2 src/manager.o
-                0x00800319                t3310
- .rodata.t1020  0x0080031b        0x2 src/manager.o
-                0x0080031b                t1020
- .rodata.t480   0x0080031d        0x4 src/manager.o
-                0x0080031d                t480
+                0x00800283       0xa0 src/command.o
+                0x00800283                uiZoomRatioTable
+ .rodata.t6300  0x00800323        0x4 src/manager.o
+                0x00800323                t6300
+ .rodata.t3310  0x00800327        0x2 src/manager.o
+                0x00800327                t3310
+ .rodata.t1020  0x00800329        0x2 src/manager.o
+                0x00800329                t1020
+ .rodata.t480   0x0080032b        0x4 src/manager.o
+                0x0080032b                t480
  *(.gnu.linkonce.d*)
-                0x00800322                . = ALIGN (0x2)
- *fill*         0x00800321        0x1 
-                0x00800322                _edata = .
-                0x00800322                PROVIDE (__data_end, .)
+                0x00800330                . = ALIGN (0x2)
+ *fill*         0x0080032f        0x1 
+                0x00800330                _edata = .
+                0x00800330                PROVIDE (__data_end, .)
 
-.bss            0x00800322       0xcd
-                0x00800322                PROVIDE (__bss_start, .)
+.bss            0x00800330       0xd0
+                0x00800330                PROVIDE (__bss_start, .)
  *(.bss)
  *(.bss*)
  .bss.g_ucTeleKeyRelease
-                0x00800322        0x1 src/key.o
-                0x00800322                g_ucTeleKeyRelease
+                0x00800330        0x1 src/key.o
+                0x00800330                g_ucTeleKeyRelease
  .bss.g_ucTeleKeyPress
-                0x00800323        0x1 src/key.o
-                0x00800323                g_ucTeleKeyPress
+                0x00800331        0x1 src/key.o
+                0x00800331                g_ucTeleKeyPress
  .bss.g_ucWideKeyRelease
-                0x00800324        0x1 src/key.o
-                0x00800324                g_ucWideKeyRelease
+                0x00800332        0x1 src/key.o
+                0x00800332                g_ucWideKeyRelease
  .bss.g_ucWideKeyPress
-                0x00800325        0x1 src/key.o
-                0x00800325                g_ucWideKeyPress
+                0x00800333        0x1 src/key.o
+                0x00800333                g_ucWideKeyPress
  .bss.g_ucKeyStateCurr
-                0x00800326        0x2 src/key.o
-                0x00800326                g_ucKeyStateCurr
+                0x00800334        0x2 src/key.o
+                0x00800334                g_ucKeyStateCurr
  .bss.g_ucKeyStatePrev
-                0x00800328        0x2 src/key.o
-                0x00800328                g_ucKeyStatePrev
+                0x00800336        0x2 src/key.o
+                0x00800336                g_ucKeyStatePrev
  .bss.g_ucKeyMessage
-                0x0080032a        0x1 src/key.o
-                0x0080032a                g_ucKeyMessage
+                0x00800338        0x1 src/key.o
+                0x00800338                g_ucKeyMessage
  .bss.g_ucKeyControl
-                0x0080032b        0x1 src/key.o
-                0x0080032b                g_ucKeyControl
+                0x00800339        0x1 src/key.o
+                0x00800339                g_ucKeyControl
  .bss.g_u8FocusGetMaxCount
-                0x0080032c        0x1 src/manager.o
-                0x0080032c                g_u8FocusGetMaxCount
+                0x0080033a        0x1 src/manager.o
+                0x0080033a                g_u8FocusGetMaxCount
  .bss.g_u16FocusEnding
-                0x0080032d        0x2 src/manager.o
-                0x0080032d                g_u16FocusEnding
+                0x0080033b        0x2 src/manager.o
+                0x0080033b                g_u16FocusEnding
  .bss.g_ucTeleRemoteRelease
-                0x0080032f        0x1 src/remote.o
-                0x0080032f                g_ucTeleRemoteRelease
+                0x0080033d        0x1 src/remote.o
+                0x0080033d                g_ucTeleRemoteRelease
  .bss.g_ucTeleRemotePress
-                0x00800330        0x1 src/remote.o
-                0x00800330                g_ucTeleRemotePress
+                0x0080033e        0x1 src/remote.o
+                0x0080033e                g_ucTeleRemotePress
  .bss.g_ucWideRemoteRelease
-                0x00800331        0x1 src/remote.o
-                0x00800331                g_ucWideRemoteRelease
+                0x0080033f        0x1 src/remote.o
+                0x0080033f                g_ucWideRemoteRelease
  .bss.g_ucWideRemotePress
-                0x00800332        0x1 src/remote.o
-                0x00800332                g_ucWideRemotePress
+                0x00800340        0x1 src/remote.o
+                0x00800340                g_ucWideRemotePress
  .bss.g_ucRemoteStatePrev
-                0x00800333        0x1 src/remote.o
-                0x00800333                g_ucRemoteStatePrev
+                0x00800341        0x1 src/remote.o
+                0x00800341                g_ucRemoteStatePrev
  .bss.g_ucRemoteMessage
-                0x00800334        0x1 src/remote.o
-                0x00800334                g_ucRemoteMessage
+                0x00800342        0x1 src/remote.o
+                0x00800342                g_ucRemoteMessage
  .bss.g_ucRemoteControl
-                0x00800335        0x1 src/remote.o
-                0x00800335                g_ucRemoteControl
+                0x00800343        0x1 src/remote.o
+                0x00800343                g_ucRemoteControl
  .bss.g_ucRemoteStateCurr
-                0x00800336        0x1 src/remote.o
-                0x00800336                g_ucRemoteStateCurr
+                0x00800344        0x1 src/remote.o
+                0x00800344                g_ucRemoteStateCurr
+ .bss.g_ucValuePortC
+                0x00800345        0x1 src/remote.o
+                0x00800345                g_ucValuePortC
  .bss.g_ucSecondCnt
-                0x00800337        0x1 src/timer.o
-                0x00800337                g_ucSecondCnt
+                0x00800346        0x1 src/timer.o
+                0x00800346                g_ucSecondCnt
  .bss.g_ucMinuteCnt
-                0x00800338        0x1 src/timer.o
-                0x00800338                g_ucMinuteCnt
+                0x00800347        0x1 src/timer.o
+                0x00800347                g_ucMinuteCnt
  .bss.g_bTimerChange
-                0x00800339        0x1 src/timer.o
-                0x00800339                g_bTimerChange
+                0x00800348        0x1 src/timer.o
+                0x00800348                g_bTimerChange
  .bss.g_bTimer1Ctrl
-                0x0080033a        0x1 src/timer.o
-                0x0080033a                g_bTimer1Ctrl
+                0x00800349        0x1 src/timer.o
+                0x00800349                g_bTimer1Ctrl
  .bss.g_ucTimer1Cnt
-                0x0080033b        0x4 src/timer.o
-                0x0080033b                g_ucTimer1Cnt
- .bss.ucSecondCnt.2479
-                0x0080033f        0x1 src/Title.o
- .bss.ucMinuteCnt.2478
-                0x00800340        0x1 src/Title.o
+                0x0080034a        0x4 src/timer.o
+                0x0080034a                g_ucTimer1Cnt
+ .bss.ucSecondCnt.2491
+                0x0080034e        0x1 src/Title.o
+ .bss.ucMinuteCnt.2490
+                0x0080034f        0x1 src/Title.o
  .bss.g_bTitle2Change
-                0x00800341        0x1 src/Title.o
-                0x00800341                g_bTitle2Change
+                0x00800350        0x1 src/Title.o
+                0x00800350                g_bTitle2Change
  .bss.g_bTitle1Change
-                0x00800342        0x1 src/Title.o
-                0x00800342                g_bTitle1Change
+                0x00800351        0x1 src/Title.o
+                0x00800351                g_bTitle1Change
  .bss.ReplyLength
-                0x00800343        0x1 src/usart.o
-                0x00800343                ReplyLength
+                0x00800352        0x1 src/usart.o
+                0x00800352                ReplyLength
  .bss.ReplyHeadFoundA
-                0x00800344        0x1 src/usart.o
-                0x00800344                ReplyHeadFoundA
+                0x00800353        0x1 src/usart.o
+                0x00800353                ReplyHeadFoundA
  *(COMMON)
- COMMON         0x00800345       0x2e src/command.o
-                0x00800345                g_stCameraCmd
- COMMON         0x00800373       0x31 src/status.o
-                0x00800373                g_stStatusCmd
-                0x00800398                g_stProductInfo
- COMMON         0x008003a4       0x2a src/timer.o
-                0x008003a4                g_stTimerEvent
- COMMON         0x008003ce       0x21 src/usart.o
-                0x008003ce                ReplyBuf
-                0x008003ee                rev_data
-                0x008003ef                PROVIDE (__bss_end, .)
-                0x0000309a                __data_load_start = LOADADDR (.data)
-                0x000032bc                __data_load_end = (__data_load_start + SIZEOF (.data))
+ COMMON         0x00800354       0x2e src/command.o
+                0x00800354                g_stCameraCmd
+ COMMON         0x00800382       0x33 src/status.o
+                0x00800382                g_stStatusCmd
+                0x008003a9                g_stProductInfo
+ COMMON         0x008003b5       0x2a src/timer.o
+                0x008003b5                g_stTimerEvent
+ COMMON         0x008003df       0x21 src/usart.o
+                0x008003df                ReplyBuf
+                0x008003ff                rev_data
+                0x00800400                PROVIDE (__bss_end, .)
+                0x00003482                __data_load_start = LOADADDR (.data)
+                0x000036b2                __data_load_end = (__data_load_start + SIZEOF (.data))
 
-.noinit         0x008003ef        0x0
-                0x008003ef                PROVIDE (__noinit_start, .)
+.noinit         0x00800400        0x0
+                0x00800400                PROVIDE (__noinit_start, .)
  *(.noinit*)
-                0x008003ef                PROVIDE (__noinit_end, .)
-                0x008003ef                _end = .
-                0x008003ef                PROVIDE (__heap_start, .)
+                0x00800400                PROVIDE (__noinit_end, .)
+                0x00800400                _end = .
+                0x00800400                PROVIDE (__heap_start, .)
 
 .eeprom         0x00810000        0x0
  *(.eeprom*)
@@ -1190,118 +1274,118 @@ END GROUP
 .debug_sfnames
  *(.debug_sfnames)
 
-.debug_aranges  0x00000000      0x550
+.debug_aranges  0x00000000      0x570
  *(.debug_aranges)
  .debug_aranges
-                0x00000000      0x200 src/command.o
+                0x00000000      0x218 src/command.o
  .debug_aranges
-                0x00000200       0x58 src/key.o
+                0x00000218       0x58 src/key.o
  .debug_aranges
-                0x00000258       0x38 src/led.o
+                0x00000270       0x38 src/led.o
  .debug_aranges
-                0x00000290       0x30 src/main.o
+                0x000002a8       0x30 src/main.o
  .debug_aranges
-                0x000002c0      0x128 src/manager.o
+                0x000002d8      0x130 src/manager.o
  .debug_aranges
-                0x000003e8       0x58 src/remote.o
+                0x00000408       0x58 src/remote.o
  .debug_aranges
-                0x00000440       0x28 src/status.o
+                0x00000460       0x28 src/status.o
  .debug_aranges
-                0x00000468       0x58 src/timer.o
+                0x00000488       0x58 src/timer.o
  .debug_aranges
-                0x000004c0       0x38 src/Title.o
+                0x000004e0       0x38 src/Title.o
  .debug_aranges
-                0x000004f8       0x58 src/usart.o
+                0x00000518       0x58 src/usart.o
 
 .debug_pubnames
  *(.debug_pubnames)
 
-.debug_info     0x00000000     0x6fa2
+.debug_info     0x00000000     0x78f7
  *(.debug_info .gnu.linkonce.wi.*)
- .debug_info    0x00000000     0x1989 src/command.o
- .debug_info    0x00001989      0x96e src/key.o
- .debug_info    0x000022f7      0x1c6 src/led.o
- .debug_info    0x000024bd      0x92b src/main.o
- .debug_info    0x00002de8     0x23fa src/manager.o
- .debug_info    0x000051e2      0x45d src/remote.o
- .debug_info    0x0000563f      0x572 src/status.o
- .debug_info    0x00005bb1      0x740 src/timer.o
- .debug_info    0x000062f1      0x80b src/Title.o
- .debug_info    0x00006afc      0x4a6 src/usart.o
+ .debug_info    0x00000000     0x1b5c src/command.o
+ .debug_info    0x00001b5c      0x980 src/key.o
+ .debug_info    0x000024dc      0x1c6 src/led.o
+ .debug_info    0x000026a2      0x939 src/main.o
+ .debug_info    0x00002fdb     0x26a4 src/manager.o
+ .debug_info    0x0000567f      0x857 src/remote.o
+ .debug_info    0x00005ed6      0x587 src/status.o
+ .debug_info    0x0000645d      0x7d4 src/timer.o
+ .debug_info    0x00006c31      0x820 src/Title.o
+ .debug_info    0x00007451      0x4a6 src/usart.o
 
-.debug_abbrev   0x00000000     0x1135
+.debug_abbrev   0x00000000     0x1216
  *(.debug_abbrev)
- .debug_abbrev  0x00000000      0x195 src/command.o
- .debug_abbrev  0x00000195      0x234 src/key.o
- .debug_abbrev  0x000003c9       0xfa src/led.o
- .debug_abbrev  0x000004c3      0x1a7 src/main.o
- .debug_abbrev  0x0000066a      0x316 src/manager.o
- .debug_abbrev  0x00000980      0x13b src/remote.o
- .debug_abbrev  0x00000abb       0xe7 src/status.o
- .debug_abbrev  0x00000ba2      0x157 src/timer.o
- .debug_abbrev  0x00000cf9      0x232 src/Title.o
- .debug_abbrev  0x00000f2b      0x20a src/usart.o
+ .debug_abbrev  0x00000000      0x213 src/command.o
+ .debug_abbrev  0x00000213      0x234 src/key.o
+ .debug_abbrev  0x00000447       0xfa src/led.o
+ .debug_abbrev  0x00000541      0x1a7 src/main.o
+ .debug_abbrev  0x000006e8      0x332 src/manager.o
+ .debug_abbrev  0x00000a1a      0x182 src/remote.o
+ .debug_abbrev  0x00000b9c       0xe7 src/status.o
+ .debug_abbrev  0x00000c83      0x157 src/timer.o
+ .debug_abbrev  0x00000dda      0x232 src/Title.o
+ .debug_abbrev  0x0000100c      0x20a src/usart.o
 
-.debug_line     0x00000000     0x1d08
+.debug_line     0x00000000     0x1e9f
  *(.debug_line .debug_line.* .debug_line_end)
- .debug_line    0x00000000      0x641 src/command.o
- .debug_line    0x00000641      0x23b src/key.o
- .debug_line    0x0000087c      0x17e src/led.o
- .debug_line    0x000009fa      0x1dd src/main.o
- .debug_line    0x00000bd7      0x83f src/manager.o
- .debug_line    0x00001416      0x1ae src/remote.o
- .debug_line    0x000015c4      0x107 src/status.o
- .debug_line    0x000016cb      0x1cc src/timer.o
- .debug_line    0x00001897      0x26e src/Title.o
- .debug_line    0x00001b05      0x203 src/usart.o
+ .debug_line    0x00000000      0x706 src/command.o
+ .debug_line    0x00000706      0x241 src/key.o
+ .debug_line    0x00000947      0x17e src/led.o
+ .debug_line    0x00000ac5      0x1dd src/main.o
+ .debug_line    0x00000ca2      0x8cb src/manager.o
+ .debug_line    0x0000156d      0x1cd src/remote.o
+ .debug_line    0x0000173a      0x107 src/status.o
+ .debug_line    0x00001841      0x1ea src/timer.o
+ .debug_line    0x00001a2b      0x271 src/Title.o
+ .debug_line    0x00001c9c      0x203 src/usart.o
 
-.debug_frame    0x00000000      0xbf0
+.debug_frame    0x00000000      0xcac
  *(.debug_frame)
- .debug_frame   0x00000000      0x458 src/command.o
- .debug_frame   0x00000458       0xa0 src/key.o
- .debug_frame   0x000004f8       0x60 src/led.o
- .debug_frame   0x00000558       0x44 src/main.o
- .debug_frame   0x0000059c      0x28c src/manager.o
- .debug_frame   0x00000828       0x94 src/remote.o
- .debug_frame   0x000008bc       0x34 src/status.o
- .debug_frame   0x000008f0      0x164 src/timer.o
- .debug_frame   0x00000a54       0x8c src/Title.o
- .debug_frame   0x00000ae0      0x110 src/usart.o
+ .debug_frame   0x00000000      0x4b8 src/command.o
+ .debug_frame   0x000004b8       0x94 src/key.o
+ .debug_frame   0x0000054c       0x60 src/led.o
+ .debug_frame   0x000005ac       0x44 src/main.o
+ .debug_frame   0x000005f0      0x2f4 src/manager.o
+ .debug_frame   0x000008e4       0x94 src/remote.o
+ .debug_frame   0x00000978       0x34 src/status.o
+ .debug_frame   0x000009ac      0x164 src/timer.o
+ .debug_frame   0x00000b10       0x8c src/Title.o
+ .debug_frame   0x00000b9c      0x110 src/usart.o
 
-.debug_str      0x00000000     0x1d32
+.debug_str      0x00000000     0x1e50
  *(.debug_str)
- .debug_str     0x00000000     0x1218 src/command.o
-                               0x1266 (size before relaxing)
- .debug_str     0x00001218      0x345 src/key.o
-                                0x94a (size before relaxing)
- .debug_str     0x0000155d       0x34 src/led.o
+ .debug_str     0x00000000     0x130b src/command.o
+                               0x1362 (size before relaxing)
+ .debug_str     0x0000130b      0x313 src/key.o
+                                0x974 (size before relaxing)
+ .debug_str     0x0000161e       0x34 src/led.o
                                 0x1d0 (size before relaxing)
- .debug_str     0x00001591      0x193 src/main.o
-                                0x9a8 (size before relaxing)
- .debug_str     0x00001724      0x2b1 src/manager.o
-                                0xf32 (size before relaxing)
- .debug_str     0x000019d5      0x1bd src/remote.o
-                                0x4b3 (size before relaxing)
- .debug_str     0x00001b92       0x15 src/status.o
-                                0x6fc (size before relaxing)
- .debug_str     0x00001ba7       0xb5 src/timer.o
-                                0x812 (size before relaxing)
- .debug_str     0x00001c5c       0x31 src/Title.o
-                                0x7f9 (size before relaxing)
- .debug_str     0x00001c8d       0xa5 src/usart.o
+ .debug_str     0x00001652      0x193 src/main.o
+                                0x9b9 (size before relaxing)
+ .debug_str     0x000017e5      0x32b src/manager.o
+                               0x1003 (size before relaxing)
+ .debug_str     0x00001b10      0x1a0 src/remote.o
+                                0x9a0 (size before relaxing)
+ .debug_str     0x00001cb0       0x15 src/status.o
+                                0x720 (size before relaxing)
+ .debug_str     0x00001cc5       0xb5 src/timer.o
+                                0x933 (size before relaxing)
+ .debug_str     0x00001d7a       0x31 src/Title.o
+                                0x81d (size before relaxing)
+ .debug_str     0x00001dab       0xa5 src/usart.o
                                 0x3de (size before relaxing)
 
-.debug_loc      0x00000000     0x24e6
+.debug_loc      0x00000000     0x281d
  *(.debug_loc)
- .debug_loc     0x00000000      0x940 src/command.o
- .debug_loc     0x00000940       0xfb src/key.o
- .debug_loc     0x00000a3b      0x10a src/led.o
- .debug_loc     0x00000b45      0xd9b src/manager.o
- .debug_loc     0x000018e0       0xad src/remote.o
- .debug_loc     0x0000198d       0x6f src/status.o
- .debug_loc     0x000019fc      0x3de src/timer.o
- .debug_loc     0x00001dda      0x41f src/Title.o
- .debug_loc     0x000021f9      0x2ed src/usart.o
+ .debug_loc     0x00000000      0xaf4 src/command.o
+ .debug_loc     0x00000af4       0xb9 src/key.o
+ .debug_loc     0x00000bad      0x10a src/led.o
+ .debug_loc     0x00000cb7      0xeb8 src/manager.o
+ .debug_loc     0x00001b6f      0x155 src/remote.o
+ .debug_loc     0x00001cc4       0x6f src/status.o
+ .debug_loc     0x00001d33      0x3de src/timer.o
+ .debug_loc     0x00002111      0x41f src/Title.o
+ .debug_loc     0x00002530      0x2ed src/usart.o
 
 .debug_macinfo
  *(.debug_macinfo)
@@ -1321,18 +1405,18 @@ END GROUP
 .debug_pubtypes
  *(.debug_pubtypes)
 
-.debug_ranges   0x00000000      0x4b0
+.debug_ranges   0x00000000      0x4d0
  *(.debug_ranges)
- .debug_ranges  0x00000000      0x1f0 src/command.o
- .debug_ranges  0x000001f0       0x48 src/key.o
- .debug_ranges  0x00000238       0x28 src/led.o
- .debug_ranges  0x00000260       0x20 src/main.o
- .debug_ranges  0x00000280      0x118 src/manager.o
- .debug_ranges  0x00000398       0x48 src/remote.o
- .debug_ranges  0x000003e0       0x18 src/status.o
- .debug_ranges  0x000003f8       0x48 src/timer.o
- .debug_ranges  0x00000440       0x28 src/Title.o
- .debug_ranges  0x00000468       0x48 src/usart.o
+ .debug_ranges  0x00000000      0x208 src/command.o
+ .debug_ranges  0x00000208       0x48 src/key.o
+ .debug_ranges  0x00000250       0x28 src/led.o
+ .debug_ranges  0x00000278       0x20 src/main.o
+ .debug_ranges  0x00000298      0x120 src/manager.o
+ .debug_ranges  0x000003b8       0x48 src/remote.o
+ .debug_ranges  0x00000400       0x18 src/status.o
+ .debug_ranges  0x00000418       0x48 src/timer.o
+ .debug_ranges  0x00000460       0x28 src/Title.o
+ .debug_ranges  0x00000488       0x48 src/usart.o
 
 .debug_macro
  *(.debug_macro)
