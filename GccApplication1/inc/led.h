@@ -14,6 +14,9 @@ extern void LedInit(void);
 extern void LedOn(void);
 extern void LedOff(void);
 extern void LedFlashing(uint8_t times);
-
+extern void BlueLightOn(void);
+extern void BlueLightOff(void);
+extern void WhiteLightOn(void);
+extern void WhiteLightOff(void);
 
 #endif /* LED_H_ */

@@ -16,6 +16,12 @@ void SystemInit(void)
 	
 	//Key IO initial
 	KeyInit();
+
+	//BlueLightOff+WhiteLightOn
+	#if(_BLUE_LIGHT == 1)
+	BlueLightOff();
+	WhiteLightOn();
+	#endif
 	
 	//Initial event array
 	CTimerInitialTimerEvent();

@@ -23,7 +23,7 @@ bool g_ucTeleKeyRelease = false;
 //--------------------------------------------------
 void KeyInit(void)
 {
-	DDRB = 0x28;
+	DDRB = 0x38;
 	PORTB = 0xFF;
 
 	DDRC = 0x00;

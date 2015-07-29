@@ -152,6 +152,7 @@
 	#define _CAPTURE_ENABLE   0
 	#define _RESOLUTION_TYPE	_CCD_HD
 	#define _FOCUS_OOR_TIPS	0
+	#define _DOUBLE_LINE_INFO
 #elif(_PRODUCT_TYPE_CODE == _INDIA_SD)
 	#define _MAX_RATE 52
 	#define _KEY_NUM  8

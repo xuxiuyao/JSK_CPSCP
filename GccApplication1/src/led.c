@@ -9,6 +9,7 @@
 void LedInit(void)
 {
 	DDRD |= (1<<5);
+	
 }
 
 void LedOn(void)
@@ -32,4 +33,24 @@ void LedFlashing(uint8_t times)
 		LedOn();
 		_delay_ms(250);
 	}
+}
+
+void BlueLightOn(void)
+{
+	PORTB &= 0xef;
+}
+
+void BlueLightOff(void)
+{
+	PORTB |= (1<<PB4);
+}
+
+void WhiteLightOn(void)
+{
+	PORTB &= 0xDf;
+}
+
+void WhiteLightOff(void)
+{
+	PORTB |= (1<<PB5);
 }

@@ -49,8 +49,10 @@ void ProductInfoInit(PRODUCT_INFO* info)
 	{
 		#if(_CCD_TYPE_CODE == _CCD_7500)
 		info->uiProductModel[i] = 0x20;//space
+		info->uiProductModel2[i] = 0x20;//space
 		#else
 		info->uiProductModel[i] = 0x1b;
+		info->uiProductModel2[i] = 0x1b;
 		#endif
 	}
 #if(_CCD_TYPE_CODE == _CCD_7500)
@@ -302,16 +304,27 @@ void ProductInfoInit(PRODUCT_INFO* info)
 	info->uiMajorVer = 1;
 	info->uiMinorVer = 0;
 #elif(_PRODUCT_TYPE_CODE == _AL_106HD)
-	info->uiProductModel[0] = 0x00;//A
-	info->uiProductModel[1] = 0x0B;//L
-	info->uiProductModel[2] = 0x1E;// 1
-	info->uiProductModel[3] = 0x27;//0
-	info->uiProductModel[4] = 0x23;//6
-	info->uiProductModel[5] = 0x07;//H
-	info->uiProductModel[6] = 0x03;//D
-	info->uiProductModel[7] = 0x1B;//-
-	info->uiProductModel[8] = 0x06;//G
-	info->uiProductModel[9] = 0x02;//C
+	info->uiProductModel[0] = 0x0C;//M
+	info->uiProductModel[1] = 0x04;//E
+	info->uiProductModel[2] = 0x03;//D
+	info->uiProductModel[3] = 0x06;// G
+	info->uiProductModel[4] = 0x18;// Y
+	info->uiProductModel[5] = 0x0D;//N
+	//info->uiProductModel[6] = 0x00;//0
+	//info->uiProductModel[7] = 0x27;//0
+	//info->uiProductModel[8] = 0x12;//0
+	//info->uiProductModel[9] = 0x03;//0
+
+	info->uiProductModel2[0] = 0x00;//A
+	info->uiProductModel2[1] = 0x0B;//L
+	info->uiProductModel2[2] = 0x4f;//-
+	info->uiProductModel2[3] = 0x1E;// 1
+	info->uiProductModel2[4] = 0x27;//0
+	info->uiProductModel2[5] = 0x23;//6
+	//info->uiProductModel2[6] = 0x00;//0
+	//info->uiProductModel2[7] = 0x27;//0
+	//info->uiProductModel2[8] = 0x12;//0
+	//info->uiProductModel2[9] = 0x03;//0
 
 	info->uiMajorVer = 1;
 	info->uiMinorVer = 0;

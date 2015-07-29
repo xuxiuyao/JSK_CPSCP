@@ -159,7 +159,9 @@ typedef struct{
 }STATUS_CMD;
 
 typedef struct{
+	
 	uint8_t uiProductModel[10];
+	uint8_t uiProductModel2[10];
 	uint8_t uiMajorVer;
 	uint8_t uiMinorVer;
 	//?

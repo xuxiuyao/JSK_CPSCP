@@ -1,12 +1,4 @@
----- _DISPLAY_FOCUS_END Matches (11 in 3 files) ----
-Manager.c (gccapplication1\src):			g_stStatusCmd.uiDisplayFlag &= ~_DISPLAY_FOCUS_END;
-Manager.c (gccapplication1\src):							g_stStatusCmd.uiDisplayFlag |= _DISPLAY_FOCUS_END;
-Manager.c (gccapplication1\src):							g_stStatusCmd.uiDisplayFlag &= ~_DISPLAY_FOCUS_END;
-Manager.c (gccapplication1\src):							g_stStatusCmd.uiDisplayFlag |= _DISPLAY_FOCUS_END;
-Manager.c (gccapplication1\src):							g_stStatusCmd.uiDisplayFlag &= ~_DISPLAY_FOCUS_END;
-Manager.c (gccapplication1\src):			if(g_stStatusCmd.uiDisplayFlag&_DISPLAY_FOCUS_END)
-Manager.c (gccapplication1\src):				g_stStatusCmd.uiDisplayFlag &= ~_DISPLAY_FOCUS_END;
-Manager.c (gccapplication1\src):				if(!(g_stStatusCmd.uiDisplayFlag&_DISPLAY_FOCUS_END))
-Manager.c (gccapplication1\src):					g_stStatusCmd.uiDisplayFlag |= _DISPLAY_FOCUS_END;
-Status.h (gccapplication1\inc):	_DISPLAY_FOCUS_END	= 0x40,
-Title.c (gccapplication1\src):	if((_FOCUS_MODE_MANUAL == g_stStatusCmd.FocusMode)&&(_DISPLAY_FOCUS& g_stStatusCmd.uiDisplayFlag)&&(_DISPLAY_FOCUS_END& g_stStatusCmd.uiDisplayFlag))
+---- KeyInit Matches (3 in 3 files) ----
+Key.c (gccapplication1\src):void KeyInit(void)
+Key.h (gccapplication1\inc):extern void KeyInit(void);
+Main.c (gccapplication1\src):	KeyInit();

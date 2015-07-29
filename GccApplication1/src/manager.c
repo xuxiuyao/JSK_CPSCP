@@ -128,13 +128,27 @@ void InitCamera(void)
 				titleDis.TitleBlink = _TITLE_BLINK_OFF;
 				CAM_SetTitleSet1(titleDis);
 				_delay_ms(_INIT_DELAY*5);
+
+				#ifdef _DOUBLE_LINE_INFO
+				titleDis.uiTitleVPos = 0x02;
+				CAM_SetTitleSet1(titleDis);
+				_delay_ms(_INIT_DELAY*5);
+				titleDis.uiTitleVPos = 0x01;
+				#endif
 				
 				ShowProductInfo(titleDis.uiTitleVPos);
 				
 				LedFlashing(10);
-				
+				#ifdef _DOUBLE_LINE_INFO
+				LedFlashing(4);
+				#endif
 				CAM_SetTitleClear(0x01);
 				_delay_ms(_INIT_DELAY*5);
+				#ifdef _DOUBLE_LINE_INFO
+				CAM_SetTitleClear(0x02);
+				_delay_ms(_INIT_DELAY*5);
+				#endif
+				
 			}
 
 			if((g_stStatusCmd.uiModeID == _CAM_480)||(g_stStatusCmd.uiModeID == _CAM_1020))
@@ -710,16 +724,27 @@ void ProcessWhite(void)
 				case _WHITE_MODE_NORMAL:
 				{
 					SetWhiteModeFA();
+					#if(_BLUE_LIGHT == 1)
+					BlueLightOn();
+					#endif
 				}
 				break;
 				case _WHITE_MODE_FA:
 				{
 					SetWhiteModeFB();
+					#if(_BLUE_LIGHT == 1)
+					WhiteLightOff();
+					#endif
+
 				}
 				break;
 				case _WHITE_MODE_FB:
 				{
 					SetWhiteModeNormal();
+					#if(_BLUE_LIGHT == 1)
+					WhiteLightOn();
+					BlueLightOff();
+					#endif
 				}
 				break;
 				default:

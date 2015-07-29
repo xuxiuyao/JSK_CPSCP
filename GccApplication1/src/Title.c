@@ -557,7 +557,42 @@ void ShowProductInfo(unsigned char LineNum)
 	CAM_SetTitleSet2(LineNum, g_stProductInfo.uiProductModel);
 	
 	_delay_ms(100);
-	
+
+	#ifdef _DOUBLE_LINE_INFO
+	CAM_SetTitleSet3(LineNum, g_stProductInfo.uiProductModel2);
+
+	uiTitle[7] = 0x07;
+	uiTitle[8] = 0x03;
+
+	CAM_SetTitleSet2(LineNum+1, uiTitle);
+	uiTitle[7] = 0x1b;
+	uiTitle[8] = 0x1b;
+	if(g_stStatusCmd.uiModeID == _CAM_3310)
+	{
+		uiTitle[0] = 0x1e;
+		uiTitle[1] = 0x4c;
+		uiTitle[2] = 0x21;
+		uiTitle[3] = 0x20;
+		uiTitle[4] = 0x0c;
+		uiTitle[5] = 0x1b;
+		uiTitle[6] = 0x0f;
+		uiTitle[7] = 0x08;
+		uiTitle[8] = 0x17;
+	}
+	else if(g_stStatusCmd.uiModeID == _CAM_6300)
+	{
+		uiTitle[0] = 0x20;
+		uiTitle[1] = 0x4c;
+		uiTitle[2] = 0x1f;
+		uiTitle[3] = 0x24;
+		uiTitle[4] = 0x0c;
+		uiTitle[5] = 0x1b;
+		uiTitle[6] = 0x0f;
+		uiTitle[7] = 0x08;
+		uiTitle[8] = 0x17;
+	}
+	CAM_SetTitleSet3(LineNum+1, uiTitle);
+	#else
 	m = 2;
 	//Control Software Version
 	#if(_CCD_TYPE_CODE == _CCD_7500)
@@ -623,5 +658,6 @@ void ShowProductInfo(unsigned char LineNum)
 	//uiTitle[9] = uiNumberTable[l];
 	
 	CAM_SetTitleSet3(LineNum, uiTitle);
+	#endif
 }
 
