@@ -159,7 +159,7 @@ void InitCamera(void)
 			if(g_stStatusCmd.uiModeID == _CAM_7500)
 				g_stStatusCmd.titleDis.uiTitleVPos = 0x0e;
 			else
-				g_stStatusCmd.titleDis.uiTitleVPos = 0x0a;
+				g_stStatusCmd.titleDis.uiTitleVPos = _MENU_V_POS;
 
 
 			CAM_SetTitleSet1(g_stStatusCmd.titleDis);
@@ -1340,6 +1340,9 @@ void WhiteBalanceHandle(void)
 }
 void SetWhiteModeNormal(void)
 {
+	#if(_BLUE_LIGHT == 1)
+	CAM_SetBGainDirect(g_stStatusCmd.uiBGain);
+	#else
 	#if(_CCD_TYPE_CODE == _CCD_7500)
 	{
 		CAM_SetVideoColor();
@@ -1354,10 +1357,14 @@ void SetWhiteModeNormal(void)
 		
 	}
 	#endif
+	#endif
 	g_stStatusCmd.WhiteMode = _WHITE_MODE_NORMAL;
 }
 void SetWhiteModeFA(void)
 {
+	#if(_BLUE_LIGHT == 1)
+	CAM_SetBGainDirect(_FA_B_GAIN);
+	#else
 	#if(_CCD_TYPE_CODE == _CCD_7500)
 	{
 		CAM_SetSharpnessDirect();
@@ -1368,6 +1375,7 @@ void SetWhiteModeFA(void)
 		CAM_SetApertureDirect();
 
 	}
+	#endif
 	#endif
 	g_stStatusCmd.WhiteMode = _WHITE_MODE_FA;
 	#if(_WHITE_SET_DISPLAY == 1)
@@ -1381,6 +1389,9 @@ void SetWhiteModeFA(void)
 
 void SetWhiteModeFB(void)
 {
+	#if(_BLUE_LIGHT == 1)
+	CAM_SetBGainDirect(_FB_B_GAIN);
+	#else
 	#if(_CCD_TYPE_CODE == _CCD_7500)
 	{
 		CAM_SetVideoBW();
@@ -1390,6 +1401,7 @@ void SetWhiteModeFB(void)
 	{
 		CAM_SetPicEffectBW();
 	}
+	#endif
 	#endif
 	g_stStatusCmd.WhiteMode = _WHITE_MODE_FB;
 	#if(_WHITE_SET_DISPLAY == 1)

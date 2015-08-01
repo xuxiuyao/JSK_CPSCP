@@ -259,9 +259,9 @@ void ProductInfoInit(PRODUCT_INFO* info)
 	info->uiProductModel[3] = 0x1F;// 2
 	info->uiProductModel[4] = 0x27;//0
 	info->uiProductModel[5] = 0x27;//0
-	info->uiProductModel[6] = 0x1B;// 
-	info->uiProductModel[7] = 0x06;//G
-	info->uiProductModel[8] = 0x02;//C
+	info->uiProductModel[6] = 0x07;// H
+	info->uiProductModel[7] = 0x03;//D
+
 	info->uiMajorVer = 1;
 	info->uiMinorVer = 0;
 #elif(_PRODUCT_TYPE_CODE == _LT_300)

@@ -593,7 +593,13 @@ void ShowProductInfo(unsigned char LineNum)
 	}
 	CAM_SetTitleSet3(LineNum+1, uiTitle);
 	#else
+	#ifdef _GC_SHOW_BEHIND
+	m=0;
+	uiTitle[m++] = 0x06;
+	uiTitle[m++] = 0x02;
+	#else
 	m = 2;
+	#endif
 	//Control Software Version
 	#if(_CCD_TYPE_CODE == _CCD_7500)
 	uiTitle[m++] = 'V';//0x56

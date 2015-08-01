@@ -20,6 +20,8 @@
 #define _G1_R_GAIN	0xC1
 #define _G2_R_GAIN	0xA8
 #define _G3_R_GAIN	0x78
+#define _FA_B_GAIN	200
+#define _FB_B_GAIN	230
 #endif
 
 #define _FOCUS_A   (-88)

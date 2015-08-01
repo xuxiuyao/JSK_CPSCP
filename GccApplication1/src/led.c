@@ -37,7 +37,7 @@ void LedFlashing(uint8_t times)
 
 void BlueLightOn(void)
 {
-	PORTB &= 0xef;
+	PORTB |= (1<<PB5);
 }
 
 void BlueLightOff(void)
@@ -52,5 +52,7 @@ void WhiteLightOn(void)
 
 void WhiteLightOff(void)
 {
-	PORTB |= (1<<PB5);
+	
+
+	PORTB &= 0xef;
 }
