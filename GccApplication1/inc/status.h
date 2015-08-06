@@ -64,6 +64,17 @@ typedef enum{
 }GREEN_MODE;
 
 typedef enum{
+	_FILTER_MODE_NORMAL = 0,
+	_FILTER_MODE_G1,
+	_FILTER_MODE_G2,
+	_FILTER_MODE_G3,
+	_FILTER_MODE_FA,
+	_FILTER_MODE_FB,
+	_FILTER_MODE_TOTAL,
+}FILTER_MODE;
+
+
+typedef enum{
 	_ZOOM_MODE_GRADING,			//
 	_ZOOM_MODE_STEPLESS,
 	_ZOOM_MODE_TOTAL,
@@ -152,6 +163,7 @@ typedef struct{
 	bool bShowVersion;
 	WHITE_MODE WhiteMode;
 	GREEN_MODE GreenMode;
+	FILTER_MODE FilterMode;
 	ZOOM_MODE ZoomMode;
 	FLIP_MODE FlipMode;
 	WB_MODE WBMode;

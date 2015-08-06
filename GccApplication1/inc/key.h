@@ -83,7 +83,7 @@ typedef enum{
 #define SET_KEYREPEATENABLE()       (g_ucKeyControl |= _BIT3)
 #define CLR_KEYREPEATENABLE()       (g_ucKeyControl &= ~_BIT3)
 
-#if(_KEY_NUM == 8)
+#if(_KEY_NUM == _KEY_MODE_8KEY_STD)
 
 typedef enum{
 	KEY_MASK_AF = 0x80,
@@ -96,7 +96,7 @@ typedef enum{
 	KEY_MASK_FILTER=0x02,
 }KEY_MASK;
 
-#elif(_KEY_NUM == 60)
+#elif(_KEY_NUM == _KEY_MODE_6KEY_STD)
 
 typedef enum{
 	KEY_MASK_FREEZE = 0x80,
@@ -106,7 +106,7 @@ typedef enum{
 	KEY_MASK_AF = 0x40,
 	KEY_MASK_FILTER=0x02,
 }KEY_MASK;
-#elif(_KEY_NUM == 61)
+#elif(_KEY_NUM == _KEY_MODE_6KEY_EM)
 
 typedef enum{
 	KEY_MASK_FREEZE = 0x80,

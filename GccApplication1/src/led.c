@@ -8,18 +8,31 @@
 
 void LedInit(void)
 {
-	DDRD |= (1<<5);
-	
+	#if(_LED_PIN == _LED_D5)
+	DDRD |= (1<<PD5);
+	#elif(_LED_PIN == _LED_C5)
+	DDRC |= (1<<PC5);
+	#endif
 }
 
 void LedOn(void)
 {
+	
+	#if(_LED_PIN == _LED_D5)
 	PORTD &= 0xdf;
+	#elif(_LED_PIN == _LED_C5)
+	PORTC &= 0xdf;
+	#endif
 }
 
 void LedOff(void)
 {
+	
+	#if(_LED_PIN == _LED_D5)
 	PORTD |= (1<<PD5);
+	#elif(_LED_PIN == _LED_C5)
+	PORTC |= (1<<PC5);
+	#endif
 }
 
 void LedFlashing(uint8_t times)
@@ -40,12 +53,12 @@ void BlueLightOn(void)
 	PORTB |= (1<<PB5);
 }
 
-void BlueLightOff(void)
+void WhiteLightOn(void)
 {
 	PORTB |= (1<<PB4);
 }
 
-void WhiteLightOn(void)
+void BlueLightOff(void)
 {
 	PORTB &= 0xDf;
 }

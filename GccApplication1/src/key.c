@@ -25,9 +25,13 @@ void KeyInit(void)
 {
 	DDRB = 0x38;
 	PORTB = 0xFF;
-
+	#if(_LED_PIN == _LED_D5)
 	DDRC = 0x00;
 	PORTC = 0xFF;
+	#elif(_LED_PIN == _LED_C5)
+	PORTC = 0xdF;
+	DDRC = 0x20;
+	#endif
 
 	DDRD = 0xEA;
 	PORTD = 0xFF;
@@ -75,7 +79,7 @@ void CKeyHandle(void)
 // Input Value  : None
 // Output Value : None
 //--------------------------------------------------
-#if(_KEY_NUM == 8)
+#if(_KEY_NUM == _KEY_MODE_8KEY_STD)
 uint16_t CKeyScan(void)
 {
 	uint16_t ucKeyState = 0;
@@ -192,7 +196,7 @@ uint16_t CKeyScan(void)
 
 	return ucKeyState;
 }
-#elif(_KEY_NUM == 60)
+#elif(_KEY_NUM == _KEY_MODE_6KEY_STD)
 uint16_t CKeyScan(void)
 {
 	uint16_t ucKeyState = 0;
@@ -290,7 +294,7 @@ uint16_t CKeyScan(void)
 
 	return ucKeyState;
 }
-#elif(_KEY_NUM == 61)
+#elif(_KEY_NUM == _KEY_MODE_6KEY_EM)
 uint16_t CKeyScan(void)
 {
 	uint16_t ucKeyState = 0;

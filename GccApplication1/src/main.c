@@ -27,7 +27,9 @@ void SystemInit(void)
 	CTimerInitialTimerEvent();
 	
 	//Initital remote IO as input IO
+	#ifndef _REMODE_DISABLE
 	RemoteInit();
+	#endif
 	
 	//Usart initial
 	MY_USART_Init();
@@ -79,7 +81,9 @@ int main(void)
 		CTimerHandle();
 		
 		//Remote IO detect and set a remote message
+		#ifndef _REMODE_DISABLE
 		CRemoteHandle();
+		#endif
 		
 		//Key message and remote message handler
 		CMessageHandle();

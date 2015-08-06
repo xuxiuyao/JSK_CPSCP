@@ -1,46 +1,8 @@
----- uiTitleVPos Matches (45 in 4 files) ----
-Command.c (gccapplication1\src):		g_stCameraCmd.pCmd[5] = titleDis.uiTitleVPos;
-Command.c (gccapplication1\src):		g_stCameraCmd.pCmd[4] |= titleDis.uiTitleVPos;
-Manager.c (gccapplication1\src):				titleDis.uiTitleVPos = 0x01;
-Manager.c (gccapplication1\src):				titleDis.uiTitleVPos = 0x02;
-Manager.c (gccapplication1\src):				titleDis.uiTitleVPos = 0x01;
-Manager.c (gccapplication1\src):				ShowProductInfo(titleDis.uiTitleVPos);
-Manager.c (gccapplication1\src):				g_stStatusCmd.titleDis.uiTitleVPos = 0x0e;
-Manager.c (gccapplication1\src):				g_stStatusCmd.titleDis.uiTitleVPos = 0x0a;
-Manager.c (gccapplication1\src):			CAM_SetTitleOn(g_stStatusCmd.titleDis.uiTitleVPos);
-Manager.c (gccapplication1\src):			CAM_SetTitleClear(g_stStatusCmd.titleDis.uiTitleVPos);
-Manager.c (gccapplication1\src):			g_stStatusCmd.titleDis.uiTitleVPos = 0x01;
-Manager.c (gccapplication1\src):			CAM_SetTitleOn(g_stStatusCmd.titleDis.uiTitleVPos);
-Manager.c (gccapplication1\src):			CAM_SetTitleClear(g_stStatusCmd.titleDis.uiTitleVPos);
-Manager.c (gccapplication1\src):			g_stStatusCmd.titleDis.uiTitleVPos = 0x0a;
-Manager.c (gccapplication1\src):			CAM_SetTitleOn(g_stStatusCmd.titleDis.uiTitleVPos);
-Manager.c (gccapplication1\src):		CAM_SetTitleClear(g_stStatusCmd.titleDis.uiTitleVPos);
-Manager.c (gccapplication1\src):		g_stStatusCmd.titleDis.uiTitleVPos = 0x0a;
-Manager.c (gccapplication1\src):		CAM_SetTitleOn(g_stStatusCmd.titleDis.uiTitleVPos);
-Manager.c (gccapplication1\src):	CAM_SetTitleSet2(g_stStatusCmd.titleDis.uiTitleVPos, tSpace);
-Manager.c (gccapplication1\src):	CAM_SetTitleSet3(g_stStatusCmd.titleDis.uiTitleVPos, tSpace);
-Manager.c (gccapplication1\src):	CAM_SetTitleSet2(g_stStatusCmd.titleDis.uiTitleVPos, tSaving);
-Manager.c (gccapplication1\src):	CAM_SetTitleSet2(g_stStatusCmd.titleDis.uiTitleVPos, tSpace);
-Manager.c (gccapplication1\src):	CAM_SetTitleClear(g_stStatusCmd.titleDis.uiTitleVPos);
-Manager.c (gccapplication1\src):	g_stStatusCmd.titleDis.uiTitleVPos = 0x01;
-Manager.c (gccapplication1\src):	CAM_SetTitleOn(g_stStatusCmd.titleDis.uiTitleVPos);
-Manager.c (gccapplication1\src):	CAM_SetTitleClear(g_stStatusCmd.titleDis.uiTitleVPos);
-Manager.c (gccapplication1\src):	g_stStatusCmd.titleDis.uiTitleVPos = 0x0a;
-Manager.c (gccapplication1\src):	CAM_SetTitleOn(g_stStatusCmd.titleDis.uiTitleVPos);
-Manager.c (gccapplication1\src):	CAM_SetTitleClear(g_stStatusCmd.titleDis.uiTitleVPos);
-Manager.c (gccapplication1\src):	g_stStatusCmd.titleDis.uiTitleVPos = 0x01;
-Manager.c (gccapplication1\src):	CAM_SetTitleOn(g_stStatusCmd.titleDis.uiTitleVPos);
-Manager.c (gccapplication1\src):	CAM_SetTitleClear(g_stStatusCmd.titleDis.uiTitleVPos);
-Manager.c (gccapplication1\src):	g_stStatusCmd.titleDis.uiTitleVPos = 0x0a;
-Manager.c (gccapplication1\src):	CAM_SetTitleOn(g_stStatusCmd.titleDis.uiTitleVPos);
-Status.h (gccapplication1\inc):	uint8_t uiTitleVPos;
-Title.c (gccapplication1\src):			g_stStatusCmd.titleDis.uiTitleVPos = 0x01;
-Title.c (gccapplication1\src):		g_stStatusCmd.titleDis.uiTitleVPos = 0x0a;
-Title.c (gccapplication1\src):		CAM_SetTitleSet2(g_stStatusCmd.titleDis.uiTitleVPos, uiTitle);
-Title.c (gccapplication1\src):				g_stStatusCmd.titleDis.uiTitleVPos = 0x01;
-Title.c (gccapplication1\src):			g_stStatusCmd.titleDis.uiTitleVPos = 0x0a;
-Title.c (gccapplication1\src):	CAM_SetTitleSet3(g_stStatusCmd.titleDis.uiTitleVPos, uiTitle);
-Title.c (gccapplication1\src):	OORDis.uiTitleVPos = 0x09;
-Title.c (gccapplication1\src):		CAM_SetTitleSet3(OORDis.uiTitleVPos, uiTitle);
-Title.c (gccapplication1\src):		CAM_SetTitleOn(OORDis.uiTitleVPos);
-Title.c (gccapplication1\src):		CAM_SetTitleOff(OORDis.uiTitleVPos);
+---- SetMirrorOff Matches (7 in 4 files) ----
+Command.c (gccapplication1\src):void CAM_SetMirrorOff(void)
+Command.h (gccapplication1\inc):extern void CAM_SetMirrorOff(void);
+Manager.c (gccapplication1\src):			CAM_SetMirrorOff();
+Manager.c (gccapplication1\src):			SetMirrorOff();
+Manager.c (gccapplication1\src):void SetMirrorOff(void)
+Manager.c (gccapplication1\src):	CAM_SetMirrorOff();
+Manager.h (gccapplication1\inc):extern void SetMirrorOff(void);

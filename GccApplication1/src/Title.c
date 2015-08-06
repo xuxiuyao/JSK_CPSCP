@@ -29,7 +29,8 @@ void SetTitle2(void)
 	// if display EM flip
 	if (g_stStatusCmd.FlipMode == _FLIP_MODE_ON)
 	{
-		#if(_KEY_NUM == 61)
+	/*
+		#if(_KEY_NUM == _KEY_MODE_6KEY_EM)
 
 			#if(_CCD_TYPE_CODE == _CCD_7500)
 			uiTitle[5] = 'E'; //
@@ -44,7 +45,7 @@ void SetTitle2(void)
 
 			#endif
 		#else
-			
+			*/
 			#if(_CCD_TYPE_CODE == _CCD_7500)
 			uiTitle[5] = 'F'; //
 			uiTitle[6] = 'L'; //
@@ -59,12 +60,13 @@ void SetTitle2(void)
 			uiTitle[8] = 0x0F; //P
 			uiTitle[9] = 0x1b; // 
 			#endif
-		#endif
+		//#endif
 
 	}
 	else if(g_stStatusCmd.FlipMode == _MIRROR_MODE_ON)
 	{
-		#if(_KEY_NUM == 61)
+	/*
+		#if(_KEY_NUM == _KEY_MODE_6KEY_EM)
 			
 			#if(_CCD_TYPE_CODE == _CCD_7500)
 			uiTitle[5] = 'E'; //
@@ -77,7 +79,7 @@ void SetTitle2(void)
 			uiTitle[7] = 0x0C; //M
 			#endif
 		#else
-			
+			*/
 			#if(_CCD_TYPE_CODE == _CCD_7500)
 			uiTitle[5] = 'I'; //
 			uiTitle[6] = 'M'; //
@@ -91,7 +93,7 @@ void SetTitle2(void)
 			uiTitle[8] = 0x06; //G
 			uiTitle[9] = 0x04; //E
 			#endif
-		#endif
+		//#endif
 
 	}
 	#endif
@@ -148,14 +150,6 @@ void SetTitle2(void)
 	// if display still
 	if ((true == g_stStatusCmd.bIsStill)&&(_DISPLAY_STILL& g_stStatusCmd.uiDisplayFlag))
 	{
-		#if(_KEY_NUM == 61)
-			g_stStatusCmd.titleDis.uiTitleVPos = 0x01;
-			g_stStatusCmd.titleDis.uiTitleHPos = 0x01;
-			g_stStatusCmd.titleDis.TitleColor = _TITLE_COLOR_VIOLET;
-			g_stStatusCmd.titleDis.TitleBlink = _TITLE_BLINK_ON;
-			CAM_SetTitleSet1(g_stStatusCmd.titleDis);
-			_delay_ms(300);
-		#endif
 			#if(_CCD_TYPE_CODE == _CCD_7500)
 			uiTitle[5] = 'S'; //
 			uiTitle[6] = 'T'; //
@@ -173,7 +167,7 @@ void SetTitle2(void)
 	}
 	else
 	{
-		#if(_KEY_NUM == 61)
+		#if 0//(_KEY_NUM == _KEY_MODE_6KEY_EM)
 		#if(_CCD_TYPE_CODE == _CCD_7500)
 		uiTitle[5] = ' '; //
 		uiTitle[6] = ' '; //
@@ -314,78 +308,70 @@ void SetTitle3(void)
 		{
 		}
 	}
+
+	//if display filter
+	if ((g_stStatusCmd.FilterMode !=_FILTER_MODE_NORMAL)&&((_DISPLAY_FILTER& g_stStatusCmd.uiDisplayFlag)||(_DISPLAY_WHITE& g_stStatusCmd.uiDisplayFlag)))
+	{
+		if(g_stStatusCmd.FilterMode<=_FILTER_MODE_G3)
+		{
+			#if(_CCD_TYPE_CODE == _CCD_7500)
+			uiTitle[1] = 'G'; //0x47
+			uiTitle[2] = uiNumberTable[(uint8_t)g_stStatusCmd.FilterMode]; //
+			uiTitle[3] = ' '; //A
+			#else
+			uiTitle[1] = 0x06; //G
+			uiTitle[2] = uiNumberTable[(uint8_t)g_stStatusCmd.FilterMode]; //
+			uiTitle[3] = 0x1B; //A
+			#endif
+		}
+		else if(g_stStatusCmd.FilterMode==_FILTER_MODE_FA)
+		{
+			#if(_CCD_TYPE_CODE == _CCD_7500)
+			uiTitle[1] = 'F'; //0x46
+			uiTitle[2] = 'A'; //0x41
+			uiTitle[3] = ' '; //0x41
+			#else
+			uiTitle[1] = 0x05; //F
+			uiTitle[2] = 0x00; //A
+			uiTitle[3] = 0x1B; //A
+			#endif
+		}
+		else if(g_stStatusCmd.FilterMode==_FILTER_MODE_FB)
+		{
+			#if(_CCD_TYPE_CODE == _CCD_7500)
+			uiTitle[1] = 'F'; //0x46
+			uiTitle[2] = 'B'; //0x42
+			#else
+			uiTitle[1] = 0x05; //F
+			uiTitle[2] = 0x01; //B
+			uiTitle[3] = 0x1B; //A
+			#endif
+		}
+	}
 	
 	// if display Green
 	if ((true == g_stStatusCmd.bIsDisplay)&&(_DISPLAY_FILTER& g_stStatusCmd.uiDisplayFlag))
 	{
 		if (g_stStatusCmd.GreenMode==_GREEN_MODE_G1 || g_stStatusCmd.GreenMode==_GREEN_MODE_G2 || g_stStatusCmd.GreenMode==_GREEN_MODE_G3)
 		{
-			#if(_KEY_NUM == 61)
-				g_stStatusCmd.titleDis.uiTitleVPos = 0x01;
-				g_stStatusCmd.titleDis.uiTitleHPos = 0x01;
-				g_stStatusCmd.titleDis.TitleColor = _TITLE_COLOR_CYAN;
-				g_stStatusCmd.titleDis.TitleBlink = _TITLE_BLINK_ON;
-				CAM_SetTitleSet1(g_stStatusCmd.titleDis);
-				_delay_ms(300);
-				#if(_CCD_TYPE_CODE == _CCD_7500)
-				uiTitle[1] = 'G'; //
-				uiTitle[2] = 'F'; //
-				uiTitle[3] = '-'; //
-				#else
-				uiTitle[1] = 0x06; //
-				uiTitle[2] = 0x05; //
-				uiTitle[3] = 0x4f; //
-				#endif
-				uiTitle[4] = uiNumberTable[(uint8_t)g_stStatusCmd.GreenMode]; //
+			#if(_CCD_TYPE_CODE == _CCD_7500)
+			uiTitle[1] = 'G'; //0x47
+			uiTitle[2] = uiNumberTable[(uint8_t)g_stStatusCmd.GreenMode]; //
+			uiTitle[3] = ' '; //A
 			#else
-				#if(_CCD_TYPE_CODE == _CCD_7500)
-				uiTitle[1] = 'G'; //0x47
-				uiTitle[2] = uiNumberTable[(uint8_t)g_stStatusCmd.GreenMode]; //
-				uiTitle[3] = ' '; //A
-				#else
-				uiTitle[1] = 0x06; //G
-				uiTitle[2] = uiNumberTable[(uint8_t)g_stStatusCmd.GreenMode]; //
-				uiTitle[3] = 0x1B; //A
-				#endif
-				
+			uiTitle[1] = 0x06; //G
+			uiTitle[2] = uiNumberTable[(uint8_t)g_stStatusCmd.GreenMode]; //
+			uiTitle[3] = 0x1B; //A
 			#endif
 		}
 		else
 		{
-			#if(_KEY_NUM == 61)
-			#if(_CCD_TYPE_CODE == _CCD_7500)
-			uiTitle[5] = ' '; //
-			uiTitle[6] = ' '; //
-			uiTitle[7] = ' '; //
-			uiTitle[8] = ' '; //
-			uiTitle[9] = ' '; //
-			#else
-			uiTitle[5] = 0x1b; //I
-			uiTitle[6] = 0x1b; //M
-			uiTitle[7] = 0x1b; //A
-			uiTitle[8] = 0x1b; //G
-			uiTitle[9] = 0x1b; //E
-			#endif
-			g_stStatusCmd.titleDis.uiTitleVPos = 0x0a;
-			g_stStatusCmd.titleDis.uiTitleHPos = 0x01;
-			g_stStatusCmd.titleDis.TitleColor = _TITLE_COLOR_YELLOW;
-			g_stStatusCmd.titleDis.TitleBlink = _TITLE_BLINK_OFF;
-			CAM_SetTitleSet1(g_stStatusCmd.titleDis);
-			_delay_ms(300);
-			#endif
 		}
 	}
 	
 	// if display Time
 	if (true == g_stStatusCmd.bIsTime)
 	{
-		#if(_EM_KEY == 2)
-			#if(_CCD_TYPE_CODE == _CCD_7500)
-			uiTitle[4] = 'T'; //T
-			#else
-			uiTitle[4] = 0x13; //T
-			#endif
-		#endif
 		if (true != g_stStatusCmd.bIsStill)
 		{
 			ucMinuteCnt = g_ucMinuteCnt;
@@ -556,42 +542,51 @@ void ShowProductInfo(unsigned char LineNum)
 	//Product Model
 	CAM_SetTitleSet2(LineNum, g_stProductInfo.uiProductModel);
 	
-	_delay_ms(100);
+	_delay_ms(30);
 
-	#ifdef _DOUBLE_LINE_INFO
+	#ifdef _SHOW_COMPANY
 	CAM_SetTitleSet3(LineNum, g_stProductInfo.uiProductModel2);
-
-	uiTitle[7] = 0x07;
-	uiTitle[8] = 0x03;
-
-	CAM_SetTitleSet2(LineNum+1, uiTitle);
-	uiTitle[7] = 0x1b;
-	uiTitle[8] = 0x1b;
+	#ifdef _DOUBLE_LINE_INFO
 	if(g_stStatusCmd.uiModeID == _CAM_3310)
 	{
-		uiTitle[0] = 0x1e;
-		uiTitle[1] = 0x4c;
-		uiTitle[2] = 0x21;
-		uiTitle[3] = 0x20;
-		uiTitle[4] = 0x0c;
-		uiTitle[5] = 0x1b;
-		uiTitle[6] = 0x0f;
-		uiTitle[7] = 0x08;
-		uiTitle[8] = 0x17;
+		uiTitle[2] = 0x07;
+		uiTitle[3] = 0x03;
+		uiTitle[4] = 0x1b;
+		uiTitle[5] = 0x1e;
+		uiTitle[6] = 0x4c;
+		uiTitle[7] = 0x21;
+		uiTitle[8] = 0x20;
+		uiTitle[9] = 0x0c;
 	}
 	else if(g_stStatusCmd.uiModeID == _CAM_6300)
 	{
-		uiTitle[0] = 0x20;
-		uiTitle[1] = 0x4c;
-		uiTitle[2] = 0x1f;
-		uiTitle[3] = 0x24;
-		uiTitle[4] = 0x0c;
-		uiTitle[5] = 0x1b;
-		uiTitle[6] = 0x0f;
-		uiTitle[7] = 0x08;
-		uiTitle[8] = 0x17;
+		uiTitle[2] = 0x07;
+		uiTitle[3] = 0x03;
+		uiTitle[4] = 0x1b;
+		uiTitle[5] = 0x20;
+		uiTitle[6] = 0x4c;
+		uiTitle[7] = 0x1f;
+		uiTitle[8] = 0x24;
+		uiTitle[9] = 0x0c;
 	}
+		
+
+	CAM_SetTitleSet2(LineNum+1, uiTitle);
+
+		uiTitle[0] = 0x1b;
+		uiTitle[1] = 0x0f;
+		uiTitle[2] = 0x08;
+		uiTitle[3] = 0x17;
+		uiTitle[4] = 0x04;
+		uiTitle[5] = 0x0b;
+		uiTitle[6] = 0x12;
+		uiTitle[7] = 0x1b;
+		uiTitle[8] = 0x1b;
+		uiTitle[9] = 0x1b;
 	CAM_SetTitleSet3(LineNum+1, uiTitle);
+	#endif
+
+	
 	#else
 	#ifdef _GC_SHOW_BEHIND
 	m=0;
