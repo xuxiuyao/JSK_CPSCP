@@ -662,3 +662,41 @@ void ShowProductInfo(unsigned char LineNum)
 	#endif
 }
 
+#ifdef _ALSO_SHOW_VERSION
+void AlsoShowVersion(unsigned char LineNum)
+{
+	uint8_t i,j,k,l,m;
+	#if(_CCD_TYPE_CODE == _CCD_7500)
+	uint8_t uiTitle[10] = {0x20,0x20,0x20,0x20,0x20,0x20,0x20,0x20,0x20,0x20};//space
+	#else
+	uint8_t uiTitle[10] = {0x1b,0x1b,0x1b,0x1b,0x1b,0x1b,0x1b,0x1b,0x1b,0x1b};//space
+	#endif
+		
+	uiTitle[1] = 0x03;//D
+	uiTitle[2] = 0x15;//V
+	uiTitle[3] = 0x02;//C
+	uiTitle[4] = 0x1e;// 1
+	uiTitle[5] = 0x27;//0
+	uiTitle[6] = 0x27;//0
+	uiTitle[7] = 0x27;//0
+	uiTitle[8] = 0x27;//0
+	
+	CAM_SetTitleSet2(LineNum, uiTitle);
+	
+	_delay_ms(30);
+
+	uiTitle[0] = 0x15;//V
+	uiTitle[1] = 0x1F;// 2
+	uiTitle[2] = 0x4C;// .
+	uiTitle[3] = 0x1E;// 1
+	uiTitle[4] = 0x27;// 0
+	uiTitle[5] = 0x1B;// 
+	uiTitle[6] = 0x1B;// 
+	uiTitle[7] = 0x22;// 5
+	uiTitle[8] = 0x26;// 9
+
+	CAM_SetTitleSet3(LineNum, uiTitle);
+
+}
+#endif
+

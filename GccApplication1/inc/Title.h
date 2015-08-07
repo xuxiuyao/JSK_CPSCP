@@ -20,7 +20,9 @@ extern void OORDisplay(void);
 
 extern void TitleHandle(void);
 extern void ShowProductInfo(unsigned char  LineNum);
-
+#ifdef _ALWAYS_SHOW_COMP_TYPE
+extern void AlsoShowVersion(unsigned char LineNum);
+#endif
 
 
 #endif /* TITLE_H_ */

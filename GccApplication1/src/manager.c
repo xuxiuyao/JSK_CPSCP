@@ -116,7 +116,71 @@ void InitCamera(void)
 			_delay_ms(_INIT_DELAY*5);
 			CAM_SetTitleOn(0x0F);
 			_delay_ms(_INIT_DELAY*5);
-			
+			#ifdef _ALWAYS_SHOW_COMP_TYPE
+			#ifdef _ALSO_SHOW_VERSION
+			if(g_stStatusCmd.bShowVersion)
+			{
+				TITLE_DISPLAY titleDis;
+				titleDis.uiTitleVPos = 0x0a;
+				if((g_stStatusCmd.uiModeID == _CAM_480)||(g_stStatusCmd.uiModeID == _CAM_1020))
+					titleDis.uiTitleHPos = 0x01;
+				else
+					titleDis.uiTitleHPos = 0x07;
+				titleDis.TitleColor = _TITLE_COLOR_YELLOW;
+				titleDis.TitleBlink = _TITLE_BLINK_OFF;
+				CAM_SetTitleSet1(titleDis);
+				_delay_ms(_INIT_DELAY*5);
+
+				
+				
+				AlsoShowVersion(titleDis.uiTitleVPos);
+				
+				LedFlashing(10);
+				CAM_SetTitleClear(0x0a);
+				_delay_ms(_INIT_DELAY*5);
+				
+			}
+			#endif
+				TITLE_DISPLAY titleDis;
+				#ifdef _DOUBLE_LINE_INFO
+				titleDis.uiTitleVPos = 0x00;
+				#else
+				titleDis.uiTitleVPos = 0x01;
+				#endif
+				if((g_stStatusCmd.uiModeID == _CAM_480)||(g_stStatusCmd.uiModeID == _CAM_1020))
+					titleDis.uiTitleHPos = 0x01;
+				else
+					titleDis.uiTitleHPos = 0x07;
+				#ifdef _INFO_COLOR_CYAN
+				titleDis.TitleColor = _TITLE_COLOR_CYAN;
+				#else
+				titleDis.TitleColor = _TITLE_COLOR_VIOLET;
+				#endif
+				titleDis.TitleBlink = _TITLE_BLINK_OFF;
+				CAM_SetTitleSet1(titleDis);
+				_delay_ms(_INIT_DELAY*5);
+
+				#ifdef _DOUBLE_LINE_INFO
+				titleDis.uiTitleVPos = 0x01;
+				CAM_SetTitleSet1(titleDis);
+				_delay_ms(_INIT_DELAY*5);
+				titleDis.uiTitleVPos = 0x00;
+				#endif
+				
+				ShowProductInfo(titleDis.uiTitleVPos);
+				
+				LedFlashing(10);
+				#ifdef _DOUBLE_LINE_INFO
+				LedFlashing(4);
+				#endif
+				#ifdef _DOUBLE_LINE_INFO
+				CAM_SetTitleClear(0x00);
+				_delay_ms(_INIT_DELAY*5);
+				#endif
+
+				CAM_SetTitleClear(0x01);
+				_delay_ms(_INIT_DELAY*5);
+			#else
 			if(g_stStatusCmd.bShowVersion)
 			{
 				TITLE_DISPLAY titleDis;
@@ -155,6 +219,9 @@ void InitCamera(void)
 				#endif
 				
 			}
+			#endif
+
+			
 
 			if((g_stStatusCmd.uiModeID == _CAM_480)||(g_stStatusCmd.uiModeID == _CAM_1020))
 				g_stStatusCmd.titleDis.uiTitleHPos = 0x01;

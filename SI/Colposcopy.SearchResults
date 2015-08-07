@@ -1,8 +1,9 @@
----- SetMirrorOff Matches (7 in 4 files) ----
-Command.c (gccapplication1\src):void CAM_SetMirrorOff(void)
-Command.h (gccapplication1\inc):extern void CAM_SetMirrorOff(void);
-Manager.c (gccapplication1\src):			CAM_SetMirrorOff();
-Manager.c (gccapplication1\src):			SetMirrorOff();
-Manager.c (gccapplication1\src):void SetMirrorOff(void)
-Manager.c (gccapplication1\src):	CAM_SetMirrorOff();
-Manager.h (gccapplication1\inc):extern void SetMirrorOff(void);
+---- _DOUBLE_LINE_INFO Matches (8 in 3 files) ----
+Define.h (gccapplication1\inc):	#define _DOUBLE_LINE_INFO
+Manager.c (gccapplication1\src):				#ifdef _DOUBLE_LINE_INFO
+Manager.c (gccapplication1\src):				#ifdef _DOUBLE_LINE_INFO
+Manager.c (gccapplication1\src):				#ifdef _DOUBLE_LINE_INFO
+Manager.c (gccapplication1\src):				#ifdef _DOUBLE_LINE_INFO
+Manager.c (gccapplication1\src):				#ifdef _DOUBLE_LINE_INFO
+Manager.c (gccapplication1\src):				#ifdef _DOUBLE_LINE_INFO
+Title.c (gccapplication1\src):	#ifdef _DOUBLE_LINE_INFO

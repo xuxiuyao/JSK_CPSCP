@@ -35,11 +35,7 @@ void StatusInit(STATUS_CMD* Cmd)
 	Cmd->uiDisplayFlag = _DISPLAY_NULL;
 	Cmd->bIsTime = false;
 	Cmd->bIsStill = false;
-	#ifdef _ALWAYS_SHOW_VERSION
-	Cmd->bShowVersion = true;
-	#else
 	Cmd->bShowVersion = false;
-	#endif
 	Cmd->WhiteMode = _WHITE_MODE_NORMAL;
 	Cmd->GreenMode = _GREEN_MODE_NORMAL;
 	Cmd->FilterMode = _FILTER_MODE_NORMAL;

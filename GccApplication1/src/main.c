@@ -50,9 +50,6 @@ void PowerDetect(void)
 		MyPrintf("Power combo key is: S%d\r\n",g_ucKeyMessage + 1);
 		#endif
 	}
-	#ifdef _ALWAYS_SHOW_VERSION
-	g_stStatusCmd.bShowVersion = true;
-	#endif
 }
 int main(void)
 {	

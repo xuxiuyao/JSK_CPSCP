@@ -435,7 +435,7 @@ END GROUP
 .rela.plt
  *(.rela.plt)
 
-.text           0x00000000     0x32e4
+.text           0x00000000     0x33d0
  *(.vectors)
  .vectors       0x00000000       0x68 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr5/crtm168pa.o
                 0x00000000                __vector_default
@@ -734,186 +734,189 @@ END GROUP
                 0x00001406       0x46 src/manager.o
                 0x00001406                InitFlashDelay
  .text.InitCamera
-                0x0000144c      0x260 src/manager.o
+                0x0000144c      0x2ae src/manager.o
                 0x0000144c                InitCamera
  .text.GetXRateByPos
-                0x000016ac       0xa2 src/manager.o
-                0x000016ac                GetXRateByPos
+                0x000016fa       0xa2 src/manager.o
+                0x000016fa                GetXRateByPos
  .text.ProcessAF
-                0x0000174e      0x132 src/manager.o
-                0x0000174e                ProcessAF
+                0x0000179c      0x132 src/manager.o
+                0x0000179c                ProcessAF
  .text.ProcessDisplay
-                0x00001880       0xac src/manager.o
-                0x00001880                ProcessDisplay
+                0x000018ce       0xac src/manager.o
+                0x000018ce                ProcessDisplay
  .text.ProcessWide
-                0x0000192c      0x19c src/manager.o
-                0x0000192c                ProcessWide
+                0x0000197a      0x19c src/manager.o
+                0x0000197a                ProcessWide
  .text.ProcessTele
-                0x00001ac8      0x19e src/manager.o
-                0x00001ac8                ProcessTele
+                0x00001b16      0x19e src/manager.o
+                0x00001b16                ProcessTele
  .text.ProcessTime
-                0x00001c66       0x1c src/manager.o
-                0x00001c66                ProcessTime
+                0x00001cb4       0x1c src/manager.o
+                0x00001cb4                ProcessTime
  .text.ProcessAutoWB
-                0x00001c82       0x96 src/manager.o
-                0x00001c82                ProcessAutoWB
+                0x00001cd0       0x96 src/manager.o
+                0x00001cd0                ProcessAutoWB
  .text.ProcessManualWB
-                0x00001d18       0x9a src/manager.o
-                0x00001d18                ProcessManualWB
+                0x00001d66       0x9a src/manager.o
+                0x00001d66                ProcessManualWB
  .text.ProcessSwitchRB
-                0x00001db2       0x54 src/manager.o
-                0x00001db2                ProcessSwitchRB
+                0x00001e00       0x54 src/manager.o
+                0x00001e00                ProcessSwitchRB
  .text.CReleaseKeyMessageHandle
-                0x00001e06      0x284 src/manager.o
-                0x00001e06                CReleaseKeyMessageHandle
+                0x00001e54      0x284 src/manager.o
+                0x00001e54                CReleaseKeyMessageHandle
  .text.WhiteBalanceHandle
-                0x0000208a       0x5c src/manager.o
-                0x0000208a                WhiteBalanceHandle
+                0x000020d8       0x5c src/manager.o
+                0x000020d8                WhiteBalanceHandle
  .text.SetWhiteModeNormal
-                0x000020e6       0x20 src/manager.o
-                0x000020e6                SetWhiteModeNormal
+                0x00002134       0x20 src/manager.o
+                0x00002134                SetWhiteModeNormal
  .text.SetWhiteModeFA
-                0x00002106       0x1c src/manager.o
-                0x00002106                SetWhiteModeFA
+                0x00002154       0x1c src/manager.o
+                0x00002154                SetWhiteModeFA
  .text.SetWhiteModeFB
-                0x00002122       0x1c src/manager.o
-                0x00002122                SetWhiteModeFB
+                0x00002170       0x1c src/manager.o
+                0x00002170                SetWhiteModeFB
  .text.SetFilterG1
-                0x0000213e       0x36 src/manager.o
-                0x0000213e                SetFilterG1
+                0x0000218c       0x36 src/manager.o
+                0x0000218c                SetFilterG1
  .text.SetFilterG2
-                0x00002174       0x38 src/manager.o
-                0x00002174                SetFilterG2
+                0x000021c2       0x38 src/manager.o
+                0x000021c2                SetFilterG2
  .text.SetFilterG3
-                0x000021ac       0x38 src/manager.o
-                0x000021ac                SetFilterG3
+                0x000021fa       0x38 src/manager.o
+                0x000021fa                SetFilterG3
  .text.SaveRBGainValue
-                0x000021e4      0x12e src/manager.o
-                0x000021e4                SaveRBGainValue
+                0x00002232      0x12e src/manager.o
+                0x00002232                SaveRBGainValue
  .text.ProcessFreeze
-                0x00002312       0xd2 src/manager.o
-                0x00002312                ProcessFreeze
+                0x00002360       0xd2 src/manager.o
+                0x00002360                ProcessFreeze
  .text.UnSaveRBGainValue
-                0x000023e4       0x64 src/manager.o
-                0x000023e4                UnSaveRBGainValue
+                0x00002432       0x64 src/manager.o
+                0x00002432                UnSaveRBGainValue
  .text.ProcessWhite
-                0x00002448       0x62 src/manager.o
-                0x00002448                ProcessWhite
+                0x00002496       0x62 src/manager.o
+                0x00002496                ProcessWhite
  .text.ProcessFilter
-                0x000024aa       0x6a src/manager.o
-                0x000024aa                ProcessFilter
+                0x000024f8       0x6a src/manager.o
+                0x000024f8                ProcessFilter
  .text.SetMirrorOn
-                0x00002514       0x6a src/manager.o
-                0x00002514                SetMirrorOn
+                0x00002562       0x6a src/manager.o
+                0x00002562                SetMirrorOn
  .text.SetMirrorOff
-                0x0000257e       0x68 src/manager.o
-                0x0000257e                SetMirrorOff
+                0x000025cc       0x68 src/manager.o
+                0x000025cc                SetMirrorOff
  .text.SetFlipOn
-                0x000025e6       0x68 src/manager.o
-                0x000025e6                SetFlipOn
+                0x00002634       0x68 src/manager.o
+                0x00002634                SetFlipOn
  .text.SetFlipOff
-                0x0000264e       0x68 src/manager.o
-                0x0000264e                SetFlipOff
+                0x0000269c       0x68 src/manager.o
+                0x0000269c                SetFlipOff
  .text.ProcessEM
-                0x000026b6       0x40 src/manager.o
-                0x000026b6                ProcessEM
+                0x00002704       0x40 src/manager.o
+                0x00002704                ProcessEM
  .text.CMessageHandle
-                0x000026f6       0x5e src/manager.o
-                0x000026f6                CMessageHandle
+                0x00002744       0x5e src/manager.o
+                0x00002744                CMessageHandle
  .text.CRemoteScan
-                0x00002754       0x64 src/remote.o
-                0x00002754                CRemoteScan
+                0x000027a2       0x64 src/remote.o
+                0x000027a2                CRemoteScan
  .text.StatusInit
-                0x000027b8       0x52 src/status.o
-                0x000027b8                StatusInit
+                0x00002806       0x52 src/status.o
+                0x00002806                StatusInit
  .text.ProductInfoInit
-                0x0000280a       0x5a src/status.o
-                0x0000280a                ProductInfoInit
+                0x00002858       0x5a src/status.o
+                0x00002858                ProductInfoInit
  .text.CTimerInit
-                0x00002864       0x26 src/timer.o
-                0x00002864                CTimerInit
+                0x000028b2       0x26 src/timer.o
+                0x000028b2                CTimerInit
  .text.CTimerHandle
-                0x0000288a       0x5e src/timer.o
-                0x0000288a                CTimerHandle
+                0x000028d8       0x5e src/timer.o
+                0x000028d8                CTimerHandle
  .text.CTimerDecreaseTimerCnt
-                0x000028e8       0x44 src/timer.o
-                0x000028e8                CTimerDecreaseTimerCnt
+                0x00002936       0x44 src/timer.o
+                0x00002936                CTimerDecreaseTimerCnt
  .text.__vector_13
-                0x0000292c      0x196 src/timer.o
-                0x0000292c                __vector_13
+                0x0000297a      0x196 src/timer.o
+                0x0000297a                __vector_13
  .text.CTimerActiveTimerEvent
-                0x00002ac2       0xc0 src/timer.o
-                0x00002ac2                CTimerActiveTimerEvent
+                0x00002b10       0xc0 src/timer.o
+                0x00002b10                CTimerActiveTimerEvent
  .text.CTimerReactiveTimerEvent
-                0x00002b82       0x70 src/timer.o
-                0x00002b82                CTimerReactiveTimerEvent
+                0x00002bd0       0x70 src/timer.o
+                0x00002bd0                CTimerReactiveTimerEvent
  .text.CTimerCancelTimerEvent
-                0x00002bf2       0x40 src/timer.o
-                0x00002bf2                CTimerCancelTimerEvent
+                0x00002c40       0x40 src/timer.o
+                0x00002c40                CTimerCancelTimerEvent
  .text.CTimerInitialTimerEvent
-                0x00002c32       0x22 src/timer.o
-                0x00002c32                CTimerInitialTimerEvent
+                0x00002c80       0x22 src/timer.o
+                0x00002c80                CTimerInitialTimerEvent
  .text.SetTitle2
-                0x00002c54      0x15a src/Title.o
-                0x00002c54                SetTitle2
+                0x00002ca2      0x15a src/Title.o
+                0x00002ca2                SetTitle2
  .text.SetTitle3
-                0x00002dae      0x28a src/Title.o
-                0x00002dae                SetTitle3
+                0x00002dfc      0x28a src/Title.o
+                0x00002dfc                SetTitle3
  .text.TitleHandle
-                0x00003038       0x3a src/Title.o
-                0x00003038                TitleHandle
+                0x00003086       0x3a src/Title.o
+                0x00003086                TitleHandle
  .text.ShowProductInfo
-                0x00003072       0x26 src/Title.o
-                0x00003072                ShowProductInfo
+                0x000030c0       0x26 src/Title.o
+                0x000030c0                ShowProductInfo
+ .text.AlsoShowVersion
+                0x000030e6       0x9e src/Title.o
+                0x000030e6                AlsoShowVersion
  .text.__vector_18
-                0x00003098       0xc8 src/usart.o
-                0x00003098                __vector_18
+                0x00003184       0xc8 src/usart.o
+                0x00003184                __vector_18
  .text.USART_Init
-                0x00003160       0x16 src/usart.o
-                0x00003160                USART_Init
+                0x0000324c       0x16 src/usart.o
+                0x0000324c                USART_Init
  .text.MY_USART_Init
-                0x00003176        0xa src/usart.o
-                0x00003176                MY_USART_Init
+                0x00003262        0xa src/usart.o
+                0x00003262                MY_USART_Init
  .text.USART_SendUChar
-                0x00003180       0x10 src/usart.o
-                0x00003180                USART_SendUChar
+                0x0000326c       0x10 src/usart.o
+                0x0000326c                USART_SendUChar
  .text.USART_SendCmd
-                0x00003190       0x30 src/usart.o
-                0x00003190                USART_SendCmd
+                0x0000327c       0x30 src/usart.o
+                0x0000327c                USART_SendCmd
  .text.libgcc.mul
-                0x000031c0       0x20 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_mulsi3.o)
-                0x000031c0                __mulsi3
+                0x000032ac       0x20 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_mulsi3.o)
+                0x000032ac                __mulsi3
  .text.libgcc.div
-                0x000031e0       0x28 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_divmodhi4.o)
-                0x000031e0                _div
-                0x000031e0                __divmodhi4
+                0x000032cc       0x28 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_divmodhi4.o)
+                0x000032cc                _div
+                0x000032cc                __divmodhi4
  .text.libgcc.div
-                0x00003208       0x44 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_udivmodsi4.o)
-                0x00003208                __udivmodsi4
- .text.libgcc   0x0000324c        0xc c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_tablejump.o)
-                0x0000324c                __tablejump2__
-                0x00003250                __tablejump__
+                0x000032f4       0x44 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_udivmodsi4.o)
+                0x000032f4                __udivmodsi4
+ .text.libgcc   0x00003338        0xc c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_tablejump.o)
+                0x00003338                __tablejump2__
+                0x0000333c                __tablejump__
  .text.libgcc.mul
-                0x00003258       0x16 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_muluhisi3.o)
-                0x00003258                __muluhisi3
+                0x00003344       0x16 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_muluhisi3.o)
+                0x00003344                __muluhisi3
  .text.libgcc.div
-                0x0000326e       0x28 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_udivmodhi4.o)
-                0x0000326e                __udivmodhi4
+                0x0000335a       0x28 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_udivmodhi4.o)
+                0x0000335a                __udivmodhi4
  .text.libgcc.mul
-                0x00003296       0x1e c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_umulhisi3.o)
-                0x00003296                __umulhisi3
+                0x00003382       0x1e c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_umulhisi3.o)
+                0x00003382                __umulhisi3
  .text.avr-libc
-                0x000032b4       0x10 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr5\libc.a(eerd_byte_atmega168pa.o)
-                0x000032b4                __eerd_byte_m168pa
+                0x000033a0       0x10 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr5\libc.a(eerd_byte_atmega168pa.o)
+                0x000033a0                __eerd_byte_m168pa
  .text.avr-libc
-                0x000032c4       0x1c c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr5\libc.a(eewr_byte_atmega168pa.o)
-                0x000032c4                __eewr_byte_m168pa
-                0x000032c6                __eewr_r18_m168pa
-                0x000032e0                . = ALIGN (0x2)
+                0x000033b0       0x1c c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr5\libc.a(eewr_byte_atmega168pa.o)
+                0x000033b0                __eewr_byte_m168pa
+                0x000033b2                __eewr_r18_m168pa
+                0x000033cc                . = ALIGN (0x2)
  *(.fini9)
- .fini9         0x000032e0        0x0 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_exit.o)
-                0x000032e0                _exit
-                0x000032e0                exit
+ .fini9         0x000033cc        0x0 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_exit.o)
+                0x000033cc                _exit
+                0x000033cc                exit
  *(.fini9)
  *(.fini8)
  *(.fini8)
@@ -932,11 +935,11 @@ END GROUP
  *(.fini1)
  *(.fini1)
  *(.fini0)
- .fini0         0x000032e0        0x4 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_exit.o)
+ .fini0         0x000033cc        0x4 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_exit.o)
  *(.fini0)
-                0x000032e4                _etext = .
+                0x000033d0                _etext = .
 
-.data           0x00800100      0x260 load address 0x000032e4
+.data           0x00800100      0x260 load address 0x000033d0
                 0x00800100                PROVIDE (__data_start, .)
  *(.data)
  *(.data*)
@@ -1172,9 +1175,9 @@ END GROUP
  .bss.g_ucTimer1Cnt
                 0x00800379        0x4 src/timer.o
                 0x00800379                g_ucTimer1Cnt
- .bss.ucSecondCnt.2508
+ .bss.ucSecondCnt.2510
                 0x0080037d        0x1 src/Title.o
- .bss.ucMinuteCnt.2507
+ .bss.ucMinuteCnt.2509
                 0x0080037e        0x1 src/Title.o
  .bss.g_bTitle2Change
                 0x0080037f        0x1 src/Title.o
@@ -1200,8 +1203,8 @@ END GROUP
                 0x00800419                ReplyBuf
                 0x00800439                rev_data
                 0x0080043a                PROVIDE (__bss_end, .)
-                0x000032e4                __data_load_start = LOADADDR (.data)
-                0x00003544                __data_load_end = (__data_load_start + SIZEOF (.data))
+                0x000033d0                __data_load_start = LOADADDR (.data)
+                0x00003630                __data_load_end = (__data_load_start + SIZEOF (.data))
 
 .noinit         0x0080043a        0x0
                 0x0080043a                PROVIDE (__noinit_start, .)
@@ -1276,7 +1279,7 @@ END GROUP
 .debug_sfnames
  *(.debug_sfnames)
 
-.debug_aranges  0x00000000      0x590
+.debug_aranges  0x00000000      0x598
  *(.debug_aranges)
  .debug_aranges
                 0x00000000      0x218 src/command.o
@@ -1295,53 +1298,53 @@ END GROUP
  .debug_aranges
                 0x000004a8       0x58 src/timer.o
  .debug_aranges
-                0x00000500       0x38 src/Title.o
+                0x00000500       0x40 src/Title.o
  .debug_aranges
-                0x00000538       0x58 src/usart.o
+                0x00000540       0x58 src/usart.o
 
 .debug_pubnames
  *(.debug_pubnames)
 
-.debug_info     0x00000000     0x7d32
+.debug_info     0x00000000     0x7f07
  *(.debug_info .gnu.linkonce.wi.*)
  .debug_info    0x00000000     0x1ba8 src/command.o
  .debug_info    0x00001ba8      0x9c9 src/key.o
  .debug_info    0x00002571      0x222 src/led.o
  .debug_info    0x00002793      0x96d src/main.o
- .debug_info    0x00003100     0x2895 src/manager.o
- .debug_info    0x00005995      0x8a3 src/remote.o
- .debug_info    0x00006238      0x5e1 src/status.o
- .debug_info    0x00006819      0x814 src/timer.o
- .debug_info    0x0000702d      0x85f src/Title.o
- .debug_info    0x0000788c      0x4a6 src/usart.o
+ .debug_info    0x00003100     0x2987 src/manager.o
+ .debug_info    0x00005a87      0x8a3 src/remote.o
+ .debug_info    0x0000632a      0x5e1 src/status.o
+ .debug_info    0x0000690b      0x814 src/timer.o
+ .debug_info    0x0000711f      0x942 src/Title.o
+ .debug_info    0x00007a61      0x4a6 src/usart.o
 
-.debug_abbrev   0x00000000     0x123f
+.debug_abbrev   0x00000000     0x1268
  *(.debug_abbrev)
  .debug_abbrev  0x00000000      0x213 src/command.o
  .debug_abbrev  0x00000213      0x234 src/key.o
  .debug_abbrev  0x00000447       0xfc src/led.o
  .debug_abbrev  0x00000543      0x1a7 src/main.o
- .debug_abbrev  0x000006ea      0x332 src/manager.o
- .debug_abbrev  0x00000a1c      0x182 src/remote.o
- .debug_abbrev  0x00000b9e      0x101 src/status.o
- .debug_abbrev  0x00000c9f      0x157 src/timer.o
- .debug_abbrev  0x00000df6      0x23f src/Title.o
- .debug_abbrev  0x00001035      0x20a src/usart.o
+ .debug_abbrev  0x000006ea      0x35b src/manager.o
+ .debug_abbrev  0x00000a45      0x182 src/remote.o
+ .debug_abbrev  0x00000bc7      0x101 src/status.o
+ .debug_abbrev  0x00000cc8      0x157 src/timer.o
+ .debug_abbrev  0x00000e1f      0x23f src/Title.o
+ .debug_abbrev  0x0000105e      0x20a src/usart.o
 
-.debug_line     0x00000000     0x1f5f
+.debug_line     0x00000000     0x1fba
  *(.debug_line .debug_line.* .debug_line_end)
  .debug_line    0x00000000      0x706 src/command.o
  .debug_line    0x00000706      0x250 src/key.o
  .debug_line    0x00000956      0x1bf src/led.o
  .debug_line    0x00000b15      0x1db src/main.o
- .debug_line    0x00000cf0      0x92f src/manager.o
- .debug_line    0x0000161f      0x1cd src/remote.o
- .debug_line    0x000017ec      0x119 src/status.o
- .debug_line    0x00001905      0x1ea src/timer.o
- .debug_line    0x00001aef      0x26d src/Title.o
- .debug_line    0x00001d5c      0x203 src/usart.o
+ .debug_line    0x00000cf0      0x95a src/manager.o
+ .debug_line    0x0000164a      0x1cd src/remote.o
+ .debug_line    0x00001817      0x119 src/status.o
+ .debug_line    0x00001930      0x1ea src/timer.o
+ .debug_line    0x00001b1a      0x29d src/Title.o
+ .debug_line    0x00001db7      0x203 src/usart.o
 
-.debug_frame    0x00000000      0xd20
+.debug_frame    0x00000000      0xd48
  *(.debug_frame)
  .debug_frame   0x00000000      0x4b8 src/command.o
  .debug_frame   0x000004b8       0xa0 src/key.o
@@ -1351,10 +1354,10 @@ END GROUP
  .debug_frame   0x0000095c       0x94 src/remote.o
  .debug_frame   0x000009f0       0x40 src/status.o
  .debug_frame   0x00000a30      0x164 src/timer.o
- .debug_frame   0x00000b94       0x7c src/Title.o
- .debug_frame   0x00000c10      0x110 src/usart.o
+ .debug_frame   0x00000b94       0xa4 src/Title.o
+ .debug_frame   0x00000c38      0x110 src/usart.o
 
-.debug_str      0x00000000     0x1f08
+.debug_str      0x00000000     0x1f18
  *(.debug_str)
  .debug_str     0x00000000     0x139c src/command.o
                                0x13f3 (size before relaxing)
@@ -1364,30 +1367,30 @@ END GROUP
                                 0x207 (size before relaxing)
  .debug_str     0x000016fa      0x18a src/main.o
                                 0xa41 (size before relaxing)
- .debug_str     0x00001884      0x319 src/manager.o
-                               0x109b (size before relaxing)
- .debug_str     0x00001b9d      0x1cb src/remote.o
+ .debug_str     0x00001884      0x329 src/manager.o
+                               0x10ab (size before relaxing)
+ .debug_str     0x00001bad      0x1cb src/remote.o
                                 0xa31 (size before relaxing)
- .debug_str     0x00001d68       0x15 src/status.o
+ .debug_str     0x00001d78       0x15 src/status.o
                                 0x7c1 (size before relaxing)
- .debug_str     0x00001d7d       0xb5 src/timer.o
+ .debug_str     0x00001d8d       0xb5 src/timer.o
                                 0x9a7 (size before relaxing)
- .debug_str     0x00001e32       0x31 src/Title.o
-                                0x8be (size before relaxing)
- .debug_str     0x00001e63       0xa5 src/usart.o
+ .debug_str     0x00001e42       0x31 src/Title.o
+                                0x8ce (size before relaxing)
+ .debug_str     0x00001e73       0xa5 src/usart.o
                                 0x3e1 (size before relaxing)
 
-.debug_loc      0x00000000     0x28ee
+.debug_loc      0x00000000     0x2986
  *(.debug_loc)
  .debug_loc     0x00000000      0xaf4 src/command.o
  .debug_loc     0x00000af4       0xfb src/key.o
  .debug_loc     0x00000bef      0x10a src/led.o
- .debug_loc     0x00000cf9     0x10c7 src/manager.o
- .debug_loc     0x00001dc0      0x155 src/remote.o
- .debug_loc     0x00001f15       0xbc src/status.o
- .debug_loc     0x00001fd1      0x3de src/timer.o
- .debug_loc     0x000023af      0x252 src/Title.o
- .debug_loc     0x00002601      0x2ed src/usart.o
+ .debug_loc     0x00000cf9     0x10df src/manager.o
+ .debug_loc     0x00001dd8      0x155 src/remote.o
+ .debug_loc     0x00001f2d       0xbc src/status.o
+ .debug_loc     0x00001fe9      0x3de src/timer.o
+ .debug_loc     0x000023c7      0x2d2 src/Title.o
+ .debug_loc     0x00002699      0x2ed src/usart.o
 
 .debug_macinfo
  *(.debug_macinfo)
@@ -1407,7 +1410,7 @@ END GROUP
 .debug_pubtypes
  *(.debug_pubtypes)
 
-.debug_ranges   0x00000000      0x4f0
+.debug_ranges   0x00000000      0x4f8
  *(.debug_ranges)
  .debug_ranges  0x00000000      0x208 src/command.o
  .debug_ranges  0x00000208       0x48 src/key.o
@@ -1417,8 +1420,8 @@ END GROUP
  .debug_ranges  0x000003d8       0x48 src/remote.o
  .debug_ranges  0x00000420       0x18 src/status.o
  .debug_ranges  0x00000438       0x48 src/timer.o
- .debug_ranges  0x00000480       0x28 src/Title.o
- .debug_ranges  0x000004a8       0x48 src/usart.o
+ .debug_ranges  0x00000480       0x30 src/Title.o
+ .debug_ranges  0x000004b0       0x48 src/usart.o
 
 .debug_macro
  *(.debug_macro)

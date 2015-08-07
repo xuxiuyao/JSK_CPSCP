@@ -60,7 +60,7 @@
 	#define _WIDE_TELE_SET_DISPLAY       0
 	#define _WHITE_SET_DISPLAY			1
 	#define _FILTER_SET_DISPLAY		1
-
+	#define _LED_PIN		_LED_D5
 #elif(_PRODUCT_TYPE_CODE == _GC_5000B)
 	#define _MAX_RATE 40
 	#define _KEY_NUM  _KEY_MODE_8KEY_STD
@@ -74,6 +74,7 @@
 	#define _WIDE_TELE_SET_DISPLAY       0
 	#define _WHITE_SET_DISPLAY			1
 	#define _FILTER_SET_DISPLAY		1
+	#define _LED_PIN		_LED_D5
 #elif(_PRODUCT_TYPE_CODE == _GC_3000E)
 	#define _MAX_RATE 40
 	#define _KEY_NUM  _KEY_MODE_8KEY_STD
@@ -87,6 +88,7 @@
 	#define _WIDE_TELE_SET_DISPLAY       0
 	#define _WHITE_SET_DISPLAY			1
 	#define _FILTER_SET_DISPLAY		1
+	#define _LED_PIN		_LED_D5
 #elif(_PRODUCT_TYPE_CODE == _DVC_10000)
 	#define _MAX_RATE 52
 	#define _KEY_NUM  _KEY_MODE_6KEY_EM
@@ -99,7 +101,7 @@
 	#define _RESOLUTION_TYPE	_CCD_SD
 	#define _FOCUS_OOR_TIPS	0
 	#define _SHOW_COMPANY
-	#define _ALWAYS_SHOW_VERSION
+	#define _ALWAYS_SHOW_COMP_TYPE
 	#define _INFO_COLOR_CYAN
 	#define _LED_PIN		_LED_C5
 	#define _REMODE_DISABLE
@@ -107,6 +109,9 @@
 	#define _WHITE_SET_DISPLAY			0
 	#define _FILTER_SET_DISPLAY		0
 	#define _FILTER_GREEN_AND_WHITE
+	#ifdef _ALWAYS_SHOW_COMP_TYPE
+	#define _ALSO_SHOW_VERSION
+	#endif
 #elif(_PRODUCT_TYPE_CODE == _DVC_14000)
 	#define _MAX_RATE 52
 	#define _KEY_NUM  _KEY_MODE_8KEY_STD
@@ -121,6 +126,7 @@
 	#define _WIDE_TELE_SET_DISPLAY       0
 	#define _WHITE_SET_DISPLAY			1
 	#define _FILTER_SET_DISPLAY		1
+	#define _LED_PIN		_LED_D5
 #elif(_PRODUCT_TYPE_CODE == _VC_100)
 	#define _MAX_RATE 40
 	#define _KEY_NUM  _KEY_MODE_8KEY_STD
@@ -134,6 +140,7 @@
 	#define _WIDE_TELE_SET_DISPLAY       0
 	#define _WHITE_SET_DISPLAY			1
 	#define _FILTER_SET_DISPLAY		1
+	#define _LED_PIN		_LED_D5
 #elif(_PRODUCT_TYPE_CODE == _VC_200)
 	#define _MAX_RATE 40
 	#define _KEY_NUM  _KEY_MODE_8KEY_STD
@@ -148,6 +155,7 @@
 	#define _WIDE_TELE_SET_DISPLAY       0
 	#define _WHITE_SET_DISPLAY			1
 	#define _FILTER_SET_DISPLAY		1
+	#define _LED_PIN		_LED_D5
 #elif(_PRODUCT_TYPE_CODE == _LT_300)
 	#define _MAX_RATE 40
 	#define _KEY_NUM  _KEY_MODE_8KEY_STD
@@ -161,6 +169,7 @@
 	#define _WIDE_TELE_SET_DISPLAY       0
 	#define _WHITE_SET_DISPLAY			1
 	#define _FILTER_SET_DISPLAY		1
+	#define _LED_PIN		_LED_D5
 #elif(_PRODUCT_TYPE_CODE == _AL_106B)
 	#define _MAX_RATE 32
 	#define _KEY_NUM  _KEY_MODE_8KEY_STD
@@ -174,6 +183,7 @@
 	#define _WIDE_TELE_SET_DISPLAY       0
 	#define _WHITE_SET_DISPLAY			1
 	#define _FILTER_SET_DISPLAY		1
+	#define _LED_PIN		_LED_D5
 #elif(_PRODUCT_TYPE_CODE == _AL_106)
 	#define _MAX_RATE 40
 	#define _KEY_NUM  _KEY_MODE_8KEY_STD
@@ -187,22 +197,24 @@
 	#define _WIDE_TELE_SET_DISPLAY       0
 	#define _WHITE_SET_DISPLAY			1
 	#define _FILTER_SET_DISPLAY		1
+	#define _LED_PIN		_LED_D5
 #elif(_PRODUCT_TYPE_CODE == _AL_106HD)
 	#define _MAX_RATE 52
 	#define _KEY_NUM  _KEY_MODE_8KEY_STD
 	#define _BLUE_LIGHT  1
 	#define _CCD_TYPE_CODE   _CCD_SONY
-	#define _MENU_V_POS	1
+	#define _MENU_V_POS	0
 	#define _EM_KEY			0
 	#define _CAPTURE_ENABLE   0
 	#define _RESOLUTION_TYPE	_CCD_HD
 	#define _FOCUS_OOR_TIPS	0
 	#define _SHOW_COMPANY
 	#define _DOUBLE_LINE_INFO
-	#define _ALWAYS_SHOW_VERSION
+	#define _ALWAYS_SHOW_COMP_TYPE
 	#define _WIDE_TELE_SET_DISPLAY       0
 	#define _WHITE_SET_DISPLAY			1
 	#define _FILTER_SET_DISPLAY		1
+	#define _LED_PIN		_LED_D5
 #elif(_PRODUCT_TYPE_CODE == _INDIA_SD)
 	#define _MAX_RATE 52
 	#define _KEY_NUM  _KEY_MODE_8KEY_STD
@@ -217,6 +229,7 @@
 	#define _WIDE_TELE_SET_DISPLAY       0
 	#define _WHITE_SET_DISPLAY			1
 	#define _FILTER_SET_DISPLAY		1
+	#define _LED_PIN		_LED_D5
 #endif
 
 #define _CAMARA_ID	0xfff4
