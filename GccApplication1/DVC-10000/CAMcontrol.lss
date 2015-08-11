@@ -3,29 +3,29 @@ CAMcontrol.elf:     file format elf32-avr
 
 Sections:
 Idx Name          Size      VMA       LMA       File off  Algn
-  0 .data         00000260  00800100  000033d0  00003464  2**0
+  0 .data         00000260  00800100  00003418  000034ac  2**0
                   CONTENTS, ALLOC, LOAD, DATA
-  1 .text         000033d0  00000000  00000000  00000094  2**1
+  1 .text         00003418  00000000  00000000  00000094  2**1
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
-  2 .bss          000000da  00800360  00800360  000036c4  2**0
+  2 .bss          000000da  00800360  00800360  0000370c  2**0
                   ALLOC
-  3 .comment      00000030  00000000  00000000  000036c4  2**0
+  3 .comment      00000030  00000000  00000000  0000370c  2**0
                   CONTENTS, READONLY
-  4 .debug_aranges 00000598  00000000  00000000  000036f4  2**0
+  4 .debug_aranges 00000598  00000000  00000000  0000373c  2**0
                   CONTENTS, READONLY, DEBUGGING
-  5 .debug_info   00007f07  00000000  00000000  00003c8c  2**0
+  5 .debug_info   00007f08  00000000  00000000  00003cd4  2**0
                   CONTENTS, READONLY, DEBUGGING
-  6 .debug_abbrev 00001268  00000000  00000000  0000bb93  2**0
+  6 .debug_abbrev 00001268  00000000  00000000  0000bbdc  2**0
                   CONTENTS, READONLY, DEBUGGING
-  7 .debug_line   00001fba  00000000  00000000  0000cdfb  2**0
+  7 .debug_line   00001fca  00000000  00000000  0000ce44  2**0
                   CONTENTS, READONLY, DEBUGGING
-  8 .debug_frame  00000d48  00000000  00000000  0000edb8  2**2
+  8 .debug_frame  00000d48  00000000  00000000  0000ee10  2**2
                   CONTENTS, READONLY, DEBUGGING
-  9 .debug_str    00001f18  00000000  00000000  0000fb00  2**0
+  9 .debug_str    00001f18  00000000  00000000  0000fb58  2**0
                   CONTENTS, READONLY, DEBUGGING
- 10 .debug_loc    00002986  00000000  00000000  00011a18  2**0
+ 10 .debug_loc    00002986  00000000  00000000  00011a70  2**0
                   CONTENTS, READONLY, DEBUGGING
- 11 .debug_ranges 000004f8  00000000  00000000  0001439e  2**0
+ 11 .debug_ranges 000004f8  00000000  00000000  000143f6  2**0
                   CONTENTS, READONLY, DEBUGGING
 
 Disassembly of section .text:
@@ -49,7 +49,7 @@ Disassembly of section .text:
       3c:	0c 94 69 00 	jmp	0xd2	; 0xd2 <__bad_interrupt>
       40:	0c 94 69 00 	jmp	0xd2	; 0xd2 <__bad_interrupt>
       44:	0c 94 69 00 	jmp	0xd2	; 0xd2 <__bad_interrupt>
-      48:	0c 94 c2 18 	jmp	0x3184	; 0x3184 <__vector_18>
+      48:	0c 94 e6 18 	jmp	0x31cc	; 0x31cc <__vector_18>
       4c:	0c 94 69 00 	jmp	0xd2	; 0xd2 <__bad_interrupt>
       50:	0c 94 69 00 	jmp	0xd2	; 0xd2 <__bad_interrupt>
       54:	0c 94 69 00 	jmp	0xd2	; 0xd2 <__bad_interrupt>
@@ -94,8 +94,8 @@ Disassembly of section .text:
       a4:	13 e0       	ldi	r17, 0x03	; 3
       a6:	a0 e0       	ldi	r26, 0x00	; 0
       a8:	b1 e0       	ldi	r27, 0x01	; 1
-      aa:	e0 ed       	ldi	r30, 0xD0	; 208
-      ac:	f3 e3       	ldi	r31, 0x33	; 51
+      aa:	e8 e1       	ldi	r30, 0x18	; 24
+      ac:	f4 e3       	ldi	r31, 0x34	; 52
       ae:	02 c0       	rjmp	.+4      	; 0xb4 <__do_copy_data+0x10>
       b0:	05 90       	lpm	r0, Z+
       b2:	0d 92       	st	X+, r0
@@ -117,7 +117,7 @@ Disassembly of section .text:
       c6:	b2 07       	cpc	r27, r18
       c8:	e1 f7       	brne	.-8      	; 0xc2 <.do_clear_bss_loop>
       ca:	0e 94 40 09 	call	0x1280	; 0x1280 <main>
-      ce:	0c 94 e6 19 	jmp	0x33cc	; 0x33cc <_exit>
+      ce:	0c 94 0a 1a 	jmp	0x3414	; 0x3414 <_exit>
 
 000000d2 <__bad_interrupt>:
       d2:	0c 94 00 00 	jmp	0	; 0x0 <__vectors>
@@ -153,7 +153,7 @@ void CAM_SetZoomStop(void)
      102:	66 e0       	ldi	r22, 0x06	; 6
      104:	8f e4       	ldi	r24, 0x4F	; 79
      106:	92 e0       	ldi	r25, 0x02	; 2
-     108:	0e 94 3e 19 	call	0x327c	; 0x327c <USART_SendCmd>
+     108:	0e 94 62 19 	call	0x32c4	; 0x32c4 <USART_SendCmd>
      10c:	08 95       	ret
 
 0000010e <CAM_SetZoomVTele>:
@@ -187,7 +187,7 @@ void CAM_SetZoomVTele(void)
      13a:	66 e0       	ldi	r22, 0x06	; 6
      13c:	89 e4       	ldi	r24, 0x49	; 73
      13e:	92 e0       	ldi	r25, 0x02	; 2
-     140:	0e 94 3e 19 	call	0x327c	; 0x327c <USART_SendCmd>
+     140:	0e 94 62 19 	call	0x32c4	; 0x32c4 <USART_SendCmd>
      144:	08 95       	ret
 
 00000146 <CAM_SetZoomVWide>:
@@ -220,7 +220,7 @@ void CAM_SetZoomVWide(void)
      172:	66 e0       	ldi	r22, 0x06	; 6
      174:	83 e4       	ldi	r24, 0x43	; 67
      176:	92 e0       	ldi	r25, 0x02	; 2
-     178:	0e 94 3e 19 	call	0x327c	; 0x327c <USART_SendCmd>
+     178:	0e 94 62 19 	call	0x32c4	; 0x32c4 <USART_SendCmd>
      17c:	08 95       	ret
 
 0000017e <CAM_SetZoomDirect>:
@@ -306,7 +306,7 @@ void CAM_SetZoomDirect(void)
 	USART_SendCmd(g_stCameraCmd.pCmd, g_stCameraCmd.CmdLen);
      210:	69 e0       	ldi	r22, 0x09	; 9
      212:	cf 01       	movw	r24, r30
-     214:	0e 94 3e 19 	call	0x327c	; 0x327c <USART_SendCmd>
+     214:	0e 94 62 19 	call	0x32c4	; 0x32c4 <USART_SendCmd>
 	
 	//_delay_ms(300);
 }
@@ -345,7 +345,7 @@ void CAM_SetDZoomOn(void)
      24a:	66 e0       	ldi	r22, 0x06	; 6
      24c:	84 e3       	ldi	r24, 0x34	; 52
      24e:	92 e0       	ldi	r25, 0x02	; 2
-     250:	0e 94 3e 19 	call	0x327c	; 0x327c <USART_SendCmd>
+     250:	0e 94 62 19 	call	0x32c4	; 0x32c4 <USART_SendCmd>
      254:	08 95       	ret
 
 00000256 <CAM_SetStopFocus>:
@@ -378,7 +378,7 @@ void CAM_SetStopFocus(void)
      282:	66 e0       	ldi	r22, 0x06	; 6
      284:	8e e2       	ldi	r24, 0x2E	; 46
      286:	92 e0       	ldi	r25, 0x02	; 2
-     288:	0e 94 3e 19 	call	0x327c	; 0x327c <USART_SendCmd>
+     288:	0e 94 62 19 	call	0x32c4	; 0x32c4 <USART_SendCmd>
      28c:	08 95       	ret
 
 0000028e <CAM_SetSFarFocus>:
@@ -411,7 +411,7 @@ void CAM_SetSFarFocus(void)
      2ba:	66 e0       	ldi	r22, 0x06	; 6
      2bc:	88 e2       	ldi	r24, 0x28	; 40
      2be:	92 e0       	ldi	r25, 0x02	; 2
-     2c0:	0e 94 3e 19 	call	0x327c	; 0x327c <USART_SendCmd>
+     2c0:	0e 94 62 19 	call	0x32c4	; 0x32c4 <USART_SendCmd>
      2c4:	08 95       	ret
 
 000002c6 <CAM_SetSNearFocus>:
@@ -444,7 +444,7 @@ void CAM_SetSNearFocus(void)
      2f2:	66 e0       	ldi	r22, 0x06	; 6
      2f4:	82 e2       	ldi	r24, 0x22	; 34
      2f6:	92 e0       	ldi	r25, 0x02	; 2
-     2f8:	0e 94 3e 19 	call	0x327c	; 0x327c <USART_SendCmd>
+     2f8:	0e 94 62 19 	call	0x32c4	; 0x32c4 <USART_SendCmd>
      2fc:	08 95       	ret
 
 000002fe <CAM_SetAutoFocus>:
@@ -477,7 +477,7 @@ void CAM_SetAutoFocus(void)
      32a:	66 e0       	ldi	r22, 0x06	; 6
      32c:	8c e1       	ldi	r24, 0x1C	; 28
      32e:	92 e0       	ldi	r25, 0x02	; 2
-     330:	0e 94 3e 19 	call	0x327c	; 0x327c <USART_SendCmd>
+     330:	0e 94 62 19 	call	0x32c4	; 0x32c4 <USART_SendCmd>
 	
 	g_stStatusCmd.FocusMode = _FOCUS_MODE_AUTO;
      334:	10 92 c3 03 	sts	0x03C3, r1
@@ -514,7 +514,7 @@ void CAM_SetManualFocus(void)
      368:	66 e0       	ldi	r22, 0x06	; 6
      36a:	86 e1       	ldi	r24, 0x16	; 22
      36c:	92 e0       	ldi	r25, 0x02	; 2
-     36e:	0e 94 3e 19 	call	0x327c	; 0x327c <USART_SendCmd>
+     36e:	0e 94 62 19 	call	0x32c4	; 0x32c4 <USART_SendCmd>
 	
 	g_stStatusCmd.FocusMode = _FOCUS_MODE_MANUAL;
      372:	c0 93 c3 03 	sts	0x03C3, r28
@@ -581,7 +581,7 @@ void CAM_SetFocusDirect(uint16_t FocusPos)
 	USART_SendCmd(g_stCameraCmd.pCmd, g_stCameraCmd.CmdLen);
      3d8:	69 e0       	ldi	r22, 0x09	; 9
      3da:	cf 01       	movw	r24, r30
-     3dc:	0e 94 3e 19 	call	0x327c	; 0x327c <USART_SendCmd>
+     3dc:	0e 94 62 19 	call	0x32c4	; 0x32c4 <USART_SendCmd>
 	
 	//_delay_ms(300);
 }
@@ -620,7 +620,7 @@ void CAM_SetNormalAF(void)
      412:	66 e0       	ldi	r22, 0x06	; 6
      414:	87 e0       	ldi	r24, 0x07	; 7
      416:	92 e0       	ldi	r25, 0x02	; 2
-     418:	0e 94 3e 19 	call	0x327c	; 0x327c <USART_SendCmd>
+     418:	0e 94 62 19 	call	0x32c4	; 0x32c4 <USART_SendCmd>
      41c:	08 95       	ret
 
 0000041e <CAM_SetWBATW>:
@@ -654,7 +654,7 @@ void CAM_SetWBATW(void)
      44a:	66 e0       	ldi	r22, 0x06	; 6
      44c:	81 e0       	ldi	r24, 0x01	; 1
      44e:	92 e0       	ldi	r25, 0x02	; 2
-     450:	0e 94 3e 19 	call	0x327c	; 0x327c <USART_SendCmd>
+     450:	0e 94 62 19 	call	0x32c4	; 0x32c4 <USART_SendCmd>
      454:	08 95       	ret
 
 00000456 <CAM_SetWBMaunal>:
@@ -687,7 +687,7 @@ void CAM_SetWBMaunal(void)
      482:	66 e0       	ldi	r22, 0x06	; 6
      484:	8b ef       	ldi	r24, 0xFB	; 251
      486:	91 e0       	ldi	r25, 0x01	; 1
-     488:	0e 94 3e 19 	call	0x327c	; 0x327c <USART_SendCmd>
+     488:	0e 94 62 19 	call	0x32c4	; 0x32c4 <USART_SendCmd>
      48c:	08 95       	ret
 
 0000048e <CAM_SetRGainDirect>:
@@ -732,7 +732,7 @@ void CAM_SetRGainDirect(uint8_t uiRGain)
 	USART_SendCmd(g_stCameraCmd.pCmd, g_stCameraCmd.CmdLen);
      4ca:	69 e0       	ldi	r22, 0x09	; 9
      4cc:	cf 01       	movw	r24, r30
-     4ce:	0e 94 3e 19 	call	0x327c	; 0x327c <USART_SendCmd>
+     4ce:	0e 94 62 19 	call	0x32c4	; 0x32c4 <USART_SendCmd>
 }
      4d2:	df 91       	pop	r29
      4d4:	cf 91       	pop	r28
@@ -780,7 +780,7 @@ void CAM_SetBGainDirect(uint8_t uiBGain)
 	USART_SendCmd(g_stCameraCmd.pCmd, g_stCameraCmd.CmdLen);
      514:	69 e0       	ldi	r22, 0x09	; 9
      516:	cf 01       	movw	r24, r30
-     518:	0e 94 3e 19 	call	0x327c	; 0x327c <USART_SendCmd>
+     518:	0e 94 62 19 	call	0x32c4	; 0x32c4 <USART_SendCmd>
 }
      51c:	df 91       	pop	r29
      51e:	cf 91       	pop	r28
@@ -815,7 +815,7 @@ void CAM_SetApertureReset(void)
      54e:	66 e0       	ldi	r22, 0x06	; 6
      550:	83 ee       	ldi	r24, 0xE3	; 227
      552:	91 e0       	ldi	r25, 0x01	; 1
-     554:	0e 94 3e 19 	call	0x327c	; 0x327c <USART_SendCmd>
+     554:	0e 94 62 19 	call	0x32c4	; 0x32c4 <USART_SendCmd>
      558:	08 95       	ret
 
 0000055a <CAM_SetApertureDirect>:
@@ -859,7 +859,7 @@ void CAM_SetApertureDirect(void)
 	USART_SendCmd(g_stCameraCmd.pCmd, g_stCameraCmd.CmdLen);
      59a:	69 e0       	ldi	r22, 0x09	; 9
      59c:	cf 01       	movw	r24, r30
-     59e:	0e 94 3e 19 	call	0x327c	; 0x327c <USART_SendCmd>
+     59e:	0e 94 62 19 	call	0x32c4	; 0x32c4 <USART_SendCmd>
 }
      5a2:	df 91       	pop	r29
      5a4:	cf 91       	pop	r28
@@ -896,7 +896,7 @@ void CAM_SetFreezeOn(void)
      5d4:	66 e0       	ldi	r22, 0x06	; 6
      5d6:	84 ed       	ldi	r24, 0xD4	; 212
      5d8:	91 e0       	ldi	r25, 0x01	; 1
-     5da:	0e 94 3e 19 	call	0x327c	; 0x327c <USART_SendCmd>
+     5da:	0e 94 62 19 	call	0x32c4	; 0x32c4 <USART_SendCmd>
      5de:	08 95       	ret
 
 000005e0 <CAM_SetFreezeOff>:
@@ -929,7 +929,7 @@ void CAM_SetFreezeOff(void)
      60c:	66 e0       	ldi	r22, 0x06	; 6
      60e:	8e ec       	ldi	r24, 0xCE	; 206
      610:	91 e0       	ldi	r25, 0x01	; 1
-     612:	0e 94 3e 19 	call	0x327c	; 0x327c <USART_SendCmd>
+     612:	0e 94 62 19 	call	0x32c4	; 0x32c4 <USART_SendCmd>
      616:	08 95       	ret
 
 00000618 <CAM_SetPicEffectOff>:
@@ -962,7 +962,7 @@ void CAM_SetPicEffectOff(void)
      644:	66 e0       	ldi	r22, 0x06	; 6
      646:	88 ec       	ldi	r24, 0xC8	; 200
      648:	91 e0       	ldi	r25, 0x01	; 1
-     64a:	0e 94 3e 19 	call	0x327c	; 0x327c <USART_SendCmd>
+     64a:	0e 94 62 19 	call	0x32c4	; 0x32c4 <USART_SendCmd>
      64e:	08 95       	ret
 
 00000650 <CAM_SetPicEffectBW>:
@@ -995,7 +995,7 @@ void CAM_SetPicEffectBW(void)
      67c:	66 e0       	ldi	r22, 0x06	; 6
      67e:	82 ec       	ldi	r24, 0xC2	; 194
      680:	91 e0       	ldi	r25, 0x01	; 1
-     682:	0e 94 3e 19 	call	0x327c	; 0x327c <USART_SendCmd>
+     682:	0e 94 62 19 	call	0x32c4	; 0x32c4 <USART_SendCmd>
      686:	08 95       	ret
 
 00000688 <CAM_SetFlipOn>:
@@ -1028,7 +1028,7 @@ void CAM_SetFlipOn(void)
      6b4:	66 e0       	ldi	r22, 0x06	; 6
      6b6:	8c eb       	ldi	r24, 0xBC	; 188
      6b8:	91 e0       	ldi	r25, 0x01	; 1
-     6ba:	0e 94 3e 19 	call	0x327c	; 0x327c <USART_SendCmd>
+     6ba:	0e 94 62 19 	call	0x32c4	; 0x32c4 <USART_SendCmd>
      6be:	08 95       	ret
 
 000006c0 <CAM_SetFlipOff>:
@@ -1061,7 +1061,7 @@ void CAM_SetFlipOff(void)
      6ec:	66 e0       	ldi	r22, 0x06	; 6
      6ee:	86 eb       	ldi	r24, 0xB6	; 182
      6f0:	91 e0       	ldi	r25, 0x01	; 1
-     6f2:	0e 94 3e 19 	call	0x327c	; 0x327c <USART_SendCmd>
+     6f2:	0e 94 62 19 	call	0x32c4	; 0x32c4 <USART_SendCmd>
      6f6:	08 95       	ret
 
 000006f8 <CAM_SetMirrorOn>:
@@ -1094,7 +1094,7 @@ void CAM_SetMirrorOn(void)
      724:	66 e0       	ldi	r22, 0x06	; 6
      726:	80 eb       	ldi	r24, 0xB0	; 176
      728:	91 e0       	ldi	r25, 0x01	; 1
-     72a:	0e 94 3e 19 	call	0x327c	; 0x327c <USART_SendCmd>
+     72a:	0e 94 62 19 	call	0x32c4	; 0x32c4 <USART_SendCmd>
      72e:	08 95       	ret
 
 00000730 <CAM_SetMirrorOff>:
@@ -1127,7 +1127,7 @@ void CAM_SetMirrorOff(void)
      75c:	66 e0       	ldi	r22, 0x06	; 6
      75e:	8a ea       	ldi	r24, 0xAA	; 170
      760:	91 e0       	ldi	r25, 0x01	; 1
-     762:	0e 94 3e 19 	call	0x327c	; 0x327c <USART_SendCmd>
+     762:	0e 94 62 19 	call	0x32c4	; 0x32c4 <USART_SendCmd>
      766:	08 95       	ret
 
 00000768 <CAM_SetCustomSet>:
@@ -1161,7 +1161,7 @@ void CAM_SetCustomSet(void)
      794:	67 e0       	ldi	r22, 0x07	; 7
      796:	83 ea       	ldi	r24, 0xA3	; 163
      798:	91 e0       	ldi	r25, 0x01	; 1
-     79a:	0e 94 3e 19 	call	0x327c	; 0x327c <USART_SendCmd>
+     79a:	0e 94 62 19 	call	0x32c4	; 0x32c4 <USART_SendCmd>
      79e:	08 95       	ret
 
 000007a0 <CAM_SetTitleSet1>:
@@ -1244,7 +1244,7 @@ void CAM_SetTitleSet1(TITLE_DISPLAY titleDis)
 	USART_SendCmd(g_stCameraCmd.pCmd, g_stCameraCmd.CmdLen);
      81e:	60 91 85 03 	lds	r22, 0x0385
      822:	cf 01       	movw	r24, r30
-     824:	0e 94 3e 19 	call	0x327c	; 0x327c <USART_SendCmd>
+     824:	0e 94 62 19 	call	0x32c4	; 0x32c4 <USART_SendCmd>
 }
      828:	df 91       	pop	r29
      82a:	cf 91       	pop	r28
@@ -1344,7 +1344,7 @@ void CAM_SetTitleSet2(uint8_t LineNum, uint8_t* uiTitle)
      8b4:	60 91 85 03 	lds	r22, 0x0385
      8b8:	80 91 83 03 	lds	r24, 0x0383
      8bc:	90 91 84 03 	lds	r25, 0x0384
-     8c0:	0e 94 3e 19 	call	0x327c	; 0x327c <USART_SendCmd>
+     8c0:	0e 94 62 19 	call	0x32c4	; 0x32c4 <USART_SendCmd>
      8c4:	05 c0       	rjmp	.+10     	; 0x8d0 <CAM_SetTitleSet2+0xa2>
      8c6:	e6 2f       	mov	r30, r22
      8c8:	f7 2f       	mov	r31, r23
@@ -1460,7 +1460,7 @@ void CAM_SetTitleSet3(uint8_t LineNum, uint8_t* uiTitle)
      95c:	60 91 85 03 	lds	r22, 0x0385
      960:	80 91 83 03 	lds	r24, 0x0383
      964:	90 91 84 03 	lds	r25, 0x0384
-     968:	0e 94 3e 19 	call	0x327c	; 0x327c <USART_SendCmd>
+     968:	0e 94 62 19 	call	0x32c4	; 0x32c4 <USART_SendCmd>
      96c:	05 c0       	rjmp	.+10     	; 0x978 <CAM_SetTitleSet3+0xa2>
      96e:	e6 2f       	mov	r30, r22
      970:	f7 2f       	mov	r31, r23
@@ -1551,7 +1551,7 @@ void CAM_SetTitleClear(uint8_t LineNum)
      9ea:	60 91 85 03 	lds	r22, 0x0385
      9ee:	80 91 83 03 	lds	r24, 0x0383
      9f2:	90 91 84 03 	lds	r25, 0x0384
-     9f6:	0e 94 3e 19 	call	0x327c	; 0x327c <USART_SendCmd>
+     9f6:	0e 94 62 19 	call	0x32c4	; 0x32c4 <USART_SendCmd>
 }
      9fa:	df 91       	pop	r29
      9fc:	cf 91       	pop	r28
@@ -1625,7 +1625,7 @@ void CAM_SetTitleOn(uint8_t LineNum)
      a6c:	60 91 85 03 	lds	r22, 0x0385
      a70:	80 91 83 03 	lds	r24, 0x0383
      a74:	90 91 84 03 	lds	r25, 0x0384
-     a78:	0e 94 3e 19 	call	0x327c	; 0x327c <USART_SendCmd>
+     a78:	0e 94 62 19 	call	0x32c4	; 0x32c4 <USART_SendCmd>
 }
      a7c:	df 91       	pop	r29
      a7e:	cf 91       	pop	r28
@@ -1662,7 +1662,7 @@ void CAM_SetSAVEAVOn(void)
      aae:	68 e0       	ldi	r22, 0x08	; 8
      ab0:	83 e2       	ldi	r24, 0x23	; 35
      ab2:	91 e0       	ldi	r25, 0x01	; 1
-     ab4:	0e 94 3e 19 	call	0x327c	; 0x327c <USART_SendCmd>
+     ab4:	0e 94 62 19 	call	0x32c4	; 0x32c4 <USART_SendCmd>
      ab8:	08 95       	ret
 
 00000aba <CAM_InqZoomPos>:
@@ -1696,7 +1696,7 @@ void CAM_InqZoomPos(void)
      ae6:	65 e0       	ldi	r22, 0x05	; 5
      ae8:	8e e1       	ldi	r24, 0x1E	; 30
      aea:	91 e0       	ldi	r25, 0x01	; 1
-     aec:	0e 94 3e 19 	call	0x327c	; 0x327c <USART_SendCmd>
+     aec:	0e 94 62 19 	call	0x32c4	; 0x32c4 <USART_SendCmd>
      af0:	08 95       	ret
 
 00000af2 <CAM_InqFocusPos>:
@@ -1729,7 +1729,7 @@ void CAM_InqFocusPos(void)
      b1e:	65 e0       	ldi	r22, 0x05	; 5
      b20:	89 e1       	ldi	r24, 0x19	; 25
      b22:	91 e0       	ldi	r25, 0x01	; 1
-     b24:	0e 94 3e 19 	call	0x327c	; 0x327c <USART_SendCmd>
+     b24:	0e 94 62 19 	call	0x32c4	; 0x32c4 <USART_SendCmd>
      b28:	08 95       	ret
 
 00000b2a <CAM_InqFocusNearLimitPos>:
@@ -1762,7 +1762,7 @@ void CAM_InqFocusNearLimitPos(void)
      b56:	65 e0       	ldi	r22, 0x05	; 5
      b58:	84 e1       	ldi	r24, 0x14	; 20
      b5a:	91 e0       	ldi	r25, 0x01	; 1
-     b5c:	0e 94 3e 19 	call	0x327c	; 0x327c <USART_SendCmd>
+     b5c:	0e 94 62 19 	call	0x32c4	; 0x32c4 <USART_SendCmd>
      b60:	08 95       	ret
 
 00000b62 <CAM_InqRGain>:
@@ -1796,7 +1796,7 @@ void CAM_InqRGain(void)
      b8e:	65 e0       	ldi	r22, 0x05	; 5
      b90:	8f e0       	ldi	r24, 0x0F	; 15
      b92:	91 e0       	ldi	r25, 0x01	; 1
-     b94:	0e 94 3e 19 	call	0x327c	; 0x327c <USART_SendCmd>
+     b94:	0e 94 62 19 	call	0x32c4	; 0x32c4 <USART_SendCmd>
      b98:	08 95       	ret
 
 00000b9a <CAM_InqBGain>:
@@ -1829,7 +1829,7 @@ void CAM_InqBGain(void)
      bc6:	65 e0       	ldi	r22, 0x05	; 5
      bc8:	8a e0       	ldi	r24, 0x0A	; 10
      bca:	91 e0       	ldi	r25, 0x01	; 1
-     bcc:	0e 94 3e 19 	call	0x327c	; 0x327c <USART_SendCmd>
+     bcc:	0e 94 62 19 	call	0x32c4	; 0x32c4 <USART_SendCmd>
      bd0:	08 95       	ret
 
 00000bd2 <CAM_InqID>:
@@ -1862,7 +1862,7 @@ void CAM_InqID(void)
      bfe:	65 e0       	ldi	r22, 0x05	; 5
      c00:	85 e0       	ldi	r24, 0x05	; 5
      c02:	91 e0       	ldi	r25, 0x01	; 1
-     c04:	0e 94 3e 19 	call	0x327c	; 0x327c <USART_SendCmd>
+     c04:	0e 94 62 19 	call	0x32c4	; 0x32c4 <USART_SendCmd>
      c08:	08 95       	ret
 
 00000c0a <CAM_InqVersion>:
@@ -1895,7 +1895,7 @@ void CAM_InqVersion(void)
      c36:	65 e0       	ldi	r22, 0x05	; 5
      c38:	80 e0       	ldi	r24, 0x00	; 0
      c3a:	91 e0       	ldi	r25, 0x01	; 1
-     c3c:	0e 94 3e 19 	call	0x327c	; 0x327c <USART_SendCmd>
+     c3c:	0e 94 62 19 	call	0x32c4	; 0x32c4 <USART_SendCmd>
      c40:	08 95       	ret
 
 00000c42 <GetCameraId>:
@@ -3354,7 +3354,7 @@ void SystemInit(void)
 	
 	//Usart initial
 	MY_USART_Init();
-    1244:	0e 94 31 19 	call	0x3262	; 0x3262 <MY_USART_Init>
+    1244:	0e 94 55 19 	call	0x32aa	; 0x32aa <MY_USART_Init>
 	
 	//Interrupt enable
 	sei();
@@ -3578,17 +3578,17 @@ uint16_t GetFocusStep(uint32_t Rate)
     1356:	96 01       	movw	r18, r12
     1358:	c7 01       	movw	r24, r14
     135a:	b6 01       	movw	r22, r12
-    135c:	0e 94 56 19 	call	0x32ac	; 0x32ac <__mulsi3>
+    135c:	0e 94 7a 19 	call	0x32f4	; 0x32f4 <__mulsi3>
     1360:	9b 01       	movw	r18, r22
     1362:	ac 01       	movw	r20, r24
     1364:	c7 01       	movw	r24, r14
     1366:	b6 01       	movw	r22, r12
-    1368:	0e 94 56 19 	call	0x32ac	; 0x32ac <__mulsi3>
+    1368:	0e 94 7a 19 	call	0x32f4	; 0x32f4 <__mulsi3>
     136c:	28 ee       	ldi	r18, 0xE8	; 232
     136e:	33 e0       	ldi	r19, 0x03	; 3
     1370:	40 e0       	ldi	r20, 0x00	; 0
     1372:	50 e0       	ldi	r21, 0x00	; 0
-    1374:	0e 94 7a 19 	call	0x32f4	; 0x32f4 <__udivmodsi4>
+    1374:	0e 94 9e 19 	call	0x333c	; 0x333c <__udivmodsi4>
     1378:	68 ea       	ldi	r22, 0xA8	; 168
     137a:	62 03       	mulsu	r22, r18
     137c:	c0 01       	movw	r24, r0
@@ -3889,11 +3889,11 @@ void InitCamera(void)
     1544:	e1 f7       	brne	.-8      	; 0x153e <InitCamera+0xf2>
     1546:	00 c0       	rjmp	.+0      	; 0x1548 <InitCamera+0xfc>
     1548:	00 00       	nop
-				
-			}
-			#endif
-				TITLE_DISPLAY titleDis;
+				#ifdef _DOUBLE_LINE_INFO
+				titleDis.uiTitleVPos = 0x00;
+				#else
 				titleDis.uiTitleVPos = 0x01;
+				#endif
 				if((g_stStatusCmd.uiModeID == _CAM_480)||(g_stStatusCmd.uiModeID == _CAM_1020))
     154a:	80 91 b3 03 	lds	r24, 0x03B3
     154e:	82 30       	cpi	r24, 0x02	; 2
@@ -3925,7 +3925,7 @@ void InitCamera(void)
     1572:	00 00       	nop
 				CAM_SetTitleSet1(titleDis);
 				_delay_ms(_INIT_DELAY*5);
-				titleDis.uiTitleVPos = 0x01;
+				titleDis.uiTitleVPos = 0x00;
 				#endif
 				
 				ShowProductInfo(titleDis.uiTitleVPos);
@@ -3936,8 +3936,10 @@ void InitCamera(void)
     157a:	8a e0       	ldi	r24, 0x0A	; 10
     157c:	0e 94 f3 08 	call	0x11e6	; 0x11e6 <LedFlashing>
 				#ifdef _DOUBLE_LINE_INFO
-				LedFlashing(4);
+				CAM_SetTitleClear(0x00);
+				_delay_ms(_INIT_DELAY*5);
 				#endif
+
 				CAM_SetTitleClear(0x01);
     1580:	81 e0       	ldi	r24, 0x01	; 1
     1582:	0e 94 bf 04 	call	0x97e	; 0x97e <CAM_SetTitleClear>
@@ -5287,7 +5289,7 @@ void ProcessAutoWB(void)
     1d34:	60 91 b6 03 	lds	r22, 0x03B6
     1d38:	80 e0       	ldi	r24, 0x00	; 0
     1d3a:	90 e0       	ldi	r25, 0x00	; 0
-    1d3c:	0e 94 d8 19 	call	0x33b0	; 0x33b0 <__eewr_byte_m168pa>
+    1d3c:	0e 94 fc 19 	call	0x33f8	; 0x33f8 <__eewr_byte_m168pa>
     1d40:	2f ef       	ldi	r18, 0xFF	; 255
     1d42:	81 ee       	ldi	r24, 0xE1	; 225
     1d44:	94 e0       	ldi	r25, 0x04	; 4
@@ -5302,7 +5304,7 @@ void ProcessAutoWB(void)
     1d52:	60 91 b8 03 	lds	r22, 0x03B8
     1d56:	81 e0       	ldi	r24, 0x01	; 1
     1d58:	90 e0       	ldi	r25, 0x00	; 0
-    1d5a:	0e 94 d8 19 	call	0x33b0	; 0x33b0 <__eewr_byte_m168pa>
+    1d5a:	0e 94 fc 19 	call	0x33f8	; 0x33f8 <__eewr_byte_m168pa>
 		
 		g_bTitle1Change = true;
     1d5e:	81 e0       	ldi	r24, 0x01	; 1
@@ -5376,7 +5378,7 @@ void ProcessManualWB(void)
     1dca:	60 91 b6 03 	lds	r22, 0x03B6
     1dce:	80 e0       	ldi	r24, 0x00	; 0
     1dd0:	90 e0       	ldi	r25, 0x00	; 0
-    1dd2:	0e 94 d8 19 	call	0x33b0	; 0x33b0 <__eewr_byte_m168pa>
+    1dd2:	0e 94 fc 19 	call	0x33f8	; 0x33f8 <__eewr_byte_m168pa>
     1dd6:	2f ef       	ldi	r18, 0xFF	; 255
     1dd8:	82 e5       	ldi	r24, 0x52	; 82
     1dda:	97 e0       	ldi	r25, 0x07	; 7
@@ -5391,7 +5393,7 @@ void ProcessManualWB(void)
     1de8:	60 91 b8 03 	lds	r22, 0x03B8
     1dec:	81 e0       	ldi	r24, 0x01	; 1
     1dee:	90 e0       	ldi	r25, 0x00	; 0
-    1df0:	0e 94 d8 19 	call	0x33b0	; 0x33b0 <__eewr_byte_m168pa>
+    1df0:	0e 94 fc 19 	call	0x33f8	; 0x33f8 <__eewr_byte_m168pa>
 
 		g_bTitle1Change = true;
     1df4:	81 e0       	ldi	r24, 0x01	; 1
@@ -6009,11 +6011,11 @@ void WhiteBalanceHandle(void)
     218a:	08 95       	ret
 
 0000218c <SetFilterG1>:
-}
-void SetFilterG1(void)
-{
-
 //设置RGain为193
+#if(_BLUE_LIGHT == 1)
+	WhiteLightOn();
+	BlueLightOff();
+#endif
 	CAM_SetRGainDirect(_G1_R_GAIN);
     218c:	81 ec       	ldi	r24, 0xC1	; 193
     218e:	0e 94 47 02 	call	0x48e	; 0x48e <CAM_SetRGainDirect>
@@ -6050,11 +6052,11 @@ void SetFilterG1(void)
     21c0:	08 95       	ret
 
 000021c2 <SetFilterG2>:
-		_delay_ms(100);
-}
-void SetFilterG2(void)
-{
-//设置RGain为168
+#if(_BLUE_LIGHT == 1)
+	WhiteLightOn();
+	BlueLightOff();
+#endif
+
 	CAM_SetRGainDirect(_G2_R_GAIN);
     21c2:	88 ea       	ldi	r24, 0xA8	; 168
     21c4:	0e 94 47 02 	call	0x48e	; 0x48e <CAM_SetRGainDirect>
@@ -6092,11 +6094,11 @@ void SetFilterG2(void)
     21f8:	08 95       	ret
 
 000021fa <SetFilterG3>:
+#if(_BLUE_LIGHT == 1)
+	WhiteLightOn();
+	BlueLightOff();
+#endif
 
-}
-void SetFilterG3(void)
-{
-//设置RGain为120
 	CAM_SetRGainDirect(_G3_R_GAIN);
     21fa:	88 e7       	ldi	r24, 0x78	; 120
     21fc:	0e 94 47 02 	call	0x48e	; 0x48e <CAM_SetRGainDirect>
@@ -6193,7 +6195,7 @@ void SaveRBGainValue(void)
     2284:	60 81       	ld	r22, Z
     2286:	80 e0       	ldi	r24, 0x00	; 0
     2288:	90 e0       	ldi	r25, 0x00	; 0
-    228a:	0e 94 d8 19 	call	0x33b0	; 0x33b0 <__eewr_byte_m168pa>
+    228a:	0e 94 fc 19 	call	0x33f8	; 0x33f8 <__eewr_byte_m168pa>
     228e:	ff ef       	ldi	r31, 0xFF	; 255
     2290:	21 ee       	ldi	r18, 0xE1	; 225
     2292:	84 e0       	ldi	r24, 0x04	; 4
@@ -6215,7 +6217,7 @@ void SaveRBGainValue(void)
     22ae:	60 81       	ld	r22, Z
     22b0:	81 e0       	ldi	r24, 0x01	; 1
     22b2:	90 e0       	ldi	r25, 0x00	; 0
-    22b4:	0e 94 d8 19 	call	0x33b0	; 0x33b0 <__eewr_byte_m168pa>
+    22b4:	0e 94 fc 19 	call	0x33f8	; 0x33f8 <__eewr_byte_m168pa>
 	//g_bTitle1Change = true;
 	//g_bTitle2Change = true;
 	#if(_CCD_TYPE_CODE != _CCD_7500)
@@ -6466,13 +6468,13 @@ void UnSaveRBGainValue(void)
 	g_stStatusCmd.uiRGain = eeprom_read_byte((uint8_t *)0x00);
     243c:	80 e0       	ldi	r24, 0x00	; 0
     243e:	90 e0       	ldi	r25, 0x00	; 0
-    2440:	0e 94 d0 19 	call	0x33a0	; 0x33a0 <__eerd_byte_m168pa>
+    2440:	0e 94 f4 19 	call	0x33e8	; 0x33e8 <__eerd_byte_m168pa>
     2444:	c8 2f       	mov	r28, r24
     2446:	80 93 b6 03 	sts	0x03B6, r24
 	g_stStatusCmd.uiBGain = eeprom_read_byte((uint8_t *)0x01);
     244a:	81 e0       	ldi	r24, 0x01	; 1
     244c:	90 e0       	ldi	r25, 0x00	; 0
-    244e:	0e 94 d0 19 	call	0x33a0	; 0x33a0 <__eerd_byte_m168pa>
+    244e:	0e 94 f4 19 	call	0x33e8	; 0x33e8 <__eerd_byte_m168pa>
     2452:	80 93 b8 03 	sts	0x03B8, r24
 	CAM_SetRGainDirect(g_stStatusCmd.uiRGain);
     2456:	8c 2f       	mov	r24, r28
@@ -7039,7 +7041,7 @@ void CMessageHandle(void)
     2750:	fc 01       	movw	r30, r24
     2752:	ec 5c       	subi	r30, 0xCC	; 204
     2754:	ff 4f       	sbci	r31, 0xFF	; 255
-    2756:	0c 94 9c 19 	jmp	0x3338	; 0x3338 <__tablejump2__>
+    2756:	0c 94 c0 19 	jmp	0x3380	; 0x3380 <__tablejump2__>
 	{
 		case _AF_KEY_MESSAGE:
 		ProcessAF();
@@ -7150,7 +7152,7 @@ void CMessageHandle(void)
     27b4:	a8 f4       	brcc	.+42     	; 0x27e0 <CRemoteScan+0x3e>
     27b6:	e0 5c       	subi	r30, 0xC0	; 192
     27b8:	ff 4f       	sbci	r31, 0xFF	; 255
-    27ba:	0c 94 9c 19 	jmp	0x3338	; 0x3338 <__tablejump2__>
+    27ba:	0c 94 c0 19 	jmp	0x3380	; 0x3380 <__tablejump2__>
 		{
 			case REMOTE_MASK_AF:
 				ucRemoteState = ucRemoteState | _AF_KEY_MASK;
@@ -7653,7 +7655,7 @@ ISR(TIMER1_OVF_vect)
     29e0:	33 e0       	ldi	r19, 0x03	; 3
     29e2:	40 e0       	ldi	r20, 0x00	; 0
     29e4:	50 e0       	ldi	r21, 0x00	; 0
-    29e6:	0e 94 7a 19 	call	0x32f4	; 0x32f4 <__udivmodsi4>
+    29e6:	0e 94 9e 19 	call	0x333c	; 0x333c <__udivmodsi4>
     29ea:	67 2b       	or	r22, r23
     29ec:	68 2b       	or	r22, r24
     29ee:	69 2b       	or	r22, r25
@@ -8275,7 +8277,7 @@ void SetTitle2(void)
 		i = (g_stStatusCmd.uiXRate+1)/10;
     2d1a:	6a e0       	ldi	r22, 0x0A	; 10
     2d1c:	70 e0       	ldi	r23, 0x00	; 0
-    2d1e:	0e 94 66 19 	call	0x32cc	; 0x32cc <__divmodhi4>
+    2d1e:	0e 94 8a 19 	call	0x3314	; 0x3314 <__divmodhi4>
 		#if(_CCD_TYPE_CODE == _CCD_7500)
 		uiTitle[1] = 'X'; //0x58
 		#else
@@ -9096,457 +9098,515 @@ void AlsoShowVersion(unsigned char LineNum)
 	
 	_delay_ms(30);
 
-	uiTitle[0] = 0x15;//V
-    3142:	85 e1       	ldi	r24, 0x15	; 21
+	uiTitle[0] = 0x06;//G
+    3142:	86 e0       	ldi	r24, 0x06	; 6
     3144:	89 83       	std	Y+1, r24	; 0x01
-	uiTitle[1] = 0x1F;// 2
-    3146:	8f e1       	ldi	r24, 0x1F	; 31
+	uiTitle[1] = 0x02;// C
+    3146:	82 e0       	ldi	r24, 0x02	; 2
     3148:	8a 83       	std	Y+2, r24	; 0x02
-	uiTitle[2] = 0x4C;// .
-    314a:	8c e4       	ldi	r24, 0x4C	; 76
+	uiTitle[2] = 0x1b;//  
+    314a:	8b e1       	ldi	r24, 0x1B	; 27
     314c:	8b 83       	std	Y+3, r24	; 0x03
-	uiTitle[3] = 0x1E;// 1
-    314e:	8e e1       	ldi	r24, 0x1E	; 30
-    3150:	8c 83       	std	Y+4, r24	; 0x04
-	uiTitle[4] = 0x27;// 0
-    3152:	87 e2       	ldi	r24, 0x27	; 39
-    3154:	8d 83       	std	Y+5, r24	; 0x05
-	uiTitle[5] = 0x1B;// 
-    3156:	8b e1       	ldi	r24, 0x1B	; 27
-    3158:	8e 83       	std	Y+6, r24	; 0x06
-	uiTitle[6] = 0x1B;// 
-    315a:	8f 83       	std	Y+7, r24	; 0x07
-	uiTitle[7] = 0x22;// 5
-    315c:	82 e2       	ldi	r24, 0x22	; 34
+	uiTitle[3] = 0x15;//V
+    314e:	95 e1       	ldi	r25, 0x15	; 21
+    3150:	9c 83       	std	Y+4, r25	; 0x04
+	uiTitle[4] = 0x1E;// 1
+    3152:	9e e1       	ldi	r25, 0x1E	; 30
+    3154:	9d 83       	std	Y+5, r25	; 0x05
+	uiTitle[5] = 0x4C;// .
+    3156:	9c e4       	ldi	r25, 0x4C	; 76
+    3158:	9e 83       	std	Y+6, r25	; 0x06
+	uiTitle[6] = 0x27;// 0
+    315a:	97 e2       	ldi	r25, 0x27	; 39
+    315c:	9f 83       	std	Y+7, r25	; 0x07
+	uiTitle[7] = 0x1B;//  
     315e:	88 87       	std	Y+8, r24	; 0x08
-	uiTitle[8] = 0x26;// 9
-    3160:	86 e2       	ldi	r24, 0x26	; 38
-    3162:	89 87       	std	Y+9, r24	; 0x09
+
+	switch(g_stStatusCmd.uiModeID)
+    3160:	90 91 b3 03 	lds	r25, 0x03B3
+    3164:	92 30       	cpi	r25, 0x02	; 2
+    3166:	a9 f0       	breq	.+42     	; 0x3192 <AlsoShowVersion+0xac>
+    3168:	28 f4       	brcc	.+10     	; 0x3174 <AlsoShowVersion+0x8e>
+    316a:	99 23       	and	r25, r25
+    316c:	41 f0       	breq	.+16     	; 0x317e <AlsoShowVersion+0x98>
+    316e:	91 30       	cpi	r25, 0x01	; 1
+    3170:	59 f0       	breq	.+22     	; 0x3188 <AlsoShowVersion+0xa2>
+    3172:	1c c0       	rjmp	.+56     	; 0x31ac <AlsoShowVersion+0xc6>
+    3174:	93 30       	cpi	r25, 0x03	; 3
+    3176:	89 f0       	breq	.+34     	; 0x319a <AlsoShowVersion+0xb4>
+    3178:	95 30       	cpi	r25, 0x05	; 5
+    317a:	a1 f0       	breq	.+40     	; 0x31a4 <AlsoShowVersion+0xbe>
+    317c:	17 c0       	rjmp	.+46     	; 0x31ac <AlsoShowVersion+0xc6>
+	{
+		case _CAM_480:
+			uiTitle[8] = 0x21;//-
+    317e:	81 e2       	ldi	r24, 0x21	; 33
+    3180:	89 87       	std	Y+9, r24	; 0x09
+			uiTitle[9] = 0x25;//-
+    3182:	85 e2       	ldi	r24, 0x25	; 37
+    3184:	8a 87       	std	Y+10, r24	; 0x0a
+			break;
+    3186:	12 c0       	rjmp	.+36     	; 0x31ac <AlsoShowVersion+0xc6>
+		case _CAM_1020:
+			uiTitle[8] = 0x1e;//-
+    3188:	8e e1       	ldi	r24, 0x1E	; 30
+    318a:	89 87       	std	Y+9, r24	; 0x09
+			uiTitle[9] = 0x27;//-
+    318c:	87 e2       	ldi	r24, 0x27	; 39
+    318e:	8a 87       	std	Y+10, r24	; 0x0a
+			break;
+    3190:	0d c0       	rjmp	.+26     	; 0x31ac <AlsoShowVersion+0xc6>
+		case _CAM_3310:
+			uiTitle[8] = 0x20;//-
+    3192:	80 e2       	ldi	r24, 0x20	; 32
+    3194:	89 87       	std	Y+9, r24	; 0x09
+			uiTitle[9] = 0x20;//-
+    3196:	8a 87       	std	Y+10, r24	; 0x0a
+			break;
+    3198:	09 c0       	rjmp	.+18     	; 0x31ac <AlsoShowVersion+0xc6>
+		case _CAM_6300:
+			uiTitle[8] = 0x23;//-
+    319a:	83 e2       	ldi	r24, 0x23	; 35
+    319c:	89 87       	std	Y+9, r24	; 0x09
+			uiTitle[9] = 0x20;//-
+    319e:	80 e2       	ldi	r24, 0x20	; 32
+    31a0:	8a 87       	std	Y+10, r24	; 0x0a
+			break;
+    31a2:	04 c0       	rjmp	.+8      	; 0x31ac <AlsoShowVersion+0xc6>
+		case _CAM_7500:
+			uiTitle[8]= 0x24;//-
+    31a4:	84 e2       	ldi	r24, 0x24	; 36
+    31a6:	89 87       	std	Y+9, r24	; 0x09
+			uiTitle[9]= 0x22;//-
+    31a8:	82 e2       	ldi	r24, 0x22	; 34
+    31aa:	8a 87       	std	Y+10, r24	; 0x0a
+			break;
+	}
 
 	CAM_SetTitleSet3(LineNum, uiTitle);
-    3164:	be 01       	movw	r22, r28
-    3166:	6f 5f       	subi	r22, 0xFF	; 255
-    3168:	7f 4f       	sbci	r23, 0xFF	; 255
-    316a:	81 2f       	mov	r24, r17
-    316c:	0e 94 6b 04 	call	0x8d6	; 0x8d6 <CAM_SetTitleSet3>
+    31ac:	be 01       	movw	r22, r28
+    31ae:	6f 5f       	subi	r22, 0xFF	; 255
+    31b0:	7f 4f       	sbci	r23, 0xFF	; 255
+    31b2:	81 2f       	mov	r24, r17
+    31b4:	0e 94 6b 04 	call	0x8d6	; 0x8d6 <CAM_SetTitleSet3>
 
 }
-    3170:	2a 96       	adiw	r28, 0x0a	; 10
-    3172:	0f b6       	in	r0, 0x3f	; 63
-    3174:	f8 94       	cli
-    3176:	de bf       	out	0x3e, r29	; 62
-    3178:	0f be       	out	0x3f, r0	; 63
-    317a:	cd bf       	out	0x3d, r28	; 61
-    317c:	df 91       	pop	r29
-    317e:	cf 91       	pop	r28
-    3180:	1f 91       	pop	r17
-    3182:	08 95       	ret
+    31b8:	2a 96       	adiw	r28, 0x0a	; 10
+    31ba:	0f b6       	in	r0, 0x3f	; 63
+    31bc:	f8 94       	cli
+    31be:	de bf       	out	0x3e, r29	; 62
+    31c0:	0f be       	out	0x3f, r0	; 63
+    31c2:	cd bf       	out	0x3d, r28	; 61
+    31c4:	df 91       	pop	r29
+    31c6:	cf 91       	pop	r28
+    31c8:	1f 91       	pop	r17
+    31ca:	08 95       	ret
 
-00003184 <__vector_18>:
+000031cc <__vector_18>:
 bool ReplyHeadFoundA = false;
 unsigned char ReplyLength = 0;
 CMD_REPLY ReplyType = _CMD_REPLY_TOTAL;
 //串口接收中断
 ISR(USART_RX_vect)
 {
-    3184:	1f 92       	push	r1
-    3186:	0f 92       	push	r0
-    3188:	0f b6       	in	r0, 0x3f	; 63
-    318a:	0f 92       	push	r0
-    318c:	11 24       	eor	r1, r1
-    318e:	2f 93       	push	r18
-    3190:	3f 93       	push	r19
-    3192:	4f 93       	push	r20
-    3194:	5f 93       	push	r21
-    3196:	6f 93       	push	r22
-    3198:	7f 93       	push	r23
-    319a:	8f 93       	push	r24
-    319c:	9f 93       	push	r25
-    319e:	af 93       	push	r26
-    31a0:	bf 93       	push	r27
-    31a2:	ef 93       	push	r30
-    31a4:	ff 93       	push	r31
+    31cc:	1f 92       	push	r1
+    31ce:	0f 92       	push	r0
+    31d0:	0f b6       	in	r0, 0x3f	; 63
+    31d2:	0f 92       	push	r0
+    31d4:	11 24       	eor	r1, r1
+    31d6:	2f 93       	push	r18
+    31d8:	3f 93       	push	r19
+    31da:	4f 93       	push	r20
+    31dc:	5f 93       	push	r21
+    31de:	6f 93       	push	r22
+    31e0:	7f 93       	push	r23
+    31e2:	8f 93       	push	r24
+    31e4:	9f 93       	push	r25
+    31e6:	af 93       	push	r26
+    31e8:	bf 93       	push	r27
+    31ea:	ef 93       	push	r30
+    31ec:	ff 93       	push	r31
 	rev_data = UDR0;
-    31a6:	80 91 c6 00 	lds	r24, 0x00C6
-    31aa:	80 93 39 04 	sts	0x0439, r24
+    31ee:	80 91 c6 00 	lds	r24, 0x00C6
+    31f2:	80 93 39 04 	sts	0x0439, r24
 	
 	switch(rev_data)
-    31ae:	80 91 39 04 	lds	r24, 0x0439
-    31b2:	80 39       	cpi	r24, 0x90	; 144
-    31b4:	19 f0       	breq	.+6      	; 0x31bc <__vector_18+0x38>
-    31b6:	8f 3f       	cpi	r24, 0xFF	; 255
-    31b8:	59 f0       	breq	.+22     	; 0x31d0 <__vector_18+0x4c>
-    31ba:	27 c0       	rjmp	.+78     	; 0x320a <__vector_18+0x86>
+    31f6:	80 91 39 04 	lds	r24, 0x0439
+    31fa:	80 39       	cpi	r24, 0x90	; 144
+    31fc:	19 f0       	breq	.+6      	; 0x3204 <__vector_18+0x38>
+    31fe:	8f 3f       	cpi	r24, 0xFF	; 255
+    3200:	59 f0       	breq	.+22     	; 0x3218 <__vector_18+0x4c>
+    3202:	27 c0       	rjmp	.+78     	; 0x3252 <__vector_18+0x86>
 	{
 		case REPAY_HEAD:
 			ReplyHeadFoundA = true;
-    31bc:	81 e0       	ldi	r24, 0x01	; 1
-    31be:	80 93 82 03 	sts	0x0382, r24
+    3204:	81 e0       	ldi	r24, 0x01	; 1
+    3206:	80 93 82 03 	sts	0x0382, r24
 			ReplyBuf[0] = rev_data;
-    31c2:	90 91 39 04 	lds	r25, 0x0439
-    31c6:	90 93 19 04 	sts	0x0419, r25
+    320a:	90 91 39 04 	lds	r25, 0x0439
+    320e:	90 93 19 04 	sts	0x0419, r25
 			ReplyLength = 1;
-    31ca:	80 93 81 03 	sts	0x0381, r24
+    3212:	80 93 81 03 	sts	0x0381, r24
 		break;
-    31ce:	2d c0       	rjmp	.+90     	; 0x322a <__vector_18+0xa6>
+    3216:	2d c0       	rjmp	.+90     	; 0x3272 <__vector_18+0xa6>
 		case REPAY_TAIL:
 			
 			if (ReplyHeadFoundA == true)
-    31d0:	80 91 82 03 	lds	r24, 0x0382
-    31d4:	88 23       	and	r24, r24
-    31d6:	49 f1       	breq	.+82     	; 0x322a <__vector_18+0xa6>
+    3218:	80 91 82 03 	lds	r24, 0x0382
+    321c:	88 23       	and	r24, r24
+    321e:	49 f1       	breq	.+82     	; 0x3272 <__vector_18+0xa6>
 			{
 				
 				ReplyBuf[ReplyLength++] = rev_data;
-    31d8:	e0 91 81 03 	lds	r30, 0x0381
-    31dc:	21 e0       	ldi	r18, 0x01	; 1
-    31de:	2e 0f       	add	r18, r30
-    31e0:	20 93 81 03 	sts	0x0381, r18
-    31e4:	80 91 39 04 	lds	r24, 0x0439
-    31e8:	f0 e0       	ldi	r31, 0x00	; 0
-    31ea:	e7 5e       	subi	r30, 0xE7	; 231
-    31ec:	fb 4f       	sbci	r31, 0xFB	; 251
-    31ee:	80 83       	st	Z, r24
+    3220:	e0 91 81 03 	lds	r30, 0x0381
+    3224:	21 e0       	ldi	r18, 0x01	; 1
+    3226:	2e 0f       	add	r18, r30
+    3228:	20 93 81 03 	sts	0x0381, r18
+    322c:	80 91 39 04 	lds	r24, 0x0439
+    3230:	f0 e0       	ldi	r31, 0x00	; 0
+    3232:	e7 5e       	subi	r30, 0xE7	; 231
+    3234:	fb 4f       	sbci	r31, 0xFB	; 251
+    3236:	80 83       	st	Z, r24
 				ReplyHeadFoundA = false;
-    31f0:	10 92 82 03 	sts	0x0382, r1
+    3238:	10 92 82 03 	sts	0x0382, r1
 				g_stCameraCmd.CmdReply = ReplyBuf[1];
-    31f4:	80 91 1a 04 	lds	r24, 0x041A
-    31f8:	80 93 88 03 	sts	0x0388, r24
+    323c:	80 91 1a 04 	lds	r24, 0x041A
+    3240:	80 93 88 03 	sts	0x0388, r24
 				CommandLoadBuf(g_stCameraCmd.CmdReply, &g_stCameraCmd, ReplyBuf, ReplyLength);
-    31fc:	49 e1       	ldi	r20, 0x19	; 25
-    31fe:	54 e0       	ldi	r21, 0x04	; 4
-    3200:	63 e8       	ldi	r22, 0x83	; 131
-    3202:	73 e0       	ldi	r23, 0x03	; 3
-    3204:	0e 94 f4 06 	call	0xde8	; 0xde8 <CommandLoadBuf>
-    3208:	10 c0       	rjmp	.+32     	; 0x322a <__vector_18+0xa6>
+    3244:	49 e1       	ldi	r20, 0x19	; 25
+    3246:	54 e0       	ldi	r21, 0x04	; 4
+    3248:	63 e8       	ldi	r22, 0x83	; 131
+    324a:	73 e0       	ldi	r23, 0x03	; 3
+    324c:	0e 94 f4 06 	call	0xde8	; 0xde8 <CommandLoadBuf>
+    3250:	10 c0       	rjmp	.+32     	; 0x3272 <__vector_18+0xa6>
 
 			}
 		break;
 
 		default:// data bytes
 			if (ReplyHeadFoundA == true)
-    320a:	80 91 82 03 	lds	r24, 0x0382
-    320e:	88 23       	and	r24, r24
-    3210:	61 f0       	breq	.+24     	; 0x322a <__vector_18+0xa6>
+    3252:	80 91 82 03 	lds	r24, 0x0382
+    3256:	88 23       	and	r24, r24
+    3258:	61 f0       	breq	.+24     	; 0x3272 <__vector_18+0xa6>
 			{
 				ReplyBuf[ ReplyLength++ ] = rev_data;
-    3212:	e0 91 81 03 	lds	r30, 0x0381
-    3216:	81 e0       	ldi	r24, 0x01	; 1
-    3218:	8e 0f       	add	r24, r30
-    321a:	80 93 81 03 	sts	0x0381, r24
-    321e:	80 91 39 04 	lds	r24, 0x0439
-    3222:	f0 e0       	ldi	r31, 0x00	; 0
-    3224:	e7 5e       	subi	r30, 0xE7	; 231
-    3226:	fb 4f       	sbci	r31, 0xFB	; 251
-    3228:	80 83       	st	Z, r24
+    325a:	e0 91 81 03 	lds	r30, 0x0381
+    325e:	81 e0       	ldi	r24, 0x01	; 1
+    3260:	8e 0f       	add	r24, r30
+    3262:	80 93 81 03 	sts	0x0381, r24
+    3266:	80 91 39 04 	lds	r24, 0x0439
+    326a:	f0 e0       	ldi	r31, 0x00	; 0
+    326c:	e7 5e       	subi	r30, 0xE7	; 231
+    326e:	fb 4f       	sbci	r31, 0xFB	; 251
+    3270:	80 83       	st	Z, r24
 	}
 	
 	//发送接收到的字符
 	//USART_SendUChar(rev_data);
 
 }
-    322a:	ff 91       	pop	r31
-    322c:	ef 91       	pop	r30
-    322e:	bf 91       	pop	r27
-    3230:	af 91       	pop	r26
-    3232:	9f 91       	pop	r25
-    3234:	8f 91       	pop	r24
-    3236:	7f 91       	pop	r23
-    3238:	6f 91       	pop	r22
-    323a:	5f 91       	pop	r21
-    323c:	4f 91       	pop	r20
-    323e:	3f 91       	pop	r19
-    3240:	2f 91       	pop	r18
-    3242:	0f 90       	pop	r0
-    3244:	0f be       	out	0x3f, r0	; 63
-    3246:	0f 90       	pop	r0
-    3248:	1f 90       	pop	r1
-    324a:	18 95       	reti
+    3272:	ff 91       	pop	r31
+    3274:	ef 91       	pop	r30
+    3276:	bf 91       	pop	r27
+    3278:	af 91       	pop	r26
+    327a:	9f 91       	pop	r25
+    327c:	8f 91       	pop	r24
+    327e:	7f 91       	pop	r23
+    3280:	6f 91       	pop	r22
+    3282:	5f 91       	pop	r21
+    3284:	4f 91       	pop	r20
+    3286:	3f 91       	pop	r19
+    3288:	2f 91       	pop	r18
+    328a:	0f 90       	pop	r0
+    328c:	0f be       	out	0x3f, r0	; 63
+    328e:	0f 90       	pop	r0
+    3290:	1f 90       	pop	r1
+    3292:	18 95       	reti
 
-0000324c <USART_Init>:
+00003294 <USART_Init>:
 // Output Value : None
 //--------------------------------------------------
 void USART_Init( unsigned int ubrr)
 {
 	/* Set baud rate */
 	UBRR0H = (unsigned char)(ubrr>>8);
-    324c:	90 93 c5 00 	sts	0x00C5, r25
+    3294:	90 93 c5 00 	sts	0x00C5, r25
 	UBRR0L = (unsigned char)ubrr;
-    3250:	80 93 c4 00 	sts	0x00C4, r24
+    3298:	80 93 c4 00 	sts	0x00C4, r24
 	
 	/* Enable receiver and transmitter */
 	UCSR0B = (1<<RXCIE0)|(1<<RXEN0)|(1<<TXEN0);
-    3254:	88 e9       	ldi	r24, 0x98	; 152
-    3256:	80 93 c1 00 	sts	0x00C1, r24
+    329c:	88 e9       	ldi	r24, 0x98	; 152
+    329e:	80 93 c1 00 	sts	0x00C1, r24
 	/* Set frame format: 8data, 1stop bit */
 	UCSR0C = (1<<UCSZ01)|(1<<UCSZ00);
-    325a:	86 e0       	ldi	r24, 0x06	; 6
-    325c:	80 93 c2 00 	sts	0x00C2, r24
-    3260:	08 95       	ret
+    32a2:	86 e0       	ldi	r24, 0x06	; 6
+    32a4:	80 93 c2 00 	sts	0x00C2, r24
+    32a8:	08 95       	ret
 
-00003262 <MY_USART_Init>:
+000032aa <MY_USART_Init>:
 // Input Value  : None
 // Output Value : None
 //--------------------------------------------------
 void MY_USART_Init(void)
 {
 	USART_Init(MYUBRR);
-    3262:	83 e3       	ldi	r24, 0x33	; 51
-    3264:	90 e0       	ldi	r25, 0x00	; 0
-    3266:	0e 94 26 19 	call	0x324c	; 0x324c <USART_Init>
-    326a:	08 95       	ret
+    32aa:	83 e3       	ldi	r24, 0x33	; 51
+    32ac:	90 e0       	ldi	r25, 0x00	; 0
+    32ae:	0e 94 4a 19 	call	0x3294	; 0x3294 <USART_Init>
+    32b2:	08 95       	ret
 
-0000326c <USART_SendUChar>:
+000032b4 <USART_SendUChar>:
 // Output Value : None
 //--------------------------------------------------
 void USART_SendUChar( unsigned char data )
 {
 	/* Wait for empty transmit buffer */
 	while ( !( UCSR0A & (1<<UDRE0)) )
-    326c:	e0 ec       	ldi	r30, 0xC0	; 192
-    326e:	f0 e0       	ldi	r31, 0x00	; 0
-    3270:	90 81       	ld	r25, Z
-    3272:	95 ff       	sbrs	r25, 5
-    3274:	fd cf       	rjmp	.-6      	; 0x3270 <USART_SendUChar+0x4>
+    32b4:	e0 ec       	ldi	r30, 0xC0	; 192
+    32b6:	f0 e0       	ldi	r31, 0x00	; 0
+    32b8:	90 81       	ld	r25, Z
+    32ba:	95 ff       	sbrs	r25, 5
+    32bc:	fd cf       	rjmp	.-6      	; 0x32b8 <USART_SendUChar+0x4>
 	;
 	/* Put data into buffer, sends the data */
 	UDR0 = data;
-    3276:	80 93 c6 00 	sts	0x00C6, r24
-    327a:	08 95       	ret
+    32be:	80 93 c6 00 	sts	0x00C6, r24
+    32c2:	08 95       	ret
 
-0000327c <USART_SendCmd>:
+000032c4 <USART_SendCmd>:
 // Input Value  : buf     --> command array
 //                len      --> command length
 // Output Value : None
 //--------------------------------------------------
 void USART_SendCmd(uint8_t* buf, uint8_t len)
 {
-    327c:	0f 93       	push	r16
-    327e:	1f 93       	push	r17
-    3280:	cf 93       	push	r28
-    3282:	df 93       	push	r29
-    3284:	ec 01       	movw	r28, r24
-    3286:	06 2f       	mov	r16, r22
+    32c4:	0f 93       	push	r16
+    32c6:	1f 93       	push	r17
+    32c8:	cf 93       	push	r28
+    32ca:	df 93       	push	r29
+    32cc:	ec 01       	movw	r28, r24
+    32ce:	06 2f       	mov	r16, r22
 	uint8_t i = 0;
 	
 	for (i = 0;i < len;i++)
-    3288:	66 23       	and	r22, r22
-    328a:	59 f0       	breq	.+22     	; 0x32a2 <USART_SendCmd+0x26>
-    328c:	10 e0       	ldi	r17, 0x00	; 0
+    32d0:	66 23       	and	r22, r22
+    32d2:	59 f0       	breq	.+22     	; 0x32ea <USART_SendCmd+0x26>
+    32d4:	10 e0       	ldi	r17, 0x00	; 0
 	{
 		USART_SendUChar(*buf);
-    328e:	89 91       	ld	r24, Y+
-    3290:	0e 94 36 19 	call	0x326c	; 0x326c <USART_SendUChar>
+    32d6:	89 91       	ld	r24, Y+
+    32d8:	0e 94 5a 19 	call	0x32b4	; 0x32b4 <USART_SendUChar>
 	#else
 		//round up by default
 		__ticks_dc = (uint32_t)(ceil(fabs(__tmp)));
 	#endif
 
 	__builtin_avr_delay_cycles(__ticks_dc);
-    3294:	85 e3       	ldi	r24, 0x35	; 53
-    3296:	8a 95       	dec	r24
-    3298:	f1 f7       	brne	.-4      	; 0x3296 <USART_SendCmd+0x1a>
-    329a:	00 00       	nop
+    32dc:	85 e3       	ldi	r24, 0x35	; 53
+    32de:	8a 95       	dec	r24
+    32e0:	f1 f7       	brne	.-4      	; 0x32de <USART_SendCmd+0x1a>
+    32e2:	00 00       	nop
 //--------------------------------------------------
 void USART_SendCmd(uint8_t* buf, uint8_t len)
 {
 	uint8_t i = 0;
 	
 	for (i = 0;i < len;i++)
-    329c:	1f 5f       	subi	r17, 0xFF	; 255
-    329e:	10 13       	cpse	r17, r16
-    32a0:	f6 cf       	rjmp	.-20     	; 0x328e <USART_SendCmd+0x12>
+    32e4:	1f 5f       	subi	r17, 0xFF	; 255
+    32e6:	10 13       	cpse	r17, r16
+    32e8:	f6 cf       	rjmp	.-20     	; 0x32d6 <USART_SendCmd+0x12>
 	{
 		USART_SendUChar(*buf);
 		buf++;
 		_delay_us(20);
 	}
 }
-    32a2:	df 91       	pop	r29
-    32a4:	cf 91       	pop	r28
-    32a6:	1f 91       	pop	r17
-    32a8:	0f 91       	pop	r16
-    32aa:	08 95       	ret
-
-000032ac <__mulsi3>:
-    32ac:	db 01       	movw	r26, r22
-    32ae:	8f 93       	push	r24
-    32b0:	9f 93       	push	r25
-    32b2:	0e 94 a2 19 	call	0x3344	; 0x3344 <__muluhisi3>
-    32b6:	bf 91       	pop	r27
-    32b8:	af 91       	pop	r26
-    32ba:	a2 9f       	mul	r26, r18
-    32bc:	80 0d       	add	r24, r0
-    32be:	91 1d       	adc	r25, r1
-    32c0:	a3 9f       	mul	r26, r19
-    32c2:	90 0d       	add	r25, r0
-    32c4:	b2 9f       	mul	r27, r18
-    32c6:	90 0d       	add	r25, r0
-    32c8:	11 24       	eor	r1, r1
-    32ca:	08 95       	ret
-
-000032cc <__divmodhi4>:
-    32cc:	97 fb       	bst	r25, 7
-    32ce:	07 2e       	mov	r0, r23
-    32d0:	16 f4       	brtc	.+4      	; 0x32d6 <__divmodhi4+0xa>
-    32d2:	00 94       	com	r0
-    32d4:	07 d0       	rcall	.+14     	; 0x32e4 <__divmodhi4_neg1>
-    32d6:	77 fd       	sbrc	r23, 7
-    32d8:	09 d0       	rcall	.+18     	; 0x32ec <__divmodhi4_neg2>
-    32da:	0e 94 ad 19 	call	0x335a	; 0x335a <__udivmodhi4>
-    32de:	07 fc       	sbrc	r0, 7
-    32e0:	05 d0       	rcall	.+10     	; 0x32ec <__divmodhi4_neg2>
-    32e2:	3e f4       	brtc	.+14     	; 0x32f2 <__divmodhi4_exit>
-
-000032e4 <__divmodhi4_neg1>:
-    32e4:	90 95       	com	r25
-    32e6:	81 95       	neg	r24
-    32e8:	9f 4f       	sbci	r25, 0xFF	; 255
-    32ea:	08 95       	ret
-
-000032ec <__divmodhi4_neg2>:
-    32ec:	70 95       	com	r23
-    32ee:	61 95       	neg	r22
-    32f0:	7f 4f       	sbci	r23, 0xFF	; 255
-
-000032f2 <__divmodhi4_exit>:
+    32ea:	df 91       	pop	r29
+    32ec:	cf 91       	pop	r28
+    32ee:	1f 91       	pop	r17
+    32f0:	0f 91       	pop	r16
     32f2:	08 95       	ret
 
-000032f4 <__udivmodsi4>:
-    32f4:	a1 e2       	ldi	r26, 0x21	; 33
-    32f6:	1a 2e       	mov	r1, r26
-    32f8:	aa 1b       	sub	r26, r26
-    32fa:	bb 1b       	sub	r27, r27
-    32fc:	fd 01       	movw	r30, r26
-    32fe:	0d c0       	rjmp	.+26     	; 0x331a <__udivmodsi4_ep>
+000032f4 <__mulsi3>:
+    32f4:	db 01       	movw	r26, r22
+    32f6:	8f 93       	push	r24
+    32f8:	9f 93       	push	r25
+    32fa:	0e 94 c6 19 	call	0x338c	; 0x338c <__muluhisi3>
+    32fe:	bf 91       	pop	r27
+    3300:	af 91       	pop	r26
+    3302:	a2 9f       	mul	r26, r18
+    3304:	80 0d       	add	r24, r0
+    3306:	91 1d       	adc	r25, r1
+    3308:	a3 9f       	mul	r26, r19
+    330a:	90 0d       	add	r25, r0
+    330c:	b2 9f       	mul	r27, r18
+    330e:	90 0d       	add	r25, r0
+    3310:	11 24       	eor	r1, r1
+    3312:	08 95       	ret
 
-00003300 <__udivmodsi4_loop>:
-    3300:	aa 1f       	adc	r26, r26
-    3302:	bb 1f       	adc	r27, r27
-    3304:	ee 1f       	adc	r30, r30
-    3306:	ff 1f       	adc	r31, r31
-    3308:	a2 17       	cp	r26, r18
-    330a:	b3 07       	cpc	r27, r19
-    330c:	e4 07       	cpc	r30, r20
-    330e:	f5 07       	cpc	r31, r21
-    3310:	20 f0       	brcs	.+8      	; 0x331a <__udivmodsi4_ep>
-    3312:	a2 1b       	sub	r26, r18
-    3314:	b3 0b       	sbc	r27, r19
-    3316:	e4 0b       	sbc	r30, r20
-    3318:	f5 0b       	sbc	r31, r21
+00003314 <__divmodhi4>:
+    3314:	97 fb       	bst	r25, 7
+    3316:	07 2e       	mov	r0, r23
+    3318:	16 f4       	brtc	.+4      	; 0x331e <__divmodhi4+0xa>
+    331a:	00 94       	com	r0
+    331c:	07 d0       	rcall	.+14     	; 0x332c <__divmodhi4_neg1>
+    331e:	77 fd       	sbrc	r23, 7
+    3320:	09 d0       	rcall	.+18     	; 0x3334 <__divmodhi4_neg2>
+    3322:	0e 94 d1 19 	call	0x33a2	; 0x33a2 <__udivmodhi4>
+    3326:	07 fc       	sbrc	r0, 7
+    3328:	05 d0       	rcall	.+10     	; 0x3334 <__divmodhi4_neg2>
+    332a:	3e f4       	brtc	.+14     	; 0x333a <__divmodhi4_exit>
 
-0000331a <__udivmodsi4_ep>:
-    331a:	66 1f       	adc	r22, r22
-    331c:	77 1f       	adc	r23, r23
-    331e:	88 1f       	adc	r24, r24
-    3320:	99 1f       	adc	r25, r25
-    3322:	1a 94       	dec	r1
-    3324:	69 f7       	brne	.-38     	; 0x3300 <__udivmodsi4_loop>
-    3326:	60 95       	com	r22
-    3328:	70 95       	com	r23
-    332a:	80 95       	com	r24
+0000332c <__divmodhi4_neg1>:
     332c:	90 95       	com	r25
-    332e:	9b 01       	movw	r18, r22
-    3330:	ac 01       	movw	r20, r24
-    3332:	bd 01       	movw	r22, r26
-    3334:	cf 01       	movw	r24, r30
-    3336:	08 95       	ret
+    332e:	81 95       	neg	r24
+    3330:	9f 4f       	sbci	r25, 0xFF	; 255
+    3332:	08 95       	ret
 
-00003338 <__tablejump2__>:
-    3338:	ee 0f       	add	r30, r30
-    333a:	ff 1f       	adc	r31, r31
+00003334 <__divmodhi4_neg2>:
+    3334:	70 95       	com	r23
+    3336:	61 95       	neg	r22
+    3338:	7f 4f       	sbci	r23, 0xFF	; 255
 
-0000333c <__tablejump__>:
-    333c:	05 90       	lpm	r0, Z+
-    333e:	f4 91       	lpm	r31, Z
-    3340:	e0 2d       	mov	r30, r0
-    3342:	09 94       	ijmp
+0000333a <__divmodhi4_exit>:
+    333a:	08 95       	ret
 
-00003344 <__muluhisi3>:
-    3344:	0e 94 c1 19 	call	0x3382	; 0x3382 <__umulhisi3>
-    3348:	a5 9f       	mul	r26, r21
-    334a:	90 0d       	add	r25, r0
-    334c:	b4 9f       	mul	r27, r20
-    334e:	90 0d       	add	r25, r0
-    3350:	a4 9f       	mul	r26, r20
-    3352:	80 0d       	add	r24, r0
-    3354:	91 1d       	adc	r25, r1
-    3356:	11 24       	eor	r1, r1
-    3358:	08 95       	ret
+0000333c <__udivmodsi4>:
+    333c:	a1 e2       	ldi	r26, 0x21	; 33
+    333e:	1a 2e       	mov	r1, r26
+    3340:	aa 1b       	sub	r26, r26
+    3342:	bb 1b       	sub	r27, r27
+    3344:	fd 01       	movw	r30, r26
+    3346:	0d c0       	rjmp	.+26     	; 0x3362 <__udivmodsi4_ep>
 
-0000335a <__udivmodhi4>:
-    335a:	aa 1b       	sub	r26, r26
-    335c:	bb 1b       	sub	r27, r27
-    335e:	51 e1       	ldi	r21, 0x11	; 17
-    3360:	07 c0       	rjmp	.+14     	; 0x3370 <__udivmodhi4_ep>
+00003348 <__udivmodsi4_loop>:
+    3348:	aa 1f       	adc	r26, r26
+    334a:	bb 1f       	adc	r27, r27
+    334c:	ee 1f       	adc	r30, r30
+    334e:	ff 1f       	adc	r31, r31
+    3350:	a2 17       	cp	r26, r18
+    3352:	b3 07       	cpc	r27, r19
+    3354:	e4 07       	cpc	r30, r20
+    3356:	f5 07       	cpc	r31, r21
+    3358:	20 f0       	brcs	.+8      	; 0x3362 <__udivmodsi4_ep>
+    335a:	a2 1b       	sub	r26, r18
+    335c:	b3 0b       	sbc	r27, r19
+    335e:	e4 0b       	sbc	r30, r20
+    3360:	f5 0b       	sbc	r31, r21
 
-00003362 <__udivmodhi4_loop>:
-    3362:	aa 1f       	adc	r26, r26
-    3364:	bb 1f       	adc	r27, r27
-    3366:	a6 17       	cp	r26, r22
-    3368:	b7 07       	cpc	r27, r23
-    336a:	10 f0       	brcs	.+4      	; 0x3370 <__udivmodhi4_ep>
-    336c:	a6 1b       	sub	r26, r22
-    336e:	b7 0b       	sbc	r27, r23
+00003362 <__udivmodsi4_ep>:
+    3362:	66 1f       	adc	r22, r22
+    3364:	77 1f       	adc	r23, r23
+    3366:	88 1f       	adc	r24, r24
+    3368:	99 1f       	adc	r25, r25
+    336a:	1a 94       	dec	r1
+    336c:	69 f7       	brne	.-38     	; 0x3348 <__udivmodsi4_loop>
+    336e:	60 95       	com	r22
+    3370:	70 95       	com	r23
+    3372:	80 95       	com	r24
+    3374:	90 95       	com	r25
+    3376:	9b 01       	movw	r18, r22
+    3378:	ac 01       	movw	r20, r24
+    337a:	bd 01       	movw	r22, r26
+    337c:	cf 01       	movw	r24, r30
+    337e:	08 95       	ret
 
-00003370 <__udivmodhi4_ep>:
-    3370:	88 1f       	adc	r24, r24
-    3372:	99 1f       	adc	r25, r25
-    3374:	5a 95       	dec	r21
-    3376:	a9 f7       	brne	.-22     	; 0x3362 <__udivmodhi4_loop>
-    3378:	80 95       	com	r24
-    337a:	90 95       	com	r25
-    337c:	bc 01       	movw	r22, r24
-    337e:	cd 01       	movw	r24, r26
-    3380:	08 95       	ret
+00003380 <__tablejump2__>:
+    3380:	ee 0f       	add	r30, r30
+    3382:	ff 1f       	adc	r31, r31
 
-00003382 <__umulhisi3>:
-    3382:	a2 9f       	mul	r26, r18
-    3384:	b0 01       	movw	r22, r0
-    3386:	b3 9f       	mul	r27, r19
-    3388:	c0 01       	movw	r24, r0
-    338a:	a3 9f       	mul	r26, r19
-    338c:	70 0d       	add	r23, r0
-    338e:	81 1d       	adc	r24, r1
-    3390:	11 24       	eor	r1, r1
-    3392:	91 1d       	adc	r25, r1
-    3394:	b2 9f       	mul	r27, r18
-    3396:	70 0d       	add	r23, r0
-    3398:	81 1d       	adc	r24, r1
-    339a:	11 24       	eor	r1, r1
+00003384 <__tablejump__>:
+    3384:	05 90       	lpm	r0, Z+
+    3386:	f4 91       	lpm	r31, Z
+    3388:	e0 2d       	mov	r30, r0
+    338a:	09 94       	ijmp
+
+0000338c <__muluhisi3>:
+    338c:	0e 94 e5 19 	call	0x33ca	; 0x33ca <__umulhisi3>
+    3390:	a5 9f       	mul	r26, r21
+    3392:	90 0d       	add	r25, r0
+    3394:	b4 9f       	mul	r27, r20
+    3396:	90 0d       	add	r25, r0
+    3398:	a4 9f       	mul	r26, r20
+    339a:	80 0d       	add	r24, r0
     339c:	91 1d       	adc	r25, r1
-    339e:	08 95       	ret
+    339e:	11 24       	eor	r1, r1
+    33a0:	08 95       	ret
 
-000033a0 <__eerd_byte_m168pa>:
-    33a0:	f9 99       	sbic	0x1f, 1	; 31
-    33a2:	fe cf       	rjmp	.-4      	; 0x33a0 <__eerd_byte_m168pa>
-    33a4:	92 bd       	out	0x22, r25	; 34
-    33a6:	81 bd       	out	0x21, r24	; 33
-    33a8:	f8 9a       	sbi	0x1f, 0	; 31
-    33aa:	99 27       	eor	r25, r25
-    33ac:	80 b5       	in	r24, 0x20	; 32
-    33ae:	08 95       	ret
+000033a2 <__udivmodhi4>:
+    33a2:	aa 1b       	sub	r26, r26
+    33a4:	bb 1b       	sub	r27, r27
+    33a6:	51 e1       	ldi	r21, 0x11	; 17
+    33a8:	07 c0       	rjmp	.+14     	; 0x33b8 <__udivmodhi4_ep>
 
-000033b0 <__eewr_byte_m168pa>:
-    33b0:	26 2f       	mov	r18, r22
+000033aa <__udivmodhi4_loop>:
+    33aa:	aa 1f       	adc	r26, r26
+    33ac:	bb 1f       	adc	r27, r27
+    33ae:	a6 17       	cp	r26, r22
+    33b0:	b7 07       	cpc	r27, r23
+    33b2:	10 f0       	brcs	.+4      	; 0x33b8 <__udivmodhi4_ep>
+    33b4:	a6 1b       	sub	r26, r22
+    33b6:	b7 0b       	sbc	r27, r23
 
-000033b2 <__eewr_r18_m168pa>:
-    33b2:	f9 99       	sbic	0x1f, 1	; 31
-    33b4:	fe cf       	rjmp	.-4      	; 0x33b2 <__eewr_r18_m168pa>
-    33b6:	1f ba       	out	0x1f, r1	; 31
-    33b8:	92 bd       	out	0x22, r25	; 34
-    33ba:	81 bd       	out	0x21, r24	; 33
-    33bc:	20 bd       	out	0x20, r18	; 32
-    33be:	0f b6       	in	r0, 0x3f	; 63
-    33c0:	f8 94       	cli
-    33c2:	fa 9a       	sbi	0x1f, 2	; 31
-    33c4:	f9 9a       	sbi	0x1f, 1	; 31
-    33c6:	0f be       	out	0x3f, r0	; 63
-    33c8:	01 96       	adiw	r24, 0x01	; 1
-    33ca:	08 95       	ret
+000033b8 <__udivmodhi4_ep>:
+    33b8:	88 1f       	adc	r24, r24
+    33ba:	99 1f       	adc	r25, r25
+    33bc:	5a 95       	dec	r21
+    33be:	a9 f7       	brne	.-22     	; 0x33aa <__udivmodhi4_loop>
+    33c0:	80 95       	com	r24
+    33c2:	90 95       	com	r25
+    33c4:	bc 01       	movw	r22, r24
+    33c6:	cd 01       	movw	r24, r26
+    33c8:	08 95       	ret
 
-000033cc <_exit>:
-    33cc:	f8 94       	cli
+000033ca <__umulhisi3>:
+    33ca:	a2 9f       	mul	r26, r18
+    33cc:	b0 01       	movw	r22, r0
+    33ce:	b3 9f       	mul	r27, r19
+    33d0:	c0 01       	movw	r24, r0
+    33d2:	a3 9f       	mul	r26, r19
+    33d4:	70 0d       	add	r23, r0
+    33d6:	81 1d       	adc	r24, r1
+    33d8:	11 24       	eor	r1, r1
+    33da:	91 1d       	adc	r25, r1
+    33dc:	b2 9f       	mul	r27, r18
+    33de:	70 0d       	add	r23, r0
+    33e0:	81 1d       	adc	r24, r1
+    33e2:	11 24       	eor	r1, r1
+    33e4:	91 1d       	adc	r25, r1
+    33e6:	08 95       	ret
 
-000033ce <__stop_program>:
-    33ce:	ff cf       	rjmp	.-2      	; 0x33ce <__stop_program>
+000033e8 <__eerd_byte_m168pa>:
+    33e8:	f9 99       	sbic	0x1f, 1	; 31
+    33ea:	fe cf       	rjmp	.-4      	; 0x33e8 <__eerd_byte_m168pa>
+    33ec:	92 bd       	out	0x22, r25	; 34
+    33ee:	81 bd       	out	0x21, r24	; 33
+    33f0:	f8 9a       	sbi	0x1f, 0	; 31
+    33f2:	99 27       	eor	r25, r25
+    33f4:	80 b5       	in	r24, 0x20	; 32
+    33f6:	08 95       	ret
+
+000033f8 <__eewr_byte_m168pa>:
+    33f8:	26 2f       	mov	r18, r22
+
+000033fa <__eewr_r18_m168pa>:
+    33fa:	f9 99       	sbic	0x1f, 1	; 31
+    33fc:	fe cf       	rjmp	.-4      	; 0x33fa <__eewr_r18_m168pa>
+    33fe:	1f ba       	out	0x1f, r1	; 31
+    3400:	92 bd       	out	0x22, r25	; 34
+    3402:	81 bd       	out	0x21, r24	; 33
+    3404:	20 bd       	out	0x20, r18	; 32
+    3406:	0f b6       	in	r0, 0x3f	; 63
+    3408:	f8 94       	cli
+    340a:	fa 9a       	sbi	0x1f, 2	; 31
+    340c:	f9 9a       	sbi	0x1f, 1	; 31
+    340e:	0f be       	out	0x3f, r0	; 63
+    3410:	01 96       	adiw	r24, 0x01	; 1
+    3412:	08 95       	ret
+
+00003414 <_exit>:
+    3414:	f8 94       	cli
+
+00003416 <__stop_program>:
+    3416:	ff cf       	rjmp	.-2      	; 0x3416 <__stop_program>

@@ -1539,6 +1539,10 @@ void SetFilterG1(void)
 {
 
 //设置RGain为193
+#if(_BLUE_LIGHT == 1)
+	WhiteLightOn();
+	BlueLightOff();
+#endif
 	CAM_SetRGainDirect(_G1_R_GAIN);
 #ifdef _FILTER_GREEN_AND_WHITE
 	g_stStatusCmd.FilterMode= _FILTER_MODE_G1;
@@ -1558,6 +1562,11 @@ void SetFilterG1(void)
 void SetFilterG2(void)
 {
 //设置RGain为168
+#if(_BLUE_LIGHT == 1)
+	WhiteLightOn();
+	BlueLightOff();
+#endif
+
 	CAM_SetRGainDirect(_G2_R_GAIN);
 #ifdef _FILTER_GREEN_AND_WHITE
 	g_stStatusCmd.FilterMode= _FILTER_MODE_G2;
@@ -1579,6 +1588,11 @@ void SetFilterG2(void)
 void SetFilterG3(void)
 {
 //设置RGain为120
+#if(_BLUE_LIGHT == 1)
+	WhiteLightOn();
+	BlueLightOff();
+#endif
+
 	CAM_SetRGainDirect(_G3_R_GAIN);
 #ifdef _FILTER_GREEN_AND_WHITE
 	g_stStatusCmd.FilterMode= _FILTER_MODE_G3;

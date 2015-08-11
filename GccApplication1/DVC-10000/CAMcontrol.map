@@ -435,7 +435,7 @@ END GROUP
 .rela.plt
  *(.rela.plt)
 
-.text           0x00000000     0x33d0
+.text           0x00000000     0x3418
  *(.vectors)
  .vectors       0x00000000       0x68 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr5/crtm168pa.o
                 0x00000000                __vector_default
@@ -866,57 +866,57 @@ END GROUP
                 0x000030c0       0x26 src/Title.o
                 0x000030c0                ShowProductInfo
  .text.AlsoShowVersion
-                0x000030e6       0x9e src/Title.o
+                0x000030e6       0xe6 src/Title.o
                 0x000030e6                AlsoShowVersion
  .text.__vector_18
-                0x00003184       0xc8 src/usart.o
-                0x00003184                __vector_18
+                0x000031cc       0xc8 src/usart.o
+                0x000031cc                __vector_18
  .text.USART_Init
-                0x0000324c       0x16 src/usart.o
-                0x0000324c                USART_Init
+                0x00003294       0x16 src/usart.o
+                0x00003294                USART_Init
  .text.MY_USART_Init
-                0x00003262        0xa src/usart.o
-                0x00003262                MY_USART_Init
+                0x000032aa        0xa src/usart.o
+                0x000032aa                MY_USART_Init
  .text.USART_SendUChar
-                0x0000326c       0x10 src/usart.o
-                0x0000326c                USART_SendUChar
+                0x000032b4       0x10 src/usart.o
+                0x000032b4                USART_SendUChar
  .text.USART_SendCmd
-                0x0000327c       0x30 src/usart.o
-                0x0000327c                USART_SendCmd
+                0x000032c4       0x30 src/usart.o
+                0x000032c4                USART_SendCmd
  .text.libgcc.mul
-                0x000032ac       0x20 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_mulsi3.o)
-                0x000032ac                __mulsi3
+                0x000032f4       0x20 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_mulsi3.o)
+                0x000032f4                __mulsi3
  .text.libgcc.div
-                0x000032cc       0x28 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_divmodhi4.o)
-                0x000032cc                _div
-                0x000032cc                __divmodhi4
+                0x00003314       0x28 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_divmodhi4.o)
+                0x00003314                _div
+                0x00003314                __divmodhi4
  .text.libgcc.div
-                0x000032f4       0x44 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_udivmodsi4.o)
-                0x000032f4                __udivmodsi4
- .text.libgcc   0x00003338        0xc c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_tablejump.o)
-                0x00003338                __tablejump2__
-                0x0000333c                __tablejump__
+                0x0000333c       0x44 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_udivmodsi4.o)
+                0x0000333c                __udivmodsi4
+ .text.libgcc   0x00003380        0xc c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_tablejump.o)
+                0x00003380                __tablejump2__
+                0x00003384                __tablejump__
  .text.libgcc.mul
-                0x00003344       0x16 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_muluhisi3.o)
-                0x00003344                __muluhisi3
+                0x0000338c       0x16 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_muluhisi3.o)
+                0x0000338c                __muluhisi3
  .text.libgcc.div
-                0x0000335a       0x28 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_udivmodhi4.o)
-                0x0000335a                __udivmodhi4
+                0x000033a2       0x28 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_udivmodhi4.o)
+                0x000033a2                __udivmodhi4
  .text.libgcc.mul
-                0x00003382       0x1e c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_umulhisi3.o)
-                0x00003382                __umulhisi3
+                0x000033ca       0x1e c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_umulhisi3.o)
+                0x000033ca                __umulhisi3
  .text.avr-libc
-                0x000033a0       0x10 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr5\libc.a(eerd_byte_atmega168pa.o)
-                0x000033a0                __eerd_byte_m168pa
+                0x000033e8       0x10 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr5\libc.a(eerd_byte_atmega168pa.o)
+                0x000033e8                __eerd_byte_m168pa
  .text.avr-libc
-                0x000033b0       0x1c c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr5\libc.a(eewr_byte_atmega168pa.o)
-                0x000033b0                __eewr_byte_m168pa
-                0x000033b2                __eewr_r18_m168pa
-                0x000033cc                . = ALIGN (0x2)
+                0x000033f8       0x1c c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr5\libc.a(eewr_byte_atmega168pa.o)
+                0x000033f8                __eewr_byte_m168pa
+                0x000033fa                __eewr_r18_m168pa
+                0x00003414                . = ALIGN (0x2)
  *(.fini9)
- .fini9         0x000033cc        0x0 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_exit.o)
-                0x000033cc                _exit
-                0x000033cc                exit
+ .fini9         0x00003414        0x0 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_exit.o)
+                0x00003414                _exit
+                0x00003414                exit
  *(.fini9)
  *(.fini8)
  *(.fini8)
@@ -935,11 +935,11 @@ END GROUP
  *(.fini1)
  *(.fini1)
  *(.fini0)
- .fini0         0x000033cc        0x4 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_exit.o)
+ .fini0         0x00003414        0x4 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_exit.o)
  *(.fini0)
-                0x000033d0                _etext = .
+                0x00003418                _etext = .
 
-.data           0x00800100      0x260 load address 0x000033d0
+.data           0x00800100      0x260 load address 0x00003418
                 0x00800100                PROVIDE (__data_start, .)
  *(.data)
  *(.data*)
@@ -1203,8 +1203,8 @@ END GROUP
                 0x00800419                ReplyBuf
                 0x00800439                rev_data
                 0x0080043a                PROVIDE (__bss_end, .)
-                0x000033d0                __data_load_start = LOADADDR (.data)
-                0x00003630                __data_load_end = (__data_load_start + SIZEOF (.data))
+                0x00003418                __data_load_start = LOADADDR (.data)
+                0x00003678                __data_load_end = (__data_load_start + SIZEOF (.data))
 
 .noinit         0x0080043a        0x0
                 0x0080043a                PROVIDE (__noinit_start, .)
@@ -1305,18 +1305,18 @@ END GROUP
 .debug_pubnames
  *(.debug_pubnames)
 
-.debug_info     0x00000000     0x7f07
+.debug_info     0x00000000     0x7f08
  *(.debug_info .gnu.linkonce.wi.*)
  .debug_info    0x00000000     0x1ba8 src/command.o
  .debug_info    0x00001ba8      0x9c9 src/key.o
  .debug_info    0x00002571      0x222 src/led.o
  .debug_info    0x00002793      0x96d src/main.o
- .debug_info    0x00003100     0x2987 src/manager.o
- .debug_info    0x00005a87      0x8a3 src/remote.o
- .debug_info    0x0000632a      0x5e1 src/status.o
- .debug_info    0x0000690b      0x814 src/timer.o
- .debug_info    0x0000711f      0x942 src/Title.o
- .debug_info    0x00007a61      0x4a6 src/usart.o
+ .debug_info    0x00003100     0x2988 src/manager.o
+ .debug_info    0x00005a88      0x8a3 src/remote.o
+ .debug_info    0x0000632b      0x5e1 src/status.o
+ .debug_info    0x0000690c      0x814 src/timer.o
+ .debug_info    0x00007120      0x942 src/Title.o
+ .debug_info    0x00007a62      0x4a6 src/usart.o
 
 .debug_abbrev   0x00000000     0x1268
  *(.debug_abbrev)
@@ -1331,18 +1331,18 @@ END GROUP
  .debug_abbrev  0x00000e1f      0x23f src/Title.o
  .debug_abbrev  0x0000105e      0x20a src/usart.o
 
-.debug_line     0x00000000     0x1fba
+.debug_line     0x00000000     0x1fca
  *(.debug_line .debug_line.* .debug_line_end)
  .debug_line    0x00000000      0x706 src/command.o
  .debug_line    0x00000706      0x250 src/key.o
  .debug_line    0x00000956      0x1bf src/led.o
  .debug_line    0x00000b15      0x1db src/main.o
- .debug_line    0x00000cf0      0x95a src/manager.o
- .debug_line    0x0000164a      0x1cd src/remote.o
- .debug_line    0x00001817      0x119 src/status.o
- .debug_line    0x00001930      0x1ea src/timer.o
- .debug_line    0x00001b1a      0x29d src/Title.o
- .debug_line    0x00001db7      0x203 src/usart.o
+ .debug_line    0x00000cf0      0x95c src/manager.o
+ .debug_line    0x0000164c      0x1cd src/remote.o
+ .debug_line    0x00001819      0x119 src/status.o
+ .debug_line    0x00001932      0x1ea src/timer.o
+ .debug_line    0x00001b1c      0x2ab src/Title.o
+ .debug_line    0x00001dc7      0x203 src/usart.o
 
 .debug_frame    0x00000000      0xd48
  *(.debug_frame)

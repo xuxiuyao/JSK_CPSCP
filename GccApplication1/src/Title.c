@@ -685,15 +685,38 @@ void AlsoShowVersion(unsigned char LineNum)
 	
 	_delay_ms(30);
 
-	uiTitle[0] = 0x15;//V
-	uiTitle[1] = 0x1F;// 2
-	uiTitle[2] = 0x4C;// .
-	uiTitle[3] = 0x1E;// 1
-	uiTitle[4] = 0x27;// 0
-	uiTitle[5] = 0x1B;// 
-	uiTitle[6] = 0x1B;// 
-	uiTitle[7] = 0x22;// 5
-	uiTitle[8] = 0x26;// 9
+	uiTitle[0] = 0x06;//G
+	uiTitle[1] = 0x02;// C
+	uiTitle[2] = 0x1b;//  
+	uiTitle[3] = 0x15;//V
+	uiTitle[4] = 0x1E;// 1
+	uiTitle[5] = 0x4C;// .
+	uiTitle[6] = 0x27;// 0
+	uiTitle[7] = 0x1B;//  
+
+	switch(g_stStatusCmd.uiModeID)
+	{
+		case _CAM_480:
+			uiTitle[8] = 0x21;//-
+			uiTitle[9] = 0x25;//-
+			break;
+		case _CAM_1020:
+			uiTitle[8] = 0x1e;//-
+			uiTitle[9] = 0x27;//-
+			break;
+		case _CAM_3310:
+			uiTitle[8] = 0x20;//-
+			uiTitle[9] = 0x20;//-
+			break;
+		case _CAM_6300:
+			uiTitle[8] = 0x23;//-
+			uiTitle[9] = 0x20;//-
+			break;
+		case _CAM_7500:
+			uiTitle[8]= 0x24;//-
+			uiTitle[9]= 0x22;//-
+			break;
+	}
 
 	CAM_SetTitleSet3(LineNum, uiTitle);
 
